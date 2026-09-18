@@ -1,53 +1,2865 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QAPA | Premium Natural Snacks</title><style>
-:root{--c:#f3e6d2;--i:#faf5ec;--b:#171512;--l:#d9c8ae}*{box-sizing:border-box}body{margin:0;background:var(--i);color:var(--b);font-family:Arial,sans-serif}h1,h2,h3{font-family:Georgia,serif;font-weight:500}.top{background:var(--b);color:#fff;text-align:center;padding:7px;letter-spacing:.18em;font-size:12px}.nav{background:var(--c);border-bottom:1px solid var(--l);padding:10px 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:12px}.brand img{width:65px;height:65px;object-fit:contain}.brand strong{font:24px Georgia}.brand small{display:block;letter-spacing:.12em}nav a{margin:0 10px;color:inherit;text-decoration:none}.btn{border:1px solid var(--b);border-radius:25px;padding:11px 18px;background:var(--b);color:#fff;cursor:pointer;text-decoration:none}.hero,.sec{max-width:1150px;margin:auto;padding:65px 20px}.hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;min-height:430px}.hero h1{font-size:70px;margin:8px 0}.hero h2{letter-spacing:.12em}.art{min-height:300px;border:1px solid var(--l);border-radius:50%;background:var(--c);display:grid;place-items:center;text-align:center}.title{text-align:center;font-size:36px}.intro{text-align:center;max-width:700px;margin:0 auto 35px;color:#655b51}.fruits{display:grid;grid-template-columns:repeat(9,1fr);gap:10px}.fruit,.card,.panel{background:#fffdf9;border:1px solid var(--l);border-radius:18px;overflow:hidden}.fruit img,.card img{width:100%;height:110px;object-fit:cover;background:var(--c)}.fruit p{font-size:12px;text-align:center;margin:8px}.products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card img{height:250px;object-fit:contain}.card .inside{padding:20px}.price{font-size:20px;font-weight:bold}.checkout{background:var(--c)}.layout{display:grid;grid-template-columns:1fr 1fr;gap:25px}.panel{padding:22px}.item{padding:12px 0;border-bottom:1px solid var(--l)}.row{display:flex;justify-content:space-between;gap:12px;margin:9px 0}.field{margin:12px 0}.field label{display:block;font-size:13px;font-weight:bold;margin-bottom:5px}.field input,.field select{width:100%;padding:11px;border:1px solid #cdbda7;border-radius:9px}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.choice{border:1px solid var(--l);padding:10px;border-radius:10px}.choice input[type=number]{width:100%;margin-top:7px;padding:7px}.modal{display:none;position:fixed;inset:0;background:#0009;z-index:20;padding:15px;place-items:center}.modal.open{display:grid}.modalbox{background:var(--i);max-width:720px;width:100%;max-height:90vh;overflow:auto;padding:25px;border-radius:20px;position:relative}.close{position:absolute;right:15px;top:10px;border:0;background:none;font-size:25px}.wa{position:fixed;right:18px;bottom:18px;background:#207944;color:#fff;padding:13px 18px;border-radius:30px;text-decoration:none;z-index:10}footer{background:var(--b);color:#fff;text-align:center;padding:45px}@media(max-width:800px){nav{display:none}.hero,.layout{grid-template-columns:1fr}.fruits{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:1fr}.choices{grid-template-columns:1fr 1fr}.hero h1{font-size:55px}}
-</style></head><body>
-<div class="top">FRUTAS DESHIDRATADAS · QAPA</div><header class="nav"><a class="brand" href="#"><img src="2.png" alt="QAPA"><span><strong>QAPA</strong><small>PREMIUM NATURAL SNACKS</small></span></a><nav><a href="#productos">Productos</a><a href="#manera">A tu manera</a><a href="#checkout">Comprar</a></nav><button class="btn" onclick="goCheckout()">🛒 Carrito <span id="count">0</span></button></header>
-<section class="hero"><div><small>PREMIUM NATURAL SNACKS</small><h1>QAPA</h1><h2>Frutas deshidratadas</h2><p>Hecho para disfrutar, regalar y compartir.</p><a class="btn" href="#productos">Ver productos</a></div><div class="art"><div><b>QAPA</b><p>Elige tus frutas.<br>Crea tu combinación.</p></div></div></section>
-<section class="sec" id="manera"><h2 class="title">QAPA A TU MANERA</h2><p class="intro">Selecciona al menos 3 frutas y distribuye el peso hasta completar exactamente el peso de tu presentación.</p><div class="fruits" id="fruits"></div></section>
-<section class="sec" id="productos"><h2 class="title">Nuestros productos</h2><p class="intro">Elige tu presentación y personalízala.</p><h3>Frascos de vidrio</h3><div class="products" id="jars"></div><h3>Empaques herméticos</h3><div class="products" id="packs"></div></section>
-<section class="checkout sec" id="checkout"><h2 class="title">Tu pedido</h2><div class="layout"><div class="panel"><h3>🛒 Carrito</h3><div id="cart">Tu carrito está vacío.</div><div id="totals" hidden><p id="bag"></p><div class="row"><span>Productos</span><b id="sub">S/0</b></div><div class="row"><span>Delivery</span><b id="del">Selecciona distrito</b></div><div class="row"><span>Total</span><b id="total">S/0</b></div></div></div><div class="panel"><h3>📦 Datos de entrega</h3><div class="field"><label>Nombre completo</label><input id="name"></div><div class="field"><label>Teléfono</label><input id="phone"></div><div class="field"><label>Correo electrónico</label><input id="email" type="email"></div><div class="field"><label>Dirección</label><input id="address"></div><div class="field"><label>Distrito</label><select id="district" onchange="update()"><option value="">Selecciona tu distrito</option></select></div><div class="field"><label>Entrega</label><label><input type="radio" name="speed" value="normal" checked> Normal 24–48 h</label><label><input type="radio" name="speed" value="fast"> Rápida</label></div><div class="field"><label>Comprobante</label><label><input type="radio" name="receipt" value="simple" checked> Boleta simple</label><label><input type="radio" name="receipt" value="dni"> Boleta con DNI</label></div><div class="field" id="dni" hidden><label>DNI</label><input id="dniValue" maxlength="8"></div><div class="field"><label>Pago</label><label><input type="radio" name="pay" value="Yape" checked> Yape</label><label><input type="radio" name="pay" value="Plin"> Plin</label></div><div class="field"><label>Comprobante de pago</label><input id="proof" type="file" accept="image/*,.pdf"></div><button class="btn" onclick="confirmOrder()">Confirmar pedido</button><p id="status"></p></div></div></section>
-<section class="sec" style="text-align:center"><h2 class="title">¿Tienes alguna consulta?</h2><p class="intro">Chatea directamente con QAPA por WhatsApp.</p><a class="btn" id="wmain" target="_blank">💬 Chatear por WhatsApp</a></section><footer><h2>Gracias por elegir QAPA</h2><p>Hecho para disfrutar, regalar y compartir.</p><p>@qapa.snacks</p></footer><a class="wa" id="wafloat" target="_blank">💬 WhatsApp</a>
-<div class="modal" id="modal"><div class="modalbox"><button class="close" onclick="closeModal()">×</button><h2 id="mtitle"></h2><p>Selecciona mínimo 3 frutas y reparte el peso exactamente.</p><div class="choices" id="choices"></div><p><b>Peso: <span id="chosen">0</span> / <span id="required">0</span> g</b></p><button class="btn" onclick="addProduct()">Agregar al carrito</button><p id="mstatus"></p></div></div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>QAPA | Premium Natural Snacks</title>
+
+<meta name="description" content="QAPA - Frutas deshidratadas, naturales y deliciosas. Hecho para disfrutar, regalar y compartir.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   QAPA - ZONA FÁCIL DE MODIFICAR
+   ========================================================= */
+
+:root{
+  --negro:#171512;
+  --crema:#f3e6d2;
+  --crema-claro:#faf5ec;
+  --blanco:#fffdf8;
+  --terracota:#b86545;
+  --terracota-claro:#d98c68;
+  --verde:#687252;
+  --verde-claro:#9a9e76;
+  --dorado:#c69a58;
+  --rosa:#d98d8d;
+  --texto:#302a25;
+  --sombra:0 12px 35px rgba(63,43,27,.12);
+  --radio:24px;
+
+  --whatsapp:"51999999999";
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--crema-claro);
+  color:var(--texto);
+  line-height:1.6;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+button,
+input,
+select,
+textarea{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* =========================================================
+   FRANJA NEGRA FLORAL
+   ========================================================= */
+
+.floral-top{
+  height:82px;
+  background:
+    radial-gradient(circle at 8% 50%, transparent 0 13px, rgba(198,154,88,.75) 14px 16px, transparent 17px),
+    radial-gradient(circle at 11% 28%, rgba(216,141,141,.85) 0 5px, transparent 6px),
+    radial-gradient(circle at 14% 67%, rgba(154,158,118,.9) 0 6px, transparent 7px),
+    radial-gradient(circle at 20% 35%, transparent 0 10px, rgba(198,154,88,.6) 11px 12px, transparent 13px),
+    radial-gradient(circle at 28% 72%, rgba(216,141,141,.75) 0 5px, transparent 6px),
+    radial-gradient(circle at 38% 27%, rgba(154,158,118,.85) 0 6px, transparent 7px),
+    radial-gradient(circle at 48% 67%, transparent 0 12px, rgba(198,154,88,.65) 13px 15px, transparent 16px),
+    radial-gradient(circle at 59% 30%, rgba(216,141,141,.75) 0 5px, transparent 6px),
+    radial-gradient(circle at 70% 70%, rgba(154,158,118,.8) 0 6px, transparent 7px),
+    radial-gradient(circle at 80% 30%, transparent 0 12px, rgba(198,154,88,.65) 13px 15px, transparent 16px),
+    radial-gradient(circle at 89% 68%, rgba(216,141,141,.8) 0 5px, transparent 6px),
+    radial-gradient(circle at 95% 35%, rgba(154,158,118,.8) 0 6px, transparent 7px),
+    var(--negro);
+  position:relative;
+  overflow:hidden;
+}
+
+.floral-top::before,
+.floral-top::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.floral-top::before{
+  background:
+    linear-gradient(120deg, transparent 0 15%, rgba(255,255,255,.08) 16%, transparent 17% 100%),
+    linear-gradient(55deg, transparent 0 55%, rgba(255,255,255,.06) 56%, transparent 57%);
+  opacity:.8;
+}
+
+.floral-top::after{
+  border-top:1px solid rgba(198,154,88,.45);
+  border-bottom:1px solid rgba(198,154,88,.45);
+  top:17px;
+  bottom:17px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header{
+  background:rgba(250,245,236,.96);
+  position:sticky;
+  top:0;
+  z-index:100;
+  border-bottom:1px solid rgba(104,114,82,.16);
+  backdrop-filter:blur(12px);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  min-height:96px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  padding:15px 25px;
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.logo{
+  width:72px;
+  height:72px;
+  object-fit:contain;
+}
+
+.brand-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:29px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:var(--negro);
+}
+
+.brand-sub{
+  font-size:9px;
+  letter-spacing:2.2px;
+  color:var(--verde);
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  font-size:13px;
+  font-weight:600;
+}
+
+.menu a{
+  position:relative;
+  transition:.25s;
+}
+
+.menu a:hover{
+  color:var(--terracota);
+}
+
+.cart-btn{
+  border:none;
+  background:var(--negro);
+  color:white;
+  border-radius:50px;
+  padding:13px 19px;
+  font-size:13px;
+  font-weight:600;
+  transition:.25s;
+}
+
+.cart-btn:hover{
+  background:var(--terracota);
+  transform:translateY(-2px);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(216,141,141,.18), transparent 25%),
+    radial-gradient(circle at 8% 90%, rgba(104,114,82,.13), transparent 25%),
+    var(--crema);
+}
+
+.hero-inner{
+  max-width:1200px;
+  min-height:570px;
+  margin:auto;
+  padding:75px 25px 70px;
+  display:grid;
+  grid-template-columns:1fr 1.05fr;
+  align-items:center;
+  gap:50px;
+}
+
+.hero-copy{
+  position:relative;
+  z-index:2;
+}
+
+.eyebrow{
+  color:var(--verde);
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:14px;
+}
+
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(58px,7vw,94px);
+  line-height:.85;
+  color:var(--negro);
+  margin-bottom:24px;
+}
+
+.hero h1 span{
+  color:var(--terracota);
+  font-size:.54em;
+  display:block;
+  margin-top:15px;
+  line-height:1;
+  letter-spacing:1px;
+}
+
+.hero-text{
+  max-width:500px;
+  font-size:17px;
+  margin-bottom:30px;
+  color:#554a42;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:0 24px;
+  border-radius:50px;
+  border:none;
+  font-size:13px;
+  font-weight:700;
+  transition:.25s;
+}
+
+.btn-primary{
+  background:var(--terracota);
+  color:white;
+  box-shadow:0 8px 20px rgba(184,101,69,.22);
+}
+
+.btn-primary:hover{
+  background:var(--negro);
+  transform:translateY(-3px);
+}
+
+.btn-secondary{
+  background:var(--blanco);
+  color:var(--negro);
+  border:1px solid rgba(23,21,18,.12);
+}
+
+.btn-secondary:hover{
+  border-color:var(--terracota);
+  color:var(--terracota);
+  transform:translateY(-3px);
+}
+
+/* HERO PRODUCTOS */
+
+.hero-products{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  align-items:end;
+  gap:18px;
+  position:relative;
+}
+
+.hero-photo{
+  height:425px;
+  border-radius:130px 130px 28px 28px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.55),rgba(255,255,255,.08)),
+    url('hero-qapa.jpg') center/cover;
+  box-shadow:var(--sombra);
+  border:8px solid rgba(255,255,255,.45);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(23,21,18,.28),transparent 50%);
+}
+
+.hero-small{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  padding-bottom:10px;
+}
+
+.hero-mini-card{
+  background:rgba(255,253,248,.92);
+  padding:13px;
+  border-radius:22px;
+  box-shadow:var(--sombra);
+}
+
+.hero-mini-card img{
+  width:100%;
+  height:145px;
+  object-fit:cover;
+  border-radius:16px;
+  background:var(--crema);
+}
+
+.hero-mini-card p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;
+  font-weight:700;
+  text-align:center;
+  margin-top:7px;
+}
+
+/* =========================================================
+   FLORES DECORATIVAS
+   ========================================================= */
+
+.flower-decoration{
+  position:absolute;
+  width:150px;
+  height:150px;
+  opacity:.55;
+  pointer-events:none;
+}
+
+.flower-decoration.one{
+  left:-45px;
+  top:50px;
+}
+
+.flower-decoration.two{
+  right:-45px;
+  bottom:20px;
+}
+
+.flower-decoration::before,
+.flower-decoration::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+}
+
+.flower-decoration::before{
+  width:70px;
+  height:70px;
+  left:40px;
+  top:40px;
+  background:
+    radial-gradient(circle,#c69a58 0 8px,transparent 9px),
+    radial-gradient(circle at 50% 0,#d98d8d 0 19px,transparent 20px),
+    radial-gradient(circle at 100% 50%,#d98d8d 0 19px,transparent 20px),
+    radial-gradient(circle at 50% 100%,#d98d8d 0 19px,transparent 20px),
+    radial-gradient(circle at 0 50%,#d98d8d 0 19px,transparent 20px);
+}
+
+.flower-decoration::after{
+  width:35px;
+  height:18px;
+  background:var(--verde);
+  transform:rotate(-35deg);
+  left:10px;
+  top:100px;
+}
+
+/* =========================================================
+   SECTION GENERAL
+   ========================================================= */
+
+.section{
+  padding:90px 25px;
+  position:relative;
+  overflow:hidden;
+}
+
+.section-inner{
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.section-kicker{
+  color:var(--terracota);
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:700;
+  margin-bottom:9px;
+}
+
+.section-heading h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:52px;
+  line-height:1;
+  color:var(--negro);
+  margin-bottom:12px;
+}
+
+.section-heading p{
+  max-width:620px;
+  margin:auto;
+  color:#665a50;
+}
+
+/* =========================================================
+   A TU MANERA
+   ========================================================= */
+
+.custom-section{
+  background:var(--blanco);
+}
+
+.fruit-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.fruit-card{
+  min-height:230px;
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  background:var(--crema);
+  box-shadow:0 7px 24px rgba(54,40,25,.08);
+  transition:.3s;
+}
+
+.fruit-card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--sombra);
+}
+
+.fruit-card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+}
+
+.fruit-overlay{
+  position:absolute;
+  inset:auto 12px 12px;
+  padding:14px 17px;
+  background:rgba(250,245,236,.93);
+  border-radius:18px;
+}
+
+.fruit-overlay strong{
+  font-family:'Cormorant Garamond',serif;
+  font-size:23px;
+  color:var(--negro);
+}
+
+.fruit-overlay span{
+  display:block;
+  font-size:10px;
+  color:var(--verde);
+  letter-spacing:1px;
+  margin-top:2px;
+}
+
+.custom-box{
+  margin-top:35px;
+  padding:35px;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(216,141,141,.22),transparent 28%),
+    radial-gradient(circle at 0 100%,rgba(104,114,82,.14),transparent 30%),
+    var(--crema);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.custom-box h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:35px;
+  margin-bottom:5px;
+}
+
+.custom-box p{
+  color:#665a50;
+}
+
+/* =========================================================
+   PRODUCTOS
+   ========================================================= */
+
+.products-section{
+  background:
+    radial-gradient(circle at 15% 20%,rgba(216,141,141,.09),transparent 18%),
+    radial-gradient(circle at 85% 80%,rgba(104,114,82,.10),transparent 20%),
+    var(--crema);
+}
+
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.product-card{
+  background:rgba(255,253,248,.96);
+  border-radius:28px;
+  padding:13px;
+  box-shadow:0 9px 30px rgba(59,42,25,.09);
+  transition:.3s;
+  overflow:hidden;
+}
+
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--sombra);
+}
+
+.product-image{
+  height:270px;
+  border-radius:20px;
+  overflow:hidden;
+  background:var(--crema);
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.product-info{
+  padding:19px 10px 12px;
+}
+
+.product-info h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:27px;
+  line-height:1;
+  margin-bottom:5px;
+}
+
+.product-info .weight{
+  font-size:11px;
+  color:var(--verde);
+  letter-spacing:1px;
+}
+
+.product-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:15px;
+}
+
+.price{
+  font-size:20px;
+  font-weight:700;
+  color:var(--terracota);
+}
+
+.add-btn{
+  border:none;
+  background:var(--negro);
+  color:white;
+  border-radius:50px;
+  padding:11px 16px;
+  font-size:12px;
+  font-weight:700;
+  transition:.25s;
+}
+
+.add-btn:hover{
+  background:var(--terracota);
+}
+
+/* =========================================================
+   BENEFICIOS
+   ========================================================= */
+
+.benefits{
+  background:var(--negro);
+  color:white;
+}
+
+.benefit-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.benefit{
+  padding:30px 20px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:24px;
+  text-align:center;
+}
+
+.benefit-flower{
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  margin:0 auto 16px;
+  background:
+    radial-gradient(circle,#c69a58 0 7px,transparent 8px),
+    radial-gradient(circle at 50% 0,#d98d8d 0 14px,transparent 15px),
+    radial-gradient(circle at 100% 50%,#d98d8d 0 14px,transparent 15px),
+    radial-gradient(circle at 50% 100%,#d98d8d 0 14px,transparent 15px),
+    radial-gradient(circle at 0 50%,#d98d8d 0 14px,transparent 15px);
+}
+
+.benefit h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:25px;
+  margin-bottom:7px;
+}
+
+.benefit p{
+  font-size:12px;
+  color:#d7d0c8;
+}
+
+/* =========================================================
+   HISTORIA
+   ========================================================= */
+
+.story{
+  background:var(--blanco);
+}
+
+.story-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:60px;
+}
+
+.story-image{
+  height:470px;
+  border-radius:30px;
+  background:url('historia-qapa.jpg') center/cover;
+  box-shadow:var(--sombra);
+}
+
+.story-text h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:55px;
+  line-height:.95;
+  margin-bottom:20px;
+}
+
+.story-text p{
+  margin-bottom:15px;
+  color:#5d5148;
+}
+
+/* =========================================================
+   INSTAGRAM
+   ========================================================= */
+
+.instagram{
+  background:var(--crema);
+}
+
+.instagram-box{
+  border-radius:32px;
+  padding:45px;
+  background:var(--blanco);
+  box-shadow:var(--sombra);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.instagram-box h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:44px;
+}
+
+.instagram-handle{
+  color:var(--terracota);
+  font-weight:700;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer{
+  background:var(--negro);
+  color:white;
+  padding:55px 25px 30px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:45px;
+}
+
+.footer h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.footer p,
+.footer a{
+  color:#cfc7bd;
+  font-size:12px;
+}
+
+.footer-links{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.footer-bottom{
+  max-width:1200px;
+  margin:35px auto 0;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.12);
+  font-size:10px;
+  color:#aaa29a;
+}
+
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
+
+.whatsapp{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:59px;
+  height:59px;
+  border-radius:50%;
+  background:#3d7b52;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  z-index:200;
+  box-shadow:0 8px 25px rgba(0,0,0,.22);
+  transition:.25s;
+}
+
+.whatsapp:hover{
+  transform:scale(1.08);
+}
+
+/* =========================================================
+   CARRITO
+   ========================================================= */
+
+.cart-panel{
+  position:fixed;
+  right:-430px;
+  top:0;
+  width:min(410px,100%);
+  height:100vh;
+  background:var(--blanco);
+  z-index:500;
+  box-shadow:-10px 0 35px rgba(0,0,0,.15);
+  transition:.35s;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-panel.open{
+  right:0;
+}
+
+.cart-header{
+  padding:22px;
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid #eee4d8;
+}
+
+.cart-header h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:31px;
+}
+
+.close{
+  border:none;
+  background:none;
+  font-size:24px;
+}
+
+.cart-items{
+  flex:1;
+  overflow:auto;
+  padding:20px;
+}
+
+.cart-item{
+  padding:15px 0;
+  border-bottom:1px solid #eee4d8;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.cart-item strong{
+  font-size:13px;
+}
+
+.cart-item small{
+  display:block;
+  color:#777;
+  margin-top:3px;
+}
+
+.remove-item{
+  border:none;
+  background:none;
+  color:var(--terracota);
+  font-size:11px;
+}
+
+.cart-footer{
+  padding:20px;
+  border-top:1px solid #eee4d8;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-size:19px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(23,21,18,.65);
+  z-index:600;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-content{
+  width:min(680px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:var(--blanco);
+  border-radius:30px;
+  padding:30px;
+  position:relative;
+}
+
+.modal-close{
+  position:absolute;
+  right:20px;
+  top:15px;
+  border:none;
+  background:none;
+  font-size:25px;
+}
+
+.modal h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:38px;
+  margin-bottom:5px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:20px;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.form-group.full{
+  grid-column:1/-1;
+}
+
+.form-group label{
+  font-size:11px;
+  font-weight:700;
+  color:#62574d;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  border:1px solid #ddd0c0;
+  border-radius:13px;
+  padding:12px;
+  background:white;
+  outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:var(--terracota);
+}
+
+.checkout-summary{
+  margin:20px 0;
+  padding:18px;
+  border-radius:18px;
+  background:var(--crema);
+}
+
+.payment-box{
+  margin-top:15px;
+  padding:18px;
+  border-radius:18px;
+  background:#f5f1e9;
+}
+
+.payment-box strong{
+  color:var(--terracota);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width:900px){
+
+  .menu{
+    display:none;
+  }
+
+  .hero-inner{
+    grid-template-columns:1fr;
+    padding-top:55px;
+  }
+
+  .hero-copy{
+    text-align:center;
+  }
+
+  .hero-text{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .hero-products{
+    max-width:600px;
+    margin:auto;
+  }
+
+  .fruit-grid,
+  .products-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .benefit-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .story-grid{
+    grid-template-columns:1fr;
+  }
+
+  .story-image{
+    height:350px;
+  }
+
+  .instagram-box{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .floral-top{
+    height:65px;
+  }
+
+  .nav{
+    min-height:78px;
+    padding:10px 15px;
+  }
+
+  .logo{
+    width:58px;
+    height:58px;
+  }
+
+  .brand-name{
+    font-size:24px;
+  }
+
+  .brand-sub{
+    font-size:7px;
+  }
+
+  .cart-btn{
+    padding:10px 13px;
+  }
+
+  .hero-inner{
+    padding:45px 18px 55px;
+  }
+
+  .hero h1{
+    font-size:65px;
+  }
+
+  .hero-products{
+    grid-template-columns:1fr .8fr;
+  }
+
+  .hero-photo{
+    height:330px;
+  }
+
+  .hero-mini-card img{
+    height:105px;
+  }
+
+  .section{
+    padding:65px 18px;
+  }
+
+  .section-heading h2{
+    font-size:43px;
+  }
+
+  .fruit-grid,
+  .products-grid{
+    grid-template-columns:1fr;
+  }
+
+  .benefit-grid{
+    grid-template-columns:1fr;
+  }
+
+  .custom-box{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .story-text h2{
+    font-size:45px;
+  }
+
+  .instagram-box{
+    padding:30px 20px;
+  }
+
+  .instagram-box h2{
+    font-size:38px;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full{
+    grid-column:auto;
+  }
+
+}
+
+/* =========================================================
+   UTILIDADES
+   ========================================================= */
+
+.hidden{
+  display:none!important;
+}
+
+.center{
+  text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ======================================================
+     FRANJA NEGRA FLORAL
+     ====================================================== -->
+
+<div class="floral-top"></div>
+
+
+<!-- ======================================================
+     HEADER
+     ====================================================== -->
+
+<header class="header">
+
+  <nav class="nav">
+
+    <a href="#inicio" class="logo-wrap">
+
+      <img src="2.png" alt="QAPA Premium Natural Snacks" class="logo">
+
+      <div>
+        <div class="brand-name">QAPA</div>
+        <div class="brand-sub">PREMIUM NATURAL SNACKS</div>
+      </div>
+
+    </a>
+
+    <div class="menu">
+
+      <a href="#a-tu-manera">A tu manera</a>
+      <a href="#productos">Productos</a>
+      <a href="#historia">QAPA</a>
+      <a href="#instagram">Instagram</a>
+
+    </div>
+
+    <button class="cart-btn" onclick="openCart()">
+      🛍 Mi pedido <span id="cartCount">0</span>
+    </button>
+
+  </nav>
+
+</header>
+
+
+<!-- ======================================================
+     HERO
+     ====================================================== -->
+
+<main>
+
+<section class="hero" id="inicio">
+
+  <div class="flower-decoration one"></div>
+
+  <div class="hero-inner">
+
+    <div class="hero-copy">
+
+      <div class="eyebrow">
+        Frutas deshidratadas
+      </div>
+
+      <h1>
+        QAPA
+        <span>hecho para disfrutar</span>
+      </h1>
+
+      <p class="hero-text">
+        Frutas deshidratadas seleccionadas para acompañar
+        tus momentos, regalar, compartir y disfrutar a tu manera.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#productos" class="btn btn-primary">
+          Ver productos
+        </a>
+
+        <a href="#a-tu-manera" class="btn btn-secondary">
+          QAPA A TU MANERA
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-products">
+
+      <div class="hero-photo"></div>
+
+      <div class="hero-small">
+
+        <div class="hero-mini-card">
+          <img src="qapa-premium.jpg" alt="QAPA Premium">
+          <p>QAPA PREMIUM</p>
+        </div>
+
+        <div class="hero-mini-card">
+          <img src="qapa-go.jpg" alt="QAPA GO">
+          <p>QAPA GO</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="flower-decoration two"></div>
+
+</section>
+
+
+<!-- ======================================================
+     QAPA A TU MANERA
+     ====================================================== -->
+
+<section class="section custom-section" id="a-tu-manera">
+
+  <div class="section-inner">
+
+    <div class="section-heading">
+
+      <div class="section-kicker">
+        Elige tus favoritos
+      </div>
+
+      <h2>QAPA A TU MANERA</h2>
+
+      <p>
+        Elige tus frutas favoritas y crea una combinación
+        hecha especialmente para ti.
+      </p>
+
+    </div>
+
+
+    <div class="fruit-grid">
+
+      <div class="fruit-card">
+        <img src="fresa.jpg" alt="Fresa deshidratada">
+        <div class="fruit-overlay">
+          <strong>Fresa</strong>
+          <span>FRUTA QAPA</span>
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="papaya.jpg" alt="Papaya deshidratada">
+        <div class="fruit-overlay">
+          <strong>Papaya</strong>
+          <span>FRUTA QAPA</span>
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="kiwi.jpg" alt="Kiwi deshidratado">
+        <div class="fruit-overlay">
+          <strong>Kiwi</strong>
+          <span>FRUTA QAPA</span>
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="mango.jpg" alt="Mango deshidratado">
+        <div class="fruit-overlay">
+          <strong>Mango</strong>
+          <span>FRUTA QAPA</span>
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="manzana.jpg" alt="Manzana deshidratada">
+        <div class="fruit-overlay">
+          <strong>Manzana</strong>
+          <span>FRUTA QAPA</span>
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="aguaymanto.jpg" alt="Aguaymanto deshidratado">
+        <div class="fruit-overlay">
+          <strong>Aguaymanto</strong>
+          <span>FRUTA QAPA</span>
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="pina.jpg" alt="Piña deshidratada">
+        <div class="fruit-overlay">
+          <strong>Piña</strong>
+          <span>FRUTA QAPA</span>
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="cereza.jpg" alt="Cereza deshidratada">
+        <div class="fruit-overlay">
+          <strong>Cereza</strong>
+          <span>FRUTA QAPA</span>
+        </div>
+      </div>
+
+      <div class="fruit-card">
+        <img src="arandano.jpg" alt="Arándano rojo deshidratado">
+        <div class="fruit-overlay">
+          <strong>Arándano rojo</strong>
+          <span>FRUTA QAPA</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="custom-box">
+
+      <div>
+
+        <h3>Crea tu combinación</h3>
+
+        <p>
+          Selecciona las frutas que quieres incluir
+          y arma tu QAPA personalizado.
+        </p>
+
+      </div>
+
+      <button class="btn btn-primary" onclick="openCustomizer()">
+        Crear mi QAPA
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     PRODUCTOS
+     ====================================================== -->
+
+<section class="section products-section" id="productos">
+
+  <div class="section-inner">
+
+    <div class="section-heading">
+
+      <div class="section-kicker">
+        Elige tu formato
+      </div>
+
+      <h2>QAPA para cada momento</h2>
+
+      <p>
+        Desde el frasco para compartir hasta el formato
+        que puedes llevar contigo.
+      </p>
+
+    </div>
+
+
+    <div class="products-grid">
+
+
+      <!-- FRASCO 450 -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img src="frasco-450.jpg" alt="QAPA frasco grande 450 gramos">
+        </div>
+
+        <div class="product-info">
+
+          <h3>Frasco grande</h3>
+
+          <div class="weight">
+            450 g
+          </div>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              S/41
+            </span>
+
+            <button class="add-btn"
+              onclick="addProduct('Frasco grande 450 g',41)">
+              Agregar
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- FRASCO 300 -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img src="frasco-300.jpg" alt="QAPA frasco mediano 300 gramos">
+        </div>
+
+        <div class="product-info">
+
+          <h3>Frasco mediano</h3>
+
+          <div class="weight">
+            300 g
+          </div>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              S/31
+            </span>
+
+            <button class="add-btn"
+              onclick="addProduct('Frasco mediano 300 g',31)">
+              Agregar
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- FRASCO 200 -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img src="frasco-200.jpg" alt="QAPA frasco chico 200 gramos">
+        </div>
+
+        <div class="product-info">
+
+          <h3>Frasco chico</h3>
+
+          <div class="weight">
+            200 g
+          </div>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              S/21
+            </span>
+
+            <button class="add-btn"
+              onclick="addProduct('Frasco chico 200 g',21)">
+              Agregar
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PREMIUM -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img src="qapa-premium.jpg" alt="QAPA Premium 300 gramos">
+        </div>
+
+        <div class="product-info">
+
+          <h3>QAPA PREMIUM</h3>
+
+          <div class="weight">
+            300 g · Empaque hermético
+          </div>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              S/28
+            </span>
+
+            <button class="add-btn"
+              onclick="addProduct('QAPA PREMIUM 300 g',28)">
+              Agregar
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- GO -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img src="qapa-go.jpg" alt="QAPA GO 100 gramos">
+        </div>
+
+        <div class="product-info">
+
+          <h3>QAPA GO</h3>
+
+          <div class="weight">
+            100 g
+          </div>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              S/11
+            </span>
+
+            <button class="add-btn"
+              onclick="addProduct('QAPA GO 100 g',11)">
+              Agregar
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- POCKET -->
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <img src="qapa-pocket.jpg" alt="QAPA Pocket 50 gramos">
+        </div>
+
+        <div class="product-info">
+
+          <h3>QAPA POCKET</h3>
+
+          <div class="weight">
+            50 g
+          </div>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              S/6
+            </span>
+
+            <button class="add-btn"
+              onclick="addProduct('QAPA POCKET 50 g',6)">
+              Agregar
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     BENEFICIOS
+     ====================================================== -->
+
+<section class="section benefits">
+
+  <div class="section-inner">
+
+    <div class="section-heading">
+
+      <div class="section-kicker">
+        La esencia QAPA
+      </div>
+
+      <h2 style="color:white">
+        Natural, bonito y hecho para disfrutar
+      </h2>
+
+    </div>
+
+
+    <div class="benefit-grid">
+
+      <div class="benefit">
+
+        <div class="benefit-flower"></div>
+
+        <h3>100% natural</h3>
+
+        <p>
+          Frutas deshidratadas seleccionadas.
+        </p>
+
+      </div>
+
+
+      <div class="benefit">
+
+        <div class="benefit-flower"></div>
+
+        <h3>Sin azúcar añadida</h3>
+
+        <p>
+          El sabor de la fruta como protagonista.
+        </p>
+
+      </div>
+
+
+      <div class="benefit">
+
+        <div class="benefit-flower"></div>
+
+        <h3>Sin conservantes</h3>
+
+        <p>
+          Una propuesta sencilla y natural.
+        </p>
+
+      </div>
+
+
+      <div class="benefit">
+
+        <div class="benefit-flower"></div>
+
+        <h3>Para regalar</h3>
+
+        <p>
+          Hecho para disfrutar, regalar y compartir.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     HISTORIA
+     ====================================================== -->
+
+<section class="section story" id="historia">
+
+  <div class="section-inner story-grid">
+
+    <div class="story-image"></div>
+
+    <div class="story-text">
+
+      <div class="section-kicker">
+        La historia de QAPA
+      </div>
+
+      <h2>
+        Pequeños momentos,
+        grandes sabores.
+      </h2>
+
+      <p>
+        QAPA nace de la idea de convertir las frutas
+        deshidratadas en algo especial: bonito para regalar,
+        práctico para llevar y delicioso para disfrutar.
+      </p>
+
+      <p>
+        Cada formato está pensado para acompañar
+        diferentes momentos, siempre con una presentación
+        cálida y cuidada.
+      </p>
+
+      <a href="#productos" class="btn btn-primary">
+        Conocer QAPA
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     INSTAGRAM
+     ====================================================== -->
+
+<section class="section instagram" id="instagram">
+
+  <div class="section-inner">
+
+    <div class="instagram-box">
+
+      <div>
+
+        <div class="section-kicker">
+          Síguenos
+        </div>
+
+        <h2>
+          QAPA también está en Instagram
+        </h2>
+
+        <p class="instagram-handle">
+          @qapa.snacks
+        </p>
+
+      </div>
+
+      <a
+        href="https://instagram.com/qapa.snacks"
+        target="_blank"
+        class="btn btn-primary">
+        Ver Instagram
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <div>
+
+      <h3>QAPA</h3>
+
+      <p>
+        PREMIUM NATURAL SNACKS
+      </p>
+
+      <p style="margin-top:12px">
+        Frutas deshidratadas hechas para disfrutar,
+        regalar y compartir.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <h3>Compra</h3>
+
+      <div class="footer-links">
+
+        <a href="#productos">Productos</a>
+        <a href="#a-tu-manera">QAPA A TU MANERA</a>
+        <a href="#inicio">Inicio</a>
+
+      </div>
+
+    </div>
+
+
+    <div>
+
+      <h3>Contacto</h3>
+
+      <div class="footer-links">
+
+        <a href="https://instagram.com/qapa.snacks"
+           target="_blank">
+          Instagram
+        </a>
+
+        <a id="footerWhatsapp"
+           href="#"
+           target="_blank">
+          WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    © 2026 QAPA · Premium Natural Snacks
+
+  </div>
+
+</footer>
+
+
+<!-- ======================================================
+     WHATSAPP FLOTANTE
+     ====================================================== -->
+
+<a
+  id="whatsappButton"
+  class="whatsapp"
+  href="#"
+  target="_blank"
+  aria-label="WhatsApp">
+  ☎
+</a>
+
+
+<!-- ======================================================
+     CARRITO
+     ====================================================== -->
+
+<aside class="cart-panel" id="cartPanel">
+
+  <div class="cart-header">
+
+    <h2>Mi pedido</h2>
+
+    <button class="close" onclick="closeCart()">
+      ×
+    </button>
+
+  </div>
+
+
+  <div class="cart-items" id="cartItems">
+
+    <p style="color:#777">
+      Tu pedido está vacío.
+    </p>
+
+  </div>
+
+
+  <div class="cart-footer">
+
+    <div class="total">
+
+      <span>Total productos</span>
+
+      <span>
+        S/<span id="cartTotal">0</span>
+      </span>
+
+    </div>
+
+    <button
+      class="btn btn-primary"
+      style="width:100%"
+      onclick="openCheckout()">
+      Continuar compra
+    </button>
+
+  </div>
+
+</aside>
+
+
+<!-- ======================================================
+     MODAL QAPA A TU MANERA
+     ====================================================== -->
+
+<div class="modal" id="customModal">
+
+  <div class="modal-content">
+
+    <button class="modal-close"
+      onclick="closeCustomizer()">
+      ×
+    </button>
+
+    <div class="section-kicker">
+      Personaliza
+    </div>
+
+    <h2>QAPA A TU MANERA</h2>
+
+    <p>
+      Próximamente podrás elegir tus frutas,
+      cantidades y formato.
+    </p>
+
+    <div style="
+      margin-top:25px;
+      padding:25px;
+      border-radius:20px;
+      background:var(--crema);
+    ">
+
+      <strong>
+        Esta función está preparada para incorporar:
+      </strong>
+
+      <ul style="margin:12px 0 0 20px">
+
+        <li>Selección de frutas</li>
+        <li>Peso por fruta</li>
+        <li>Disponibilidad de cada fruta</li>
+        <li>Total exacto del producto</li>
+        <li>Agregar la combinación al carrito</li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ======================================================
+     CHECKOUT
+     ====================================================== -->
+
+<div class="modal" id="checkoutModal">
+
+  <div class="modal-content">
+
+    <button class="modal-close"
+      onclick="closeCheckout()">
+      ×
+    </button>
+
+    <div class="section-kicker">
+      Finalizar pedido
+    </div>
+
+    <h2>Datos de entrega</h2>
+
+
+    <div class="checkout-summary">
+
+      <div>
+        Productos:
+        <strong id="checkoutProducts">
+          -
+        </strong>
+      </div>
+
+      <div style="margin-top:7px">
+        Subtotal:
+        <strong>
+          S/<span id="checkoutSubtotal">0</span>
+        </strong>
+      </div>
+
+    </div>
+
+
+    <div class="form-grid">
+
+      <div class="form-group">
+
+        <label>Nombre completo</label>
+
+        <input
+          id="customerName"
+          type="text"
+          placeholder="Tu nombre">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Celular</label>
+
+        <input
+          id="customerPhone"
+          type="tel"
+          placeholder="9XXXXXXXX">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Correo electrónico</label>
+
+        <input
+          id="customerEmail"
+          type="email"
+          placeholder="correo@ejemplo.com">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Distrito</label>
+
+        <select id="district">
+
+          <option value="">
+            Selecciona tu distrito
+          </option>
+
+          <option value="Pueblo Libre" data-price="0">
+            Pueblo Libre — GRATIS
+          </option>
+
+          <option value="Jesús María" data-price="0">
+            Jesús María — GRATIS
+          </option>
+
+          <option value="Lima" data-price="7">
+            Lima — S/7
+          </option>
+
+          <option value="Breña" data-price="7">
+            Breña — S/7
+          </option>
+
+          <option value="Lince" data-price="7">
+            Lince — S/7
+          </option>
+
+          <option value="Magdalena del Mar" data-price="7">
+            Magdalena del Mar — S/7
+          </option>
+
+          <option value="San Miguel" data-price="7">
+            San Miguel — S/7
+          </option>
+
+          <option value="La Victoria" data-price="7">
+            La Victoria — S/7
+          </option>
+
+          <option value="Rímac" data-price="7">
+            Rímac — S/7
+          </option>
+
+          <option value="San Luis" data-price="7">
+            San Luis — S/7
+          </option>
+
+          <option value="Barranco" data-price="8">
+            Barranco — S/8
+          </option>
+
+          <option value="Miraflores" data-price="8">
+            Miraflores — S/8
+          </option>
+
+          <option value="San Isidro" data-price="8">
+            San Isidro — S/8
+          </option>
+
+          <option value="San Borja" data-price="8">
+            San Borja — S/8
+          </option>
+
+          <option value="Surquillo" data-price="8">
+            Surquillo — S/8
+          </option>
+
+          <option value="Santiago de Surco" data-price="8">
+            Santiago de Surco — S/8
+          </option>
+
+          <option value="Chorrillos" data-price="8">
+            Chorrillos — S/8
+          </option>
+
+          <option value="El Agustino" data-price="8">
+            El Agustino — S/8
+          </option>
+
+          <option value="Independencia" data-price="8">
+            Independencia — S/8
+          </option>
+
+          <option value="Los Olivos" data-price="8">
+            Los Olivos — S/8
+          </option>
+
+          <option value="San Martín de Porres" data-price="8">
+            San Martín de Porres — S/8
+          </option>
+
+          <option value="Ate" data-price="9">
+            Ate — S/9
+          </option>
+
+          <option value="Santa Anita" data-price="9">
+            Santa Anita — S/9
+          </option>
+
+          <option value="San Juan de Lurigancho" data-price="9">
+            San Juan de Lurigancho — S/9
+          </option>
+
+          <option value="Comas" data-price="9">
+            Comas — S/9
+          </option>
+
+          <option value="La Molina" data-price="9">
+            La Molina — S/9
+          </option>
+
+          <option value="San Juan de Miraflores" data-price="9">
+            San Juan de Miraflores — S/9
+          </option>
+
+          <option value="Carabayllo" data-price="10">
+            Carabayllo — S/10
+          </option>
+
+          <option value="Puente Piedra" data-price="10">
+            Puente Piedra — S/10
+          </option>
+
+          <option value="Lurigancho" data-price="10">
+            Lurigancho — S/10
+          </option>
+
+          <option value="Chaclacayo" data-price="10">
+            Chaclacayo — S/10
+          </option>
+
+          <option value="Villa El Salvador" data-price="10">
+            Villa El Salvador — S/10
+          </option>
+
+          <option value="Villa María del Triunfo" data-price="10">
+            Villa María del Triunfo — S/10
+          </option>
+
+          <option value="Pachacámac" data-price="11">
+            Pachacámac — S/11
+          </option>
+
+          <option value="Lurín" data-price="11">
+            Lurín — S/11
+          </option>
+
+          <option value="Ancón" data-price="11">
+            Ancón — S/11
+          </option>
+
+          <option value="Santa Rosa" data-price="11">
+            Santa Rosa — S/11
+          </option>
+
+          <option value="Cieneguilla" data-price="11">
+            Cieneguilla — S/11
+          </option>
+
+          <option value="Pucusana" data-price="12">
+            Pucusana — S/12
+          </option>
+
+          <option value="Punta Hermosa" data-price="12">
+            Punta Hermosa — S/12
+          </option>
+
+          <option value="Punta Negra" data-price="12">
+            Punta Negra — S/12
+          </option>
+
+          <option value="San Bartolo" data-price="12">
+            San Bartolo — S/12
+          </option>
+
+          <option value="Santa María del Mar" data-price="12">
+            Santa María del Mar — S/12
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="form-group full">
+
+        <label>Dirección</label>
+
+        <textarea
+          id="customerAddress"
+          rows="2"
+          placeholder="Calle, número, referencia">
+        </textarea>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Entrega</label>
+
+        <select id="deliverySpeed">
+
+          <option value="normal">
+            Normal · 24–48 horas
+          </option>
+
+          <option value="rapid">
+            Rápida · consultar disponibilidad
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Comprobante</label>
+
+        <select id="receiptType">
+
+          <option value="simple">
+            Boleta simple
+          </option>
+
+          <option value="dni">
+            Boleta con DNI
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="form-group full"
+           id="dniGroup"
+           style="display:none">
+
+        <label>DNI</label>
+
+        <input
+          id="customerDni"
+          type="text"
+          placeholder="Número de DNI">
+
+      </div>
+
+    </div>
+
+
+    <div class="payment-box">
+
+      <strong>Forma de pago</strong>
+
+      <p style="margin-top:7px">
+        Yape o Plin.
+      </p>
+
+      <p style="font-size:12px;margin-top:7px">
+        El número y código QR se incorporarán
+        cuando me proporciones los datos de pago de QAPA.
+      </p>
+
+      <div style="margin-top:12px">
+
+        <label style="font-size:11px;font-weight:700">
+          Comprobante de pago
+        </label>
+
+        <input
+          type="file"
+          id="paymentProof"
+          accept="image/*"
+          style="margin-top:6px">
+
+      </div>
+
+    </div>
+
+
+    <div class="checkout-summary"
+         style="margin-top:20px">
+
+      <div class="total">
+
+        <span>Delivery</span>
+
+        <span>
+          S/<span id="deliveryTotal">0</span>
+        </span>
+
+      </div>
+
+
+      <div class="total">
+
+        <span>Total</span>
+
+        <span>
+          S/<span id="finalTotal">0</span>
+        </span>
+
+      </div>
+
+
+      <p style="font-size:11px;color:#777">
+        En compras desde S/50 en productos se puede
+        configurar el beneficio de bolsa QAPA.
+      </p>
+
+    </div>
+
+
+    <button
+      class="btn btn-primary"
+      style="width:100%"
+      onclick="sendOrderToWhatsApp()">
+
+      Confirmar pedido por WhatsApp
+
+    </button>
+
+  </div>
+
+</div>
+
+
 <script>
-/* ===== QAPA: MODIFICA AQUÍ CUANDO QUIERAS ===== */
-const WHATSAPP="51999999999"; // cambia por tu número
-const products=[
-{id:"j450",name:"Frasco grande",weight:450,price:41,image:"frasco-grande.jpg"},
-{id:"j300",name:"Frasco mediano",weight:300,price:31,image:"frasco-mediano.jpg"},
-{id:"j200",name:"Frasco chico",weight:200,price:21,image:"frasco-chico.jpg"},
-{id:"p300",name:"QAPA PREMIUM",weight:300,price:28,image:"qapa-premium.jpg"},
-{id:"go100",name:"QAPA GO",weight:100,price:11,image:"qapa-go.jpg"},
-{id:"po50",name:"QAPA POCKET",weight:50,price:6,image:"qapa-pocket.jpg"}];
-const fruits=[
-{id:"fresa",name:"Fresa",image:"fresa.jpg",ok:true},{id:"papaya",name:"Papaya",image:"papaya.jpg",ok:false},{id:"kiwi",name:"Kiwi",image:"kiwi.jpg",ok:true},{id:"mango",name:"Mango",image:"mango.jpg",ok:true},{id:"manzana",name:"Manzana",image:"manzana.jpg",ok:true},{id:"aguaymanto",name:"Aguaymanto",image:"aguaymanto.jpg",ok:true},{id:"pina",name:"Piña",image:"pina.jpg",ok:true},{id:"cereza",name:"Cereza",image:"cereza.jpg",ok:true},{id:"arandano",name:"Arándano rojo",image:"arandano-rojo.jpg",ok:true}];
-const delivery={"Pueblo Libre":0,"Jesús María":0,"Lima":7,"Breña":7,"Lince":7,"Magdalena del Mar":7,"San Miguel":7,"La Victoria":7,"Rímac":7,"San Luis":7,"Barranco":8,"Miraflores":8,"San Isidro":8,"San Borja":8,"Surquillo":8,"Santiago de Surco":8,"Chorrillos":8,"El Agustino":8,"Independencia":8,"Los Olivos":8,"San Martín de Porres":8,"Ate":9,"Santa Anita":9,"San Juan de Lurigancho":9,"Comas":9,"La Molina":9,"San Juan de Miraflores":9,"Carabayllo":10,"Puente Piedra":10,"Lurigancho":10,"Chaclacayo":10,"Villa El Salvador":10,"Villa María del Triunfo":10,"Pachacámac":11,"Lurín":11,"Ancón":11,"Santa Rosa":11,"Cieneguilla":11,"Pucusana":12,"Punta Hermosa":12,"Punta Negra":12,"San Bartolo":12,"Santa María del Mar":12};
-let cart=[],current=null;
-const $=id=>document.getElementById(id);
-function img(src,alt){return `<img src="${src}" alt="${alt}" onerror="this.style.display='none'">`}
-function render(){
-$("fruits").innerHTML=fruits.map(f=>`<div class="fruit">${img(f.image,f.name)}<p>${f.name}${f.ok?'':' · AGOTADO'}</p></div>`).join('');
-const make=p=>`<article class="card">${img(p.image,p.name)}<div class="inside"><h3>${p.name}</h3><small>${p.weight} g · mínimo 3 frutas</small><p class="price">S/${p.price}</p><button class="btn" onclick="openModal('${p.id}')">Personalizar</button></div></article>`;
-$("jars").innerHTML=products.slice(0,3).map(make).join('');$("packs").innerHTML=products.slice(3).map(make).join('');
-Object.keys(delivery).sort((a,b)=>a.localeCompare(b,'es')).forEach(d=>$("district").insertAdjacentHTML('beforeend',`<option>${d}</option>`));
-const msg=encodeURIComponent('Hola QAPA, quisiera hacer una consulta sobre sus productos.');$('wmain').href=`https://wa.me/${WHATSAPP}?text=${msg}`;$('wafloat').href=$('wmain').href;}
-function openModal(id){current=products.find(p=>p.id===id);$('mtitle').textContent=`${current.name} · ${current.weight} g`;$('required').textContent=current.weight;$('mstatus').textContent='';$('choices').innerHTML=fruits.map(f=>`<div class="choice"><label><input type="checkbox" data-id="${f.id}" ${f.ok?'':'disabled'} onchange="sum()"> ${f.name} ${f.ok?'':'(AGOTADO)'}</label><input type="number" min="1" data-w="${f.id}" placeholder="gramos" ${f.ok?'':'disabled'} oninput="sum()"></div>`).join('');$('modal').classList.add('open');}
-function closeModal(){$('modal').classList.remove('open');current=null}
-function sum(){let n=0;document.querySelectorAll('[data-id]:checked').forEach(x=>n+=Number(document.querySelector(`[data-w="${x.dataset.id}"]`).value)||0);$('chosen').textContent=n}
-function addProduct(){let a=[];document.querySelectorAll('[data-id]:checked').forEach(x=>{let w=Number(document.querySelector(`[data-w="${x.dataset.id}"]`).value)||0;if(w)a.push({name:fruits.find(f=>f.id===x.dataset.id).name,weight:w})});let n=a.reduce((s,x)=>s+x.weight,0);if(a.length<3){$('mstatus').textContent='Debes seleccionar al menos 3 frutas.';return}if(n!==current.weight){$('mstatus').textContent=`El peso debe sumar exactamente ${current.weight} g.`;return}cart.push({id:Date.now(),...current,fruits:a});closeModal();renderCart();goCheckout()}
-function renderCart(){if(!cart.length){$('cart').textContent='Tu carrito está vacío.';$('totals').hidden=true;$('count').textContent=0;return}$('count').textContent=cart.length;$('cart').innerHTML=cart.map((x,i)=>`<div class="item"><b>${x.name} — S/${x.price}</b><br><small>${x.fruits.map(f=>f.name+' '+f.weight+'g').join(' · ')}</small><br><button onclick="removeItem(${i})">Eliminar</button></div>`).join('');$('totals').hidden=false;update()}
-function removeItem(i){cart.splice(i,1);renderCart()}
-function update(){let sub=cart.reduce((s,x)=>s+x.price,0),d=$("district").value;let fee=d?delivery[d]:null;$('sub').textContent='S/'+sub.toFixed(2);$('del').textContent=fee===null?'Selecciona distrito':'S/'+fee.toFixed(2);$('total').textContent='S/'+(sub+(fee||0)).toFixed(2);$('bag').innerHTML=sub>=50?'🎁 <b>Tu compra incluye una bolsa de tela QAPA.</b>':'Compra desde S/50 y recibe una bolsa de tela QAPA incluida.'}
-document.querySelectorAll('input[name=speed]').forEach(x=>x.addEventListener('change',update));document.querySelectorAll('input[name=receipt]').forEach(x=>x.addEventListener('change',()=>{$('dni').hidden=document.querySelector('input[name=receipt]:checked').value!=='dni'}));
-function confirmOrder(){if(!cart.length){$('status').textContent='Agrega un producto al carrito.';return}let name=$('name').value.trim(),phone=$('phone').value.trim(),email=$('email').value.trim(),address=$('address').value.trim(),district=$('district').value,pay=document.querySelector('input[name=pay]:checked').value,receipt=document.querySelector('input[name=receipt]:checked').value,dni=$('dniValue').value.trim(),proof=$('proof').files[0];if(!name||!phone||!email||!address||!district||!proof){$('status').textContent='Completa todos los datos y adjunta el comprobante de pago.';return}if(receipt==='dni'&&!/^\d{8}$/.test(dni)){$('status').textContent='Ingresa un DNI válido de 8 dígitos.';return}let fee=delivery[district],sub=cart.reduce((s,x)=>s+x.price,0),total=sub+fee;let items=cart.map((x,i)=>`${i+1}. ${x.name} ${x.weight}g: ${x.fruits.map(f=>f.name+' '+f.weight+'g').join(', ')} — S/${x.price}`).join('\n');let text=`Hola QAPA, quiero confirmar mi pedido:\n\n${items}\n\nSubtotal: S/${sub.toFixed(2)}\nDelivery ${district}: S/${fee.toFixed(2)}\nTotal: S/${total.toFixed(2)}\nPago: ${pay}\n${receipt==='dni'?'Boleta con DNI: '+dni:'Boleta simple'}\n\nCliente: ${name}\nTeléfono: ${phone}\nCorreo: ${email}\nDirección: ${address}\n\nAdjunto mi comprobante de pago.`;$('status').textContent='Se abrirá WhatsApp para enviar el pedido a QAPA.';window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`,'_blank')}
-function goCheckout(){$('checkout').scrollIntoView({behavior:'smooth'})}render();renderCart();
-</script></body></html>
+
+/* =========================================================
+   QAPA - CONFIGURACIÓN FÁCIL
+   ========================================================= */
+
+const QAPA = {
+
+  whatsapp: "51999999999",
+
+  deliveryRapidExtra: 0,
+
+  freeBagMinimum: 50
+
+};
 
 
-       
+/* =========================================================
+   CARRITO
+   ========================================================= */
 
-           
+let cart = [];
 
 
-  
+function addProduct(name, price){
 
-          
+  cart.push({
+    name:name,
+    price:price
+  });
+
+  updateCart();
+
+  openCart();
+
+}
+
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  updateCart();
+
+}
+
+
+function updateCart(){
+
+  const items = document.getElementById("cartItems");
+  const count = document.getElementById("cartCount");
+  const totalElement = document.getElementById("cartTotal");
+
+  count.textContent = cart.length;
+
+  if(cart.length === 0){
+
+    items.innerHTML =
+      '<p style="color:#777">Tu pedido está vacío.</p>';
+
+    totalElement.textContent = "0";
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+  items.innerHTML = "";
+
+  cart.forEach((item,index)=>{
+
+    total += item.price;
+
+    const div = document.createElement("div");
+
+    div.className = "cart-item";
+
+    div.innerHTML = `
+
+      <div>
+
+        <strong>${item.name}</strong>
+
+        <small>
+          S/${item.price}
+        </small>
+
+      </div>
+
+      <button
+        class="remove-item"
+        onclick="removeItem(${index})">
+
+        Eliminar
+
+      </button>
+
+    `;
+
+    items.appendChild(div);
+
+  });
+
+
+  totalElement.textContent = total;
+
+}
+
+
+function openCart(){
+
+  document
+    .getElementById("cartPanel")
+    .classList.add("open");
+
+}
+
+
+function closeCart(){
+
+  document
+    .getElementById("cartPanel")
+    .classList.remove("open");
+
+}
+
+
+/* =========================================================
+   PERSONALIZADOR
+   ========================================================= */
+
+function openCustomizer(){
+
+  document
+    .getElementById("customModal")
+    .classList.add("show");
+
+}
+
+
+function closeCustomizer(){
+
+  document
+    .getElementById("customModal")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+   ========================================================= */
+
+function openCheckout(){
+
+  if(cart.length === 0){
+
+    alert("Agrega al menos un producto a tu pedido.");
+
+    return;
+
+  }
+
+  closeCart();
+
+  let total = cart.reduce(
+    (sum,item)=>sum + item.price,
+    0
+  );
+
+  document.getElementById("checkoutProducts")
+    .textContent = cart
+      .map(item=>item.name)
+      .join(", ");
+
+  document.getElementById("checkoutSubtotal")
+    .textContent = total;
+
+  document.getElementById("finalTotal")
+    .textContent = total;
+
+  document.getElementById("checkoutModal")
+    .classList.add("show");
+
+}
+
+
+function closeCheckout(){
+
+  document
+    .getElementById("checkoutModal")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   DELIVERY
+   ========================================================= */
+
+document
+  .getElementById("district")
+  .addEventListener("change", updateCheckoutTotal);
+
+
+document
+  .getElementById("deliverySpeed")
+  .addEventListener("change", updateCheckoutTotal);
+
+
+function getDelivery(){
+
+  const select =
+    document.getElementById("district");
+
+  const option =
+    select.options[select.selectedIndex];
+
+  if(!option || !option.dataset.price){
+
+    return 0;
+
+  }
+
+  let delivery =
+    Number(option.dataset.price);
+
+  if(
+    document.getElementById("deliverySpeed").value
+    === "rapid"
+  ){
+
+    delivery += QAPA.deliveryRapidExtra;
+
+  }
+
+  return delivery;
+
+}
+
+
+function updateCheckoutTotal(){
+
+  const subtotal =
+    cart.reduce(
+      (sum,item)=>sum + item.price,
+      0
+    );
+
+  const delivery =
+    getDelivery();
+
+  document.getElementById("checkoutSubtotal")
+    .textContent = subtotal;
+
+  document.getElementById("deliveryTotal")
+    .textContent = delivery;
+
+  document.getElementById("finalTotal")
+    .textContent =
+      subtotal + delivery;
+
+}
+
+
+/* =========================================================
+   COMPROBANTE DNI
+   ========================================================= */
+
+document
+  .getElementById("receiptType")
+  .addEventListener("change",function(){
+
+    const dniGroup =
+      document.getElementById("dniGroup");
+
+    if(this.value === "dni"){
+
+      dniGroup.style.display = "flex";
+
+    }else{
+
+      dniGroup.style.display = "none";
+
+    }
+
+  });
+
+
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
+
+function sendOrderToWhatsApp(){
+
+  if(cart.length === 0){
+
+    alert("Tu pedido está vacío.");
+
+    return;
+
+  }
+
+
+  const name =
+    document.getElementById("customerName").value;
+
+  const phone =
+    document.getElementById("customerPhone").value;
+
+  const email =
+    document.getElementById("customerEmail").value;
+
+  const district =
+    document.getElementById("district").value;
+
+  const address =
+    document.getElementById("customerAddress").value;
+
+  const speed =
+    document.getElementById("deliverySpeed").value;
+
+  const receipt =
+    document.getElementById("receiptType").value;
+
+  const dni =
+    document.getElementById("customerDni").value;
+
+
+  if(!name || !phone || !district || !address){
+
+    alert(
+      "Completa nombre, celular, distrito y dirección."
+    );
+
+    return;
+
+  }
+
+
+  const subtotal =
+    cart.reduce(
+      (sum,item)=>sum + item.price,
+      0
+    );
+
+  const delivery =
+    getDelivery();
+
+  const total =
+    subtotal + delivery;
+
+
+  let products = "";
+
+  cart.forEach(item=>{
+
+    products +=
+      `• ${item.name} — S/${item.price}%0A`;
+
+  });
+
+
+  let message =
+
+    `Hola QAPA 🌸 quiero realizar este pedido:%0A%0A` +
+
+    `*PRODUCTOS*%0A` +
+
+    products +
+
+    `%0A*DATOS DEL CLIENTE*%0A` +
+
+    `Nombre: ${encodeURIComponent(name)}%0A` +
+
+    `Celular: ${encodeURIComponent(phone)}%0A` +
+
+    `Correo: ${encodeURIComponent(email)}%0A` +
+
+    `Distrito: ${encodeURIComponent(district)}%0A` +
+
+    `Dirección: ${encodeURIComponent(address)}%0A%0A` +
+
+    `Entrega: ${encodeURIComponent(speed)}%0A` +
+
+    `Comprobante: ${encodeURIComponent(receipt)}%0A`;
+
+
+  if(receipt === "dni"){
+
+    message +=
+      `DNI: ${encodeURIComponent(dni)}%0A`;
+
+  }
+
+
+  message +=
+
+    `%0A*RESUMEN*%0A` +
+
+    `Subtotal: S/${subtotal}%0A` +
+
+    `Delivery: S/${delivery}%0A` +
+
+    `*TOTAL: S/${total}*`;
+
+
+  const url =
+    `https://wa.me/${QAPA.whatsapp}?text=${message}`;
+
+
+  window.open(url,"_blank");
+
+}
+
+
+/* =========================================================
+   WHATSAPP LINKS
+   ========================================================= */
+
+function setupWhatsApp(){
+
+  const message =
+    encodeURIComponent(
+      "Hola QAPA 🌸 quisiera información sobre los productos."
+    );
+
+  const url =
+    `https://wa.me/${QAPA.whatsapp}?text=${message}`;
+
+  document
+    .getElementById("whatsappButton")
+    .href = url;
+
+  document
+    .getElementById("footerWhatsapp")
+    .href = url;
+
+}
+
+
+setupWhatsApp();
+
+updateCart();
+
+</script>
+
+</body>
+</html>
