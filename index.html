@@ -1,222 +1,509 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>QAPA | Premium Natural Snacks</title>
+<title>QAPA | Premium Natural Snacks</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f8f3ea;
-            color: #222;
-        }
+<style>
 
-        header {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 35px 20px;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        header h1 {
-            font-size: 48px;
-            letter-spacing: 5px;
-            margin: 0;
-        }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f1e7;
+    color: #222;
+}
 
-        header p {
-            letter-spacing: 3px;
-            margin-top: 10px;
-            font-size: 14px;
-        }
+/* HEADER */
 
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-        }
+header {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
 
-        .hero h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
+.logo {
+    width: 150px;
+    max-width: 70%;
+    margin-bottom: 12px;
+}
 
-        .hero p {
-            font-size: 18px;
-            max-width: 600px;
-            margin: auto;
-            line-height: 1.6;
-        }
+header p {
+    margin: 0;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
 
-        .productos {
-            padding: 30px 20px 70px;
-            max-width: 1000px;
-            margin: auto;
-        }
+/* HERO */
 
-        .productos h2 {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 35px;
-        }
+.hero {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px;
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
+    background:
+        linear-gradient(rgba(247,241,231,0.82), rgba(247,241,231,0.92)),
+        url("logo.png");
 
-        .producto {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
-        .producto h3 {
-            font-size: 21px;
-            margin-bottom: 10px;
-        }
+.hero-content {
+    max-width: 750px;
+}
 
-        .peso {
-            color: #777;
-            margin-bottom: 15px;
-        }
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: 52px;
+    font-weight: normal;
+    margin: 0 0 20px;
+}
 
-        .precio {
-            font-size: 25px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+.hero p {
+    font-size: 19px;
+    line-height: 1.7;
+    color: #555;
+}
 
-        button {
-            background: #111;
-            color: white;
-            border: none;
-            padding: 12px 22px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 15px;
-        }
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 30px;
+    background: #111;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 15px;
+}
 
-        button:hover {
-            background: #333;
-        }
+.btn:hover {
+    background: #444;
+}
 
-        .contacto {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-        }
+/* SECCIONES */
 
-        .contacto h2 {
-            font-size: 30px;
-        }
+section {
+    padding: 70px 20px;
+}
 
-        .contacto p {
-            font-size: 17px;
-        }
+.section-title {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 36px;
+    font-weight: normal;
+    margin-bottom: 45px;
+}
 
-        footer {
-            background: #000;
-            color: #aaa;
-            text-align: center;
-            padding: 20px;
-            font-size: 13px;
-        }
-    </style>
+/* FRUTAS */
+
+.fruits {
+    max-width: 1050px;
+    margin: auto;
+}
+
+.fruit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.fruit {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 12px;
+    font-family: Georgia, serif;
+    font-size: 20px;
+}
+
+/* PRODUCTOS */
+
+.products {
+    background: #eee6da;
+}
+
+.product-grid {
+    max-width: 1050px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.product {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.product h3 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    margin-top: 0;
+}
+
+.weight {
+    color: #777;
+    margin-bottom: 12px;
+}
+
+.price {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* QAPA A TU MANERA */
+
+.custom {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.custom p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* CONTACTO */
+
+.contact {
+    background: #111;
+    color: white;
+    text-align: center;
+}
+
+.contact h2 {
+    font-family: Georgia, serif;
+    font-size: 35px;
+    font-weight: normal;
+}
+
+.contact p {
+    color: #ddd;
+    font-size: 17px;
+}
+
+.contact .btn {
+    background: white;
+    color: #111;
+}
+
+.contact .btn:hover {
+    background: #ddd;
+}
+
+/* FOOTER */
+
+footer {
+    background: #000;
+    color: #999;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 13px;
+}
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .fruit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-    <h1>QAPA</h1>
+
+    <img src="logo.png" alt="QAPA" class="logo">
+
     <p>PREMIUM NATURAL SNACKS</p>
+
 </header>
 
-<section class="hero">
-    <h2>Frutas deshidratadas</h2>
 
-    <p>
-        Una forma natural y deliciosa de disfrutar tus frutas favoritas.
-        Perfectas para disfrutar, regalar y compartir.
-    </p>
+<!-- PORTADA -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Frutas deshidratadas</h1>
+
+        <p>
+            Una forma natural y deliciosa de disfrutar tus frutas favoritas.
+            Hecho para disfrutar, regalar y compartir.
+        </p>
+
+        <a href="#productos" class="btn">
+            Ver productos
+        </a>
+
+    </div>
+
 </section>
 
-<section class="productos">
 
-    <h2>Elige tu QAPA</h2>
+<!-- FRUTAS -->
 
-    <div class="grid">
+<section class="fruits">
 
-        <div class="producto">
+    <h2 class="section-title">
+        QAPA A TU MANERA
+    </h2>
+
+    <div class="fruit-grid">
+
+        <div class="fruit">🍓 Fresa</div>
+
+        <div class="fruit">🍊 Papaya</div>
+
+        <div class="fruit">🥝 Kiwi</div>
+
+        <div class="fruit">🥭 Mango</div>
+
+        <div class="fruit">🍎 Manzana</div>
+
+        <div class="fruit">🟠 Aguaymanto</div>
+
+        <div class="fruit">🍍 Piña</div>
+
+        <div class="fruit">🍒 Cereza</div>
+
+        <div class="fruit">🔴 Arándano rojo</div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTOS -->
+
+<section class="products" id="productos">
+
+    <h2 class="section-title">
+        Nuestros productos
+    </h2>
+
+    <div class="product-grid">
+
+        <div class="product">
+
             <h3>QAPA PREMIUM</h3>
-            <div class="peso">300 g</div>
-            <div class="precio">S/ 28</div>
-            <button>Comprar</button>
+
+            <div class="weight">
+                300 g
+            </div>
+
+            <div class="price">
+                S/ 28
+            </div>
+
+            <a class="btn" href="#contacto">
+                Pedir
+            </a>
+
         </div>
 
-        <div class="producto">
+
+        <div class="product">
+
             <h3>QAPA GO</h3>
-            <div class="peso">100 g</div>
-            <div class="precio">S/ 11</div>
-            <button>Comprar</button>
+
+            <div class="weight">
+                100 g
+            </div>
+
+            <div class="price">
+                S/ 11
+            </div>
+
+            <a class="btn" href="#contacto">
+                Pedir
+            </a>
+
         </div>
 
-        <div class="producto">
+
+        <div class="product">
+
             <h3>QAPA POCKET</h3>
-            <div class="peso">50 g</div>
-            <div class="precio">S/ 6</div>
-            <button>Comprar</button>
+
+            <div class="weight">
+                50 g
+            </div>
+
+            <div class="price">
+                S/ 6
+            </div>
+
+            <a class="btn" href="#contacto">
+                Pedir
+            </a>
+
         </div>
 
-        <div class="producto">
+
+        <div class="product">
+
             <h3>Frasco grande</h3>
-            <div class="peso">450 g</div>
-            <div class="precio">S/ 41</div>
-            <button>Comprar</button>
+
+            <div class="weight">
+                450 g
+            </div>
+
+            <div class="price">
+                S/ 41
+            </div>
+
+            <a class="btn" href="#contacto">
+                Pedir
+            </a>
+
         </div>
 
-        <div class="producto">
+
+        <div class="product">
+
             <h3>Frasco mediano</h3>
-            <div class="peso">300 g</div>
-            <div class="precio">S/ 31</div>
-            <button>Comprar</button>
+
+            <div class="weight">
+                300 g
+            </div>
+
+            <div class="price">
+                S/ 31
+            </div>
+
+            <a class="btn" href="#contacto">
+                Pedir
+            </a>
+
         </div>
 
-        <div class="producto">
+
+        <div class="product">
+
             <h3>Frasco chico</h3>
-            <div class="peso">200 g</div>
-            <div class="precio">S/ 21</div>
-            <button>Comprar</button>
+
+            <div class="weight">
+                200 g
+            </div>
+
+            <div class="price">
+                S/ 21
+            </div>
+
+            <a class="btn" href="#contacto">
+                Pedir
+            </a>
+
         </div>
 
     </div>
 
 </section>
 
-<section class="contacto">
 
-    <h2>QAPA A TU MANERA</h2>
+<!-- PERSONALIZACIÓN -->
+
+<section>
+
+    <div class="custom">
+
+        <h2 class="section-title">
+            QAPA A TU MANERA
+        </h2>
+
+        <p>
+            Elige tu fruta favorita o crea tu propio mix,
+            según disponibilidad.
+        </p>
+
+        <p>
+            Frutas deshidratadas para disfrutar,
+            regalar y compartir.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACTO -->
+
+<section class="contact" id="contacto">
+
+    <h2>
+        Haz tu pedido
+    </h2>
 
     <p>
-        Elige tu fruta favorita o crea tu propio mix,
-        según disponibilidad.
+        Escríbenos para consultar disponibilidad y realizar tu pedido.
     </p>
 
+    <a class="btn"
+       href="https://wa.me/"
+       target="_blank">
+
+        WhatsApp
+
+    </a>
+
+    <br><br>
+
     <p>
-        Pedidos por Instagram o WhatsApp
+        Instagram: @qapa.snacks
     </p>
 
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
+
     © 2026 QAPA · Premium Natural Snacks
+
 </footer>
 
 </body>
 </html>
+  
+   
+      
