@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>QAPA | Premium Natural Snacks</title>
+<title>QAPA | Frutas deshidratadas</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,15 +14,14 @@
   --cream:#F8EBD8;
   --ivory:#FFF9F0;
   --peach:#F3C9AF;
-  --rose:#D9898D;
   --terracotta:#BD684C;
-  --green:#71805A;
-  --green-dark:#526040;
+  --olive:#71805A;
+  --green:#526040;
   --gold:#C79A55;
+  --rose:#D9898D;
   --black:#171512;
   --brown:#61483C;
-  --white:#FFFFFF;
-  --shadow:0 12px 30px rgba(67,45,30,.13);
+  --white:#ffffff;
 }
 
 *{
@@ -40,22 +38,42 @@ body{
   font-family:'Montserrat',sans-serif;
   background:var(--ivory);
   color:var(--black);
+  line-height:1.6;
 }
 
-h1,h2,h3,h4,
-.logo-name,
-.brand-name,
-.section-title{
-  font-family:'Cormorant Garamond',serif;
+img{
+  max-width:100%;
+  display:block;
+}
+
+button{
+  font-family:inherit;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
 /* =========================
-   FRANJA FLORAL SUPERIOR
+   FRANJA FLORAL
 ========================= */
 
 .floral-top{
   height:82px;
-  background-color:var(--black);
+  background:
+    radial-gradient(circle at 8% 50%, var(--peach) 0 5px, transparent 6px),
+    radial-gradient(circle at 13% 30%, var(--gold) 0 4px, transparent 5px),
+    radial-gradient(circle at 19% 65%, var(--rose) 0 6px, transparent 7px),
+    radial-gradient(circle at 28% 38%, var(--gold) 0 5px, transparent 6px),
+    radial-gradient(circle at 36% 68%, var(--peach) 0 5px, transparent 6px),
+    radial-gradient(circle at 47% 30%, var(--rose) 0 5px, transparent 6px),
+    radial-gradient(circle at 57% 65%, var(--gold) 0 5px, transparent 6px),
+    radial-gradient(circle at 67% 35%, var(--peach) 0 6px, transparent 7px),
+    radial-gradient(circle at 77% 68%, var(--rose) 0 5px, transparent 6px),
+    radial-gradient(circle at 87% 35%, var(--gold) 0 5px, transparent 6px),
+    radial-gradient(circle at 94% 65%, var(--peach) 0 6px, transparent 7px),
+    var(--black);
   position:relative;
   overflow:hidden;
 }
@@ -64,146 +82,109 @@ h1,h2,h3,h4,
 .floral-top:after{
   content:"";
   position:absolute;
-  width:230px;
-  height:230px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,.20);
-}
-
-.floral-top:before{
-  left:4%;
-  top:-150px;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  opacity:.8;
+  background:
+    radial-gradient(ellipse at 11% 48%, var(--olive) 0 7px, transparent 8px),
+    radial-gradient(ellipse at 25% 48%, var(--green) 0 7px, transparent 8px),
+    radial-gradient(ellipse at 40% 48%, var(--olive) 0 7px, transparent 8px),
+    radial-gradient(ellipse at 54% 48%, var(--green) 0 7px, transparent 8px),
+    radial-gradient(ellipse at 70% 48%, var(--olive) 0 7px, transparent 8px),
+    radial-gradient(ellipse at 84% 48%, var(--green) 0 7px, transparent 8px);
 }
 
 .floral-top:after{
-  right:6%;
-  bottom:-170px;
+  transform:rotate(180deg);
+  opacity:.45;
 }
-
-.floral-decoration{
-  position:absolute;
-  inset:0;
-  opacity:.9;
-}
-
-.flower{
-  position:absolute;
-  width:30px;
-  height:30px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,.55);
-}
-
-.flower:before,
-.flower:after{
-  content:"";
-  position:absolute;
-  width:14px;
-  height:25px;
-  border:2px solid rgba(255,255,255,.40);
-  border-radius:50%;
-}
-
-.flower:before{
-  left:-10px;
-  top:3px;
-  transform:rotate(-35deg);
-}
-
-.flower:after{
-  right:-10px;
-  top:3px;
-  transform:rotate(35deg);
-}
-
-.flower:nth-child(1){left:8%;top:25px}
-.flower:nth-child(2){left:20%;top:12px;transform:scale(.7)}
-.flower:nth-child(3){left:35%;top:38px;transform:scale(.8)}
-.flower:nth-child(4){left:52%;top:16px}
-.flower:nth-child(5){left:69%;top:35px;transform:scale(.75)}
-.flower:nth-child(6){left:84%;top:10px;transform:scale(.65)}
 
 /* =========================
    HEADER
 ========================= */
 
 header{
-  background:rgba(255,249,240,.96);
-  backdrop-filter:blur(10px);
   position:sticky;
   top:0;
   z-index:50;
-  border-bottom:1px solid rgba(113,128,90,.15);
+  background:rgba(255,249,240,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(97,72,60,.12);
 }
 
 .nav{
-  max-width:1200px;
+  max-width:1250px;
   margin:auto;
-  padding:13px 25px;
+  min-height:94px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:25px;
+  padding:14px 28px;
 }
 
-.logo-area{
+.brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:14px;
 }
 
 .logo{
-  width:62px;
-  height:62px;
+  width:76px;
+  height:76px;
   object-fit:contain;
 }
 
-.brand-name{
-  font-size:28px;
-  font-weight:700;
+.brand-text strong{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;
   letter-spacing:2px;
   line-height:1;
 }
 
-.brand-sub{
+.brand-text span{
+  display:block;
   font-size:9px;
   letter-spacing:2px;
-  color:var(--green-dark);
-  margin-top:4px;
+  margin-top:5px;
+  color:var(--brown);
 }
 
-nav{
+.menu{
   display:flex;
   align-items:center;
-  gap:24px;
-}
-
-nav a{
-  color:var(--black);
-  text-decoration:none;
+  gap:25px;
   font-size:13px;
   font-weight:600;
 }
 
-nav a:hover{
+.menu a{
+  transition:.2s;
+}
+
+.menu a:hover{
   color:var(--terracotta);
 }
 
 .cart-button{
-  border:none;
-  background:var(--terracotta);
+  border:0;
+  background:var(--black);
   color:white;
-  border-radius:25px;
-  padding:11px 17px;
+  border-radius:30px;
+  padding:12px 18px;
   cursor:pointer;
-  font-weight:700;
+  font-weight:600;
+  font-size:13px;
 }
 
 .cart-count{
-  background:white;
-  color:var(--terracotta);
+  background:var(--gold);
+  color:var(--black);
   border-radius:50%;
-  padding:2px 6px;
+  padding:2px 7px;
   margin-left:5px;
 }
 
@@ -212,27 +193,34 @@ nav a:hover{
 ========================= */
 
 .hero{
-  max-width:1200px;
+  max-width:1250px;
   margin:auto;
-  padding:75px 25px 65px;
+  min-height:650px;
+  padding:75px 28px;
   display:grid;
   grid-template-columns:1fr 1fr;
+  gap:60px;
   align-items:center;
-  gap:55px;
 }
 
-.hero-kicker{
+.hero-copy{
+  position:relative;
+}
+
+.eyebrow{
   color:var(--terracotta);
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:3px;
   text-transform:uppercase;
-  margin-bottom:12px;
+  letter-spacing:4px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:14px;
 }
 
 .hero h1{
-  font-size:74px;
-  line-height:.88;
+  font-family:'Cormorant Garamond',serif;
+  font-size:76px;
+  line-height:.9;
+  font-weight:600;
   margin-bottom:20px;
 }
 
@@ -240,29 +228,27 @@ nav a:hover{
   color:var(--terracotta);
 }
 
-.hero-text{
+.hero p{
   max-width:520px;
-  color:var(--brown);
+  color:#66574f;
   font-size:16px;
-  line-height:1.8;
+  margin-bottom:30px;
 }
 
 .hero-buttons{
   display:flex;
   gap:12px;
-  margin-top:28px;
   flex-wrap:wrap;
 }
 
 .btn{
-  display:inline-block;
-  text-decoration:none;
+  border:0;
   padding:14px 22px;
   border-radius:30px;
   font-size:13px;
   font-weight:700;
   cursor:pointer;
-  border:none;
+  transition:.25s;
 }
 
 .btn-primary{
@@ -270,46 +256,50 @@ nav a:hover{
   color:white;
 }
 
-.btn-secondary{
-  background:var(--green);
-  color:white;
+.btn-primary:hover{
+  transform:translateY(-2px);
 }
 
-.hero-products{
+.btn-secondary{
+  background:var(--peach);
+  color:var(--black);
+}
+
+.hero-visual{
   position:relative;
-  min-height:480px;
+  min-height:500px;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
 }
 
 .hero-main{
-  width:350px;
-  height:420px;
+  width:370px;
+  height:450px;
   object-fit:cover;
-  border-radius:170px 170px 25px 25px;
-  box-shadow:var(--shadow);
+  border-radius:190px 190px 25px 25px;
+  box-shadow:0 25px 60px rgba(62,43,30,.18);
 }
 
 .hero-small{
   position:absolute;
-  width:150px;
-  height:190px;
-  object-fit:contain;
-  background:white;
-  padding:12px;
-  border-radius:20px;
-  box-shadow:var(--shadow);
+  width:145px;
+  height:175px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 15px 35px rgba(62,43,30,.2);
 }
 
 .hero-small.one{
   left:5%;
-  bottom:20px;
+  bottom:8%;
+  transform:rotate(-6deg);
 }
 
 .hero-small.two{
   right:4%;
-  top:25px;
+  top:10%;
+  transform:rotate(7deg);
 }
 
 /* =========================
@@ -317,42 +307,42 @@ nav a:hover{
 ========================= */
 
 section{
-  padding:80px 25px;
+  padding:90px 28px;
 }
 
 .section-inner{
-  max-width:1200px;
+  max-width:1250px;
   margin:auto;
 }
 
-.section-head{
+.section-heading{
   text-align:center;
-  margin-bottom:42px;
+  margin-bottom:45px;
 }
 
-.section-kicker{
+.section-heading .mini{
   color:var(--terracotta);
-  font-size:12px;
+  text-transform:uppercase;
+  font-size:11px;
   font-weight:700;
   letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:8px;
 }
 
-.section-title{
-  font-size:52px;
+.section-heading h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:55px;
   line-height:1;
+  margin-top:8px;
 }
 
-.section-description{
+.section-heading p{
   max-width:650px;
   margin:15px auto 0;
-  color:var(--brown);
-  line-height:1.7;
+  color:#75675e;
 }
 
 /* =========================
-   QAPA A TU MANERA
+   A TU MANERA
 ========================= */
 
 .custom-section{
@@ -366,129 +356,89 @@ section{
 }
 
 .fruit-card{
-  background:white;
-  border-radius:22px;
+  background:var(--ivory);
+  border-radius:20px;
   overflow:hidden;
-  box-shadow:var(--shadow);
-  transition:.25s;
-}
-
-.fruit-card:hover{
-  transform:translateY(-5px);
+  box-shadow:0 10px 30px rgba(80,55,40,.09);
 }
 
 .fruit-card img{
   width:100%;
-  height:155px;
+  aspect-ratio:1/1;
   object-fit:cover;
 }
 
 .fruit-card h3{
-  font-size:22px;
-  padding:13px 14px 15px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:25px;
   text-align:center;
-}
-
-.custom-note{
-  margin:35px auto 0;
-  max-width:760px;
-  text-align:center;
-  background:rgba(255,255,255,.65);
-  padding:20px;
-  border-radius:18px;
-  color:var(--brown);
-  line-height:1.7;
+  padding:13px 8px 15px;
 }
 
 /* =========================
    PRODUCTOS
 ========================= */
 
-.products-section{
-  background:var(--ivory);
-}
-
 .products-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:25px;
+  gap:28px;
 }
 
 .product-card{
   background:white;
   border-radius:25px;
   overflow:hidden;
-  box-shadow:var(--shadow);
-  display:flex;
-  flex-direction:column;
+  box-shadow:0 12px 35px rgba(70,45,30,.1);
+  transition:.25s;
 }
 
-.product-image{
-  height:300px;
-  background:#f8f1e8;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+.product-card:hover{
+  transform:translateY(-5px);
 }
 
-.product-image img{
+.product-card img{
   width:100%;
-  height:100%;
-  object-fit:contain;
+  height:320px;
+  object-fit:cover;
+  background:var(--cream);
 }
 
 .product-info{
-  padding:22px;
+  padding:23px;
 }
 
 .product-info h3{
-  font-size:30px;
-  line-height:1;
-  margin-bottom:8px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:31px;
 }
 
 .product-weight{
-  color:var(--green-dark);
-  font-size:13px;
-  font-weight:700;
-  margin-bottom:8px;
-}
-
-.product-description{
-  color:#75665d;
-  font-size:13px;
-  line-height:1.6;
-  min-height:42px;
-}
-
-.product-bottom{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-top:18px;
+  font-size:12px;
+  color:#88766b;
+  margin:4px 0 12px;
 }
 
 .price{
-  font-size:23px;
+  font-size:22px;
   font-weight:700;
   color:var(--terracotta);
+  margin-bottom:16px;
 }
 
-.add-button{
-  border:none;
-  background:var(--green);
+.add-btn{
+  width:100%;
+  border:0;
+  padding:13px;
+  background:var(--black);
   color:white;
-  padding:11px 15px;
-  border-radius:22px;
-  font-size:12px;
-  font-weight:700;
+  border-radius:25px;
   cursor:pointer;
+  font-weight:700;
 }
 
-.add-button:hover{
-  background:var(--green-dark);
+.add-btn:hover{
+  background:var(--terracotta);
 }
 
 /* =========================
@@ -496,14 +446,14 @@ section{
 ========================= */
 
 .benefits{
-  background:var(--green);
+  background:var(--black);
   color:white;
 }
 
 .benefit-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:20px;
+  gap:25px;
 }
 
 .benefit{
@@ -511,20 +461,24 @@ section{
   padding:20px;
 }
 
-.benefit-icon{
-  font-size:34px;
-  margin-bottom:12px;
+.benefit-symbol{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  margin:0 auto 15px;
+  background:var(--peach);
+  color:var(--black);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:27px;
 }
 
 .benefit h3{
-  font-size:25px;
-  margin-bottom:7px;
-}
-
-.benefit p{
-  font-size:13px;
-  line-height:1.6;
-  opacity:.9;
+  font-family:'Cormorant Garamond',serif;
+  font-size:27px;
+  margin-bottom:5px;
 }
 
 /* =========================
@@ -532,36 +486,44 @@ section{
 ========================= */
 
 .story{
-  background:#F6DCD0;
+  background:var(--ivory);
 }
 
 .story-grid{
-  max-width:1050px;
+  max-width:1100px;
   margin:auto;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:45px;
+  gap:55px;
   align-items:center;
 }
 
 .story-image{
   width:100%;
-  height:430px;
+  max-height:500px;
   object-fit:cover;
   border-radius:30px;
-  box-shadow:var(--shadow);
+  box-shadow:0 20px 45px rgba(70,45,30,.15);
 }
 
-.story h2{
-  font-size:55px;
-  line-height:.95;
-  margin-bottom:20px;
+.story-text .mini{
+  color:var(--terracotta);
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:3px;
 }
 
-.story p{
-  color:var(--brown);
-  line-height:1.8;
-  margin-bottom:15px;
+.story-text h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:56px;
+  line-height:1;
+  margin:10px 0 20px;
+}
+
+.story-text p{
+  color:#6f625a;
+  margin-bottom:14px;
 }
 
 /* =========================
@@ -569,18 +531,26 @@ section{
 ========================= */
 
 .instagram{
+  background:var(--peach);
   text-align:center;
 }
 
-.instagram-button{
+.instagram h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:55px;
+}
+
+.instagram p{
+  margin:8px 0 22px;
+}
+
+.instagram-link{
   display:inline-block;
-  margin-top:25px;
   background:var(--black);
   color:white;
-  text-decoration:none;
-  padding:14px 25px;
+  padding:13px 24px;
   border-radius:30px;
-  font-weight:700;
+  font-weight:600;
 }
 
 /* =========================
@@ -588,266 +558,83 @@ section{
 ========================= */
 
 footer{
-  background:var(--black);
+  background:#241f1b;
   color:white;
-  padding:55px 25px 25px;
+  padding:55px 28px 25px;
 }
 
 .footer-grid{
-  max-width:1100px;
+  max-width:1200px;
   margin:auto;
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
-  gap:40px;
+  gap:50px;
 }
 
-.footer-logo{
-  width:75px;
-  filter:invert(1);
+.footer-brand h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:45px;
+}
+
+.footer-brand p{
+  color:#c9bdb4;
+  max-width:420px;
+}
+
+.footer-column h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:25px;
   margin-bottom:12px;
 }
 
-footer h3{
-  font-size:26px;
-  margin-bottom:12px;
-}
-
-footer p,
-footer a{
-  color:#ddd2c7;
+.footer-column a{
+  display:block;
+  color:#d7cbc3;
+  margin:6px 0;
   font-size:13px;
-  line-height:1.8;
-  text-decoration:none;
 }
 
 .footer-bottom{
-  max-width:1100px;
+  max-width:1200px;
   margin:35px auto 0;
-  padding-top:20px;
+  padding-top:18px;
   border-top:1px solid rgba(255,255,255,.15);
-  text-align:center;
+  color:#a99b92;
   font-size:11px;
-  color:#aaa;
-}
-
-/* =========================
-   MODAL COMBINACIÓN
-========================= */
-
-.modal-overlay{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(23,21,18,.68);
-  z-index:100;
-  padding:20px;
-  overflow-y:auto;
-}
-
-.modal-overlay.active{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.modal{
-  width:min(850px,100%);
-  max-height:92vh;
-  overflow-y:auto;
-  background:var(--ivory);
-  border-radius:28px;
-  box-shadow:0 25px 70px rgba(0,0,0,.3);
-  padding:30px;
-  position:relative;
-}
-
-.close-modal{
-  position:absolute;
-  right:20px;
-  top:17px;
-  width:38px;
-  height:38px;
-  border:none;
-  border-radius:50%;
-  background:var(--cream);
-  font-size:20px;
-  cursor:pointer;
-}
-
-.modal-header{
-  padding-right:45px;
-  margin-bottom:20px;
-}
-
-.modal-header h2{
-  font-size:42px;
-  line-height:1;
-  color:var(--terracotta);
-}
-
-.modal-header p{
-  margin-top:8px;
-  color:var(--brown);
-  line-height:1.6;
-}
-
-.selected-product{
-  background:white;
-  border-radius:18px;
-  padding:17px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:22px;
-  box-shadow:0 5px 18px rgba(0,0,0,.06);
-}
-
-.selected-product strong{
-  font-family:'Cormorant Garamond',serif;
-  font-size:25px;
-}
-
-.selected-weight{
-  color:var(--terracotta);
-  font-weight:700;
-}
-
-.progress-box{
-  background:var(--cream);
-  padding:20px;
-  border-radius:20px;
-  margin-bottom:22px;
-}
-
-.progress-top{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:10px;
-  font-size:13px;
-  font-weight:700;
-}
-
-.progress-bar{
-  height:12px;
-  background:white;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.progress-fill{
-  height:100%;
-  width:0%;
-  background:var(--terracotta);
-  transition:.25s;
-}
-
-.progress-message{
-  margin-top:10px;
-  font-size:13px;
-  font-weight:600;
-}
-
-.fruit-selector{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-
-.fruit-choice{
-  background:white;
-  border:2px solid transparent;
-  border-radius:18px;
-  padding:10px;
-  display:grid;
-  grid-template-columns:65px 1fr;
-  align-items:center;
-  gap:10px;
-  transition:.2s;
-}
-
-.fruit-choice.selected{
-  border-color:var(--terracotta);
-  background:#FFF3EA;
-}
-
-.fruit-choice img{
-  width:65px;
-  height:65px;
-  object-fit:cover;
-  border-radius:14px;
-}
-
-.fruit-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:22px;
-  font-weight:700;
-}
-
-.fruit-controls{
-  margin-top:7px;
-  display:flex;
-  align-items:center;
-  gap:5px;
-}
-
-.weight-input{
-  width:65px;
-  border:1px solid #ddd0c5;
-  border-radius:8px;
-  padding:7px;
-  text-align:center;
-  font-family:'Montserrat',sans-serif;
-}
-
-.grams-label{
-  font-size:10px;
-  color:#776960;
-}
-
-.modal-actions{
-  margin-top:25px;
-  display:flex;
-  justify-content:flex-end;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.btn-outline{
-  background:white;
-  color:var(--black);
-  border:1px solid #d8c9bd;
-}
-
-.btn-complete{
-  background:var(--gold);
-  color:white;
-}
-
-.btn-disabled{
-  opacity:.45;
-  cursor:not-allowed;
 }
 
 /* =========================
    CARRITO
 ========================= */
 
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:100;
+  display:none;
+}
+
+.overlay.active{
+  display:block;
+}
+
 .cart-panel{
   position:fixed;
-  right:-430px;
+  right:0;
   top:0;
-  width:min(430px,100%);
   height:100vh;
+  width:min(440px,100%);
   background:var(--ivory);
-  z-index:110;
-  box-shadow:-10px 0 40px rgba(0,0,0,.2);
+  z-index:101;
+  transform:translateX(100%);
   transition:.3s;
   display:flex;
   flex-direction:column;
 }
 
-.cart-panel.open{
-  right:0;
+.cart-panel.active{
+  transform:translateX(0);
 }
 
 .cart-head{
@@ -855,114 +642,296 @@ footer a{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  border-bottom:1px solid #eadfd4;
+  border-bottom:1px solid #eadfd5;
 }
 
 .cart-head h2{
+  font-family:'Cormorant Garamond',serif;
   font-size:34px;
 }
 
-.cart-close{
-  border:none;
+.close{
+  border:0;
   background:none;
-  font-size:25px;
+  font-size:28px;
   cursor:pointer;
 }
 
 .cart-items{
-  flex:1;
-  overflow-y:auto;
   padding:20px;
-}
-
-.cart-empty{
-  text-align:center;
-  color:#87786e;
-  padding:50px 15px;
+  overflow:auto;
+  flex:1;
 }
 
 .cart-item{
   background:white;
   padding:15px;
-  border-radius:16px;
+  border-radius:15px;
   margin-bottom:12px;
 }
 
-.cart-item-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:23px;
-  font-weight:700;
+.cart-item strong{
+  display:block;
+  margin-bottom:4px;
 }
 
-.cart-item-detail{
-  color:#74665d;
-  font-size:12px;
-  margin-top:5px;
-  line-height:1.6;
+.cart-item small{
+  color:#766960;
 }
 
-.cart-item-price{
+.remove-item{
   margin-top:8px;
+  border:0;
+  background:none;
   color:var(--terracotta);
-  font-weight:700;
+  cursor:pointer;
+  font-size:12px;
 }
 
-.cart-footer{
+.cart-bottom{
   padding:20px;
-  border-top:1px solid #eadfd4;
+  border-top:1px solid #eadfd5;
+  background:white;
 }
 
 .cart-total{
   display:flex;
   justify-content:space-between;
   font-weight:700;
-  font-size:18px;
-  margin-bottom:15px;
+  margin-bottom:14px;
+}
+
+/* =========================
+   MODAL PERSONALIZACIÓN
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:200;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
+  width:min(800px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:var(--ivory);
+  border-radius:28px;
+  padding:28px;
+  position:relative;
+}
+
+.modal-close{
+  position:absolute;
+  right:20px;
+  top:15px;
+  border:0;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.modal-box h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:40px;
+  padding-right:40px;
+}
+
+.modal-subtitle{
+  color:#766960;
+  margin-bottom:18px;
+}
+
+.selection-summary{
+  background:var(--cream);
+  padding:18px;
+  border-radius:18px;
+  margin-bottom:20px;
+}
+
+.selection-summary strong{
+  color:var(--terracotta);
+}
+
+.fruit-selection{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.fruit-option{
+  background:white;
+  border:2px solid transparent;
+  border-radius:16px;
+  padding:10px;
+}
+
+.fruit-option.selected{
+  border-color:var(--terracotta);
+}
+
+.fruit-option label{
+  display:block;
+  font-weight:600;
+  font-size:13px;
+  margin-bottom:7px;
+}
+
+.fruit-option img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:11px;
+  margin-bottom:8px;
+}
+
+.grams{
+  width:100%;
+  border:1px solid #d8c9bd;
+  border-radius:10px;
+  padding:9px;
+  font-size:14px;
+}
+
+.weight-box{
+  margin-top:20px;
+  padding:18px;
+  border-radius:18px;
+  background:var(--black);
+  color:white;
+}
+
+.weight-row{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:7px;
+}
+
+.remaining{
+  color:var(--peach);
+}
+
+.modal-actions{
+  margin-top:20px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.complete-btn{
+  border:0;
+  background:var(--gold);
+  color:var(--black);
+  padding:13px 18px;
+  border-radius:25px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.save-btn{
+  border:0;
+  background:var(--terracotta);
+  color:white;
+  padding:13px 20px;
+  border-radius:25px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.save-btn:disabled{
+  opacity:.4;
+  cursor:not-allowed;
 }
 
 /* =========================
    CHECKOUT
 ========================= */
 
-.checkout-grid{
+.checkout-box{
+  width:min(650px,100%);
+}
+
+.form-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:14px;
+  gap:13px;
 }
 
-.checkout-field{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
+.form-group{
+  margin-bottom:13px;
 }
 
-.checkout-field.full{
+.form-group.full{
   grid-column:1/-1;
 }
 
-.checkout-field label{
-  font-size:11px;
+.form-group label{
+  display:block;
+  font-size:12px;
   font-weight:700;
-  color:#695b52;
+  margin-bottom:5px;
 }
 
-.checkout-field input,
-.checkout-field select,
-.checkout-field textarea{
-  border:1px solid #d8c9bd;
-  background:white;
-  border-radius:10px;
+.form-group input,
+.form-group select{
+  width:100%;
   padding:11px;
-  font-family:'Montserrat',sans-serif;
+  border:1px solid #d8c9bd;
+  border-radius:10px;
+  background:white;
+  font-family:inherit;
 }
 
-.checkout-note{
-  margin-top:15px;
+.radio-box{
   background:var(--cream);
   padding:15px;
+  border-radius:15px;
+  margin-bottom:13px;
+}
+
+.radio-box label{
+  display:block;
+  margin:7px 0;
+  font-size:13px;
+}
+
+.checkout-total{
+  background:var(--black);
+  color:white;
+  padding:18px;
+  border-radius:16px;
+  margin-top:10px;
+}
+
+.checkout-line{
+  display:flex;
+  justify-content:space-between;
+  margin:5px 0;
+}
+
+.checkout-line.total{
+  border-top:1px solid rgba(255,255,255,.2);
+  padding-top:10px;
+  margin-top:10px;
+  font-size:18px;
+  font-weight:700;
+}
+
+.payment-note{
+  background:#f2e2c8;
   border-radius:14px;
+  padding:14px;
   font-size:12px;
-  line-height:1.6;
+  margin-bottom:15px;
 }
 
 /* =========================
@@ -971,19 +940,18 @@ footer a{
 
 .whatsapp{
   position:fixed;
-  right:20px;
-  bottom:20px;
+  right:22px;
+  bottom:22px;
   width:58px;
   height:58px;
   border-radius:50%;
   background:#25D366;
   color:white;
+  z-index:80;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-decoration:none;
-  font-size:27px;
-  z-index:90;
+  font-size:25px;
   box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
 
@@ -993,17 +961,27 @@ footer a{
 
 @media(max-width:900px){
 
+  .menu{
+    display:none;
+  }
+
   .hero{
     grid-template-columns:1fr;
     text-align:center;
+    padding-top:55px;
   }
 
-  .hero-text{
-    margin:auto;
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
   }
 
   .hero-buttons{
     justify-content:center;
+  }
+
+  .hero-visual{
+    min-height:430px;
   }
 
   .fruit-grid{
@@ -1025,10 +1003,6 @@ footer a{
   .footer-grid{
     grid-template-columns:1fr 1fr;
   }
-
-  nav{
-    display:none;
-  }
 }
 
 @media(max-width:600px){
@@ -1038,42 +1012,52 @@ footer a{
   }
 
   .nav{
-    padding:9px 15px;
+    min-height:75px;
+    padding:10px 16px;
   }
 
   .logo{
-    width:52px;
-    height:52px;
+    width:58px;
+    height:58px;
   }
 
-  .brand-name{
-    font-size:24px;
+  .brand-text strong{
+    font-size:25px;
+  }
+
+  .brand-text span{
+    font-size:7px;
+  }
+
+  .cart-button{
+    padding:10px 13px;
   }
 
   .hero{
-    padding-top:50px;
+    padding:50px 20px;
   }
 
   .hero h1{
-    font-size:56px;
-  }
-
-  .hero-products{
-    min-height:390px;
+    font-size:57px;
   }
 
   .hero-main{
-    width:270px;
-    height:340px;
+    width:280px;
+    height:350px;
   }
 
   .hero-small{
-    width:110px;
-    height:145px;
+    width:105px;
+    height:130px;
   }
 
-  .section-title{
-    font-size:43px;
+  section{
+    padding:65px 20px;
+  }
+
+  .section-heading h2,
+  .instagram h2{
+    font-size:44px;
   }
 
   .fruit-grid{
@@ -1084,11 +1068,15 @@ footer a{
     grid-template-columns:1fr;
   }
 
+  .product-card img{
+    height:350px;
+  }
+
   .benefit-grid{
     grid-template-columns:1fr 1fr;
   }
 
-  .story h2{
+  .story-text h2{
     font-size:45px;
   }
 
@@ -1096,24 +1084,16 @@ footer a{
     grid-template-columns:1fr;
   }
 
-  .fruit-selector{
+  .fruit-selection{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .form-grid{
     grid-template-columns:1fr;
   }
 
-  .checkout-grid{
-    grid-template-columns:1fr;
-  }
-
-  .checkout-field.full{
+  .form-group.full{
     grid-column:auto;
-  }
-
-  .modal{
-    padding:22px 17px;
-  }
-
-  .modal-header h2{
-    font-size:36px;
   }
 }
 </style>
@@ -1121,84 +1101,62 @@ footer a{
 
 <body>
 
-<!-- =========================
-     FRANJA SUPERIOR
-========================= -->
-
-<div class="floral-top">
-  <div class="floral-decoration">
-    <span class="flower"></span>
-    <span class="flower"></span>
-    <span class="flower"></span>
-    <span class="flower"></span>
-    <span class="flower"></span>
-    <span class="flower"></span>
-  </div>
-</div>
-
-<!-- =========================
-     HEADER
-========================= -->
+<div class="floral-top"></div>
 
 <header>
-  <div class="nav">
+  <nav class="nav">
 
-    <a href="#inicio" class="logo-area">
+    <a href="#inicio" class="brand">
       <img src="2.png" class="logo" alt="QAPA">
-      <div>
-        <div class="brand-name">QAPA</div>
-        <div class="brand-sub">PREMIUM NATURAL SNACKS</div>
+      <div class="brand-text">
+        <strong>QAPA</strong>
+        <span>PREMIUM NATURAL SNACKS</span>
       </div>
     </a>
 
-    <nav>
+    <div class="menu">
       <a href="#inicio">Inicio</a>
-      <a href="#tu-manera">A tu manera</a>
+      <a href="#manera">QAPA A TU MANERA</a>
       <a href="#productos">Productos</a>
-      <a href="#historia">QAPA</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+      <a href="#historia">Nuestra historia</a>
+      <a href="#instagram">Instagram</a>
+    </div>
 
     <button class="cart-button" onclick="openCart()">
-      🛒 Carrito
+      🛍 Carrito
       <span class="cart-count" id="cartCount">0</span>
     </button>
 
-  </div>
+  </nav>
 </header>
 
-<!-- =========================
-     HERO
-========================= -->
+<main>
 
 <section class="hero" id="inicio">
 
-  <div>
-    <div class="hero-kicker">Premium natural snacks</div>
+  <div class="hero-copy">
+
+    <div class="eyebrow">Frutas deshidratadas</div>
 
     <h1>
-      Frutas<br>
-      <span>deshidratadas</span>
+      QAPA<br>
+      <span>hecho para disfrutar.</span>
     </h1>
 
-    <p class="hero-text">
-      Una forma especial de disfrutar frutas seleccionadas,
-      con sabor, textura y color. Hecho para disfrutar,
-      regalar y compartir.
+    <p>
+      Frutas cuidadosamente seleccionadas y deshidratadas para conservar
+      su sabor, textura y esencia natural. Elige tus favoritas y crea
+      tu propia combinación QAPA.
     </p>
 
     <div class="hero-buttons">
-      <a href="#productos" class="btn btn-primary">
-        Ver productos
-      </a>
-
-      <a href="#tu-manera" class="btn btn-secondary">
-        QAPA A TU MANERA
-      </a>
+      <a href="#productos" class="btn btn-primary">VER PRODUCTOS</a>
+      <a href="#manera" class="btn btn-secondary">QAPA A TU MANERA</a>
     </div>
+
   </div>
 
-  <div class="hero-products">
+  <div class="hero-visual">
 
     <img
       src="hero-qapa.jpg"
@@ -1209,7 +1167,7 @@ footer a{
     <img
       src="qapa-premium.jpg"
       class="hero-small one"
-      alt="QAPA PREMIUM"
+      alt="QAPA Premium"
     >
 
     <img
@@ -1222,27 +1180,21 @@ footer a{
 
 </section>
 
-<!-- =========================
-     A TU MANERA
-========================= -->
 
-<section class="custom-section" id="tu-manera">
+<section class="custom-section" id="manera">
 
   <div class="section-inner">
 
-    <div class="section-head">
+    <div class="section-heading">
 
-      <div class="section-kicker">
-        Tú eliges
-      </div>
+      <div class="mini">Elige tus favoritas</div>
 
-      <h2 class="section-title">
-        QAPA A TU MANERA
-      </h2>
+      <h2>QAPA A TU MANERA</h2>
 
-      <p class="section-description">
-        Elige tu presentación y después crea tu propia combinación
-        con las frutas que más te gustan.
+      <p>
+        Tú eliges las frutas y la cantidad. Al agregar un producto,
+        podrás crear tu propia combinación y completar exactamente
+        el peso elegido.
       </p>
 
     </div>
@@ -1296,38 +1248,24 @@ footer a{
 
     </div>
 
-    <div class="custom-note">
-      <strong>¿Cómo funciona?</strong><br>
-      Primero eliges tu presentación. Al pulsar
-      <strong>AGREGAR</strong>, podrás crear tu combinación
-      personalizada con mínimo 3 frutas y completar exactamente
-      el peso de tu producto.
-    </div>
-
   </div>
 
 </section>
 
-<!-- =========================
-     PRODUCTOS
-========================= -->
 
-<section class="products-section" id="productos">
+<section id="productos">
 
   <div class="section-inner">
 
-    <div class="section-head">
+    <div class="section-heading">
 
-      <div class="section-kicker">
-        Elige tu QAPA
-      </div>
+      <div class="mini">Elige tu formato</div>
 
-      <h2 class="section-title">
-        Presentaciones
-      </h2>
+      <h2>Productos QAPA</h2>
 
-      <p class="section-description">
-        Diferentes tamaños para disfrutar, regalar o llevar contigo.
+      <p>
+        Selecciona tu presentación y presiona AGREGAR para comenzar
+        a crear tu combinación.
       </p>
 
     </div>
@@ -1338,36 +1276,22 @@ footer a{
 
       <article class="product-card">
 
-        <div class="product-image">
-          <img src="frasco-450.jpg" alt="Frasco grande 450 g">
-        </div>
+        <img src="frasco-450.jpg" alt="Frasco grande QAPA">
 
         <div class="product-info">
 
           <h3>Frasco grande</h3>
 
-          <div class="product-weight">
-            450 g
-          </div>
+          <div class="product-weight">450 g</div>
 
-          <p class="product-description">
-            Una presentación generosa para compartir o disfrutar en casa.
-          </p>
+          <div class="price">S/ 41</div>
 
-          <div class="product-bottom">
-
-            <div class="price">
-              S/ 41
-            </div>
-
-            <button
-              class="add-button"
-              onclick="startCustomization('Frasco grande',450,41)"
-            >
-              AGREGAR
-            </button>
-
-          </div>
+          <button
+            class="add-btn"
+            onclick="startCustomization('Frasco grande',450,41)"
+          >
+            AGREGAR
+          </button>
 
         </div>
 
@@ -1378,36 +1302,22 @@ footer a{
 
       <article class="product-card">
 
-        <div class="product-image">
-          <img src="frasco-300.jpg" alt="Frasco mediano 300 g">
-        </div>
+        <img src="frasco-300.jpg" alt="Frasco mediano QAPA">
 
         <div class="product-info">
 
           <h3>Frasco mediano</h3>
 
-          <div class="product-weight">
-            300 g
-          </div>
+          <div class="product-weight">300 g</div>
 
-          <p class="product-description">
-            El tamaño ideal para disfrutar y regalar.
-          </p>
+          <div class="price">S/ 31</div>
 
-          <div class="product-bottom">
-
-            <div class="price">
-              S/ 31
-            </div>
-
-            <button
-              class="add-button"
-              onclick="startCustomization('Frasco mediano',300,31)"
-            >
-              AGREGAR
-            </button>
-
-          </div>
+          <button
+            class="add-btn"
+            onclick="startCustomization('Frasco mediano',300,31)"
+          >
+            AGREGAR
+          </button>
 
         </div>
 
@@ -1418,36 +1328,22 @@ footer a{
 
       <article class="product-card">
 
-        <div class="product-image">
-          <img src="frasco-200.jpg" alt="Frasco chico 200 g">
-        </div>
+        <img src="frasco-200.jpg" alt="Frasco chico QAPA">
 
         <div class="product-info">
 
           <h3>Frasco chico</h3>
 
-          <div class="product-weight">
-            200 g
-          </div>
+          <div class="product-weight">200 g</div>
 
-          <p class="product-description">
-            Una presentación práctica para disfrutar tu fruta favorita.
-          </p>
+          <div class="price">S/ 21</div>
 
-          <div class="product-bottom">
-
-            <div class="price">
-              S/ 21
-            </div>
-
-            <button
-              class="add-button"
-              onclick="startCustomization('Frasco chico',200,21)"
-            >
-              AGREGAR
-            </button>
-
-          </div>
+          <button
+            class="add-btn"
+            onclick="startCustomization('Frasco chico',200,21)"
+          >
+            AGREGAR
+          </button>
 
         </div>
 
@@ -1458,36 +1354,22 @@ footer a{
 
       <article class="product-card">
 
-        <div class="product-image">
-          <img src="qapa-premium.jpg" alt="QAPA PREMIUM 300 g">
-        </div>
+        <img src="qapa-premium.jpg" alt="QAPA Premium">
 
         <div class="product-info">
 
           <h3>QAPA PREMIUM</h3>
 
-          <div class="product-weight">
-            300 g
-          </div>
+          <div class="product-weight">300 g · Empaque hermético</div>
 
-          <p class="product-description">
-            Nuestro empaque hermético de 300 g.
-          </p>
+          <div class="price">S/ 28</div>
 
-          <div class="product-bottom">
-
-            <div class="price">
-              S/ 28
-            </div>
-
-            <button
-              class="add-button"
-              onclick="startCustomization('QAPA PREMIUM',300,28)"
-            >
-              AGREGAR
-            </button>
-
-          </div>
+          <button
+            class="add-btn"
+            onclick="startCustomization('QAPA PREMIUM',300,28)"
+          >
+            AGREGAR
+          </button>
 
         </div>
 
@@ -1498,36 +1380,22 @@ footer a{
 
       <article class="product-card">
 
-        <div class="product-image">
-          <img src="qapa-go.jpg" alt="QAPA GO 100 g">
-        </div>
+        <img src="qapa-go.jpg" alt="QAPA GO">
 
         <div class="product-info">
 
           <h3>QAPA GO</h3>
 
-          <div class="product-weight">
-            100 g
-          </div>
+          <div class="product-weight">100 g</div>
 
-          <p class="product-description">
-            Para llevar contigo y disfrutar donde quieras.
-          </p>
+          <div class="price">S/ 11</div>
 
-          <div class="product-bottom">
-
-            <div class="price">
-              S/ 11
-            </div>
-
-            <button
-              class="add-button"
-              onclick="startCustomization('QAPA GO',100,11)"
-            >
-              AGREGAR
-            </button>
-
-          </div>
+          <button
+            class="add-btn"
+            onclick="startCustomization('QAPA GO',100,11)"
+          >
+            AGREGAR
+          </button>
 
         </div>
 
@@ -1538,36 +1406,22 @@ footer a{
 
       <article class="product-card">
 
-        <div class="product-image">
-          <img src="qapa-pocket.jpg" alt="QAPA POCKET 50 g">
-        </div>
+        <img src="qapa-pocket.jpg" alt="QAPA POCKET">
 
         <div class="product-info">
 
           <h3>QAPA POCKET</h3>
 
-          <div class="product-weight">
-            50 g
-          </div>
+          <div class="product-weight">50 g</div>
 
-          <p class="product-description">
-            Pequeño, práctico y perfecto para llevar.
-          </p>
+          <div class="price">S/ 6</div>
 
-          <div class="product-bottom">
-
-            <div class="price">
-              S/ 6
-            </div>
-
-            <button
-              class="add-button"
-              onclick="startCustomization('QAPA POCKET',50,6)"
-            >
-              AGREGAR
-            </button>
-
-          </div>
+          <button
+            class="add-btn"
+            onclick="startCustomization('QAPA POCKET',50,6)"
+          >
+            AGREGAR
+          </button>
 
         </div>
 
@@ -1579,50 +1433,35 @@ footer a{
 
 </section>
 
-<!-- =========================
-     BENEFICIOS
-========================= -->
 
 <section class="benefits">
 
   <div class="section-inner">
 
-    <div class="section-head">
-
-      <div class="section-kicker" style="color:#F3C9AF">
-        QAPA
-      </div>
-
-      <h2 class="section-title">
-        Natural por elección
-      </h2>
-
-    </div>
-
     <div class="benefit-grid">
 
       <div class="benefit">
-        <div class="benefit-icon">✿</div>
+        <div class="benefit-symbol">✦</div>
         <h3>100% natural</h3>
-        <p>Frutas deshidratadas para disfrutar su sabor.</p>
+        <p>Frutas deshidratadas para disfrutar naturalmente.</p>
       </div>
 
       <div class="benefit">
-        <div class="benefit-icon">♡</div>
+        <div class="benefit-symbol">♡</div>
         <h3>Sin azúcar añadida</h3>
-        <p>Una forma sencilla de disfrutar fruta.</p>
+        <p>Sin añadir azúcar a nuestras frutas.</p>
       </div>
 
       <div class="benefit">
-        <div class="benefit-icon">❋</div>
+        <div class="benefit-symbol">❋</div>
         <h3>Sin conservantes</h3>
-        <p>Una propuesta natural y cuidadosamente seleccionada.</p>
+        <p>Una propuesta sencilla y natural.</p>
       </div>
 
       <div class="benefit">
-        <div class="benefit-icon">🎁</div>
+        <div class="benefit-symbol">🎁</div>
         <h3>Para regalar</h3>
-        <p>Presentaciones pensadas para compartir momentos especiales.</p>
+        <p>Presentaciones pensadas para compartir.</p>
       </div>
 
     </div>
@@ -1631,9 +1470,6 @@ footer a{
 
 </section>
 
-<!-- =========================
-     HISTORIA
-========================= -->
 
 <section class="story" id="historia">
 
@@ -1645,27 +1481,24 @@ footer a{
       alt="Historia QAPA"
     >
 
-    <div>
+    <div class="story-text">
 
-      <div class="section-kicker">
-        Nuestra historia
-      </div>
+      <div class="mini">Nuestra historia</div>
 
-      <h2>
-        Hecho para disfrutar,
-        regalar y compartir.
-      </h2>
+      <h2>Una forma distinta de disfrutar la fruta.</h2>
 
       <p>
-        QAPA nace de una idea sencilla: disfrutar frutas
-        deshidratadas de una manera especial, cuidando tanto
-        el producto como la presentación.
+        QAPA nace de la idea de convertir algo sencillo y natural
+        en una experiencia bonita para disfrutar, regalar y compartir.
       </p>
 
       <p>
-        Seleccionamos nuestras frutas para crear una experiencia
-        natural, práctica y bonita, pensada para acompañar
-        pequeños momentos del día.
+        Seleccionamos frutas deshidratadas y creamos presentaciones
+        pensadas para acompañarte en diferentes momentos del día.
+      </p>
+
+      <p>
+        Y ahora puedes elegir tus frutas y hacer QAPA a tu manera.
       </p>
 
     </div>
@@ -1674,496 +1507,483 @@ footer a{
 
 </section>
 
-<!-- =========================
-     INSTAGRAM
-========================= -->
 
-<section class="instagram" id="contacto">
+<section class="instagram" id="instagram">
 
   <div class="section-inner">
 
-    <div class="section-kicker">
-      Síguenos
-    </div>
+    <div class="mini">Síguenos</div>
 
-    <h2 class="section-title">
-      QAPA en Instagram
-    </h2>
+    <h2>@qapa.snacks</h2>
 
-    <p class="section-description">
+    <p>
       Descubre nuestras frutas, presentaciones y novedades.
     </p>
 
     <a
+      class="instagram-link"
       href="https://instagram.com/qapa.snacks"
       target="_blank"
-      class="instagram-button"
     >
-      @qapa.snacks
+      VER INSTAGRAM
     </a>
 
   </div>
 
 </section>
 
-<!-- =========================
-     FOOTER
-========================= -->
+</main>
+
 
 <footer>
 
   <div class="footer-grid">
 
-    <div>
-      <img src="2.png" class="footer-logo" alt="QAPA">
+    <div class="footer-brand">
+
+      <h2>QAPA</h2>
+
+      <p>
+        Frutas deshidratadas hechas para disfrutar, regalar y compartir.
+      </p>
+
+    </div>
+
+    <div class="footer-column">
 
       <h3>QAPA</h3>
 
-      <p>
-        PREMIUM NATURAL SNACKS
-      </p>
+      <a href="#inicio">Inicio</a>
+      <a href="#manera">QAPA A TU MANERA</a>
+      <a href="#productos">Productos</a>
+      <a href="#historia">Nuestra historia</a>
 
-      <p>
-        Frutas deshidratadas hechas para disfrutar,
-        regalar y compartir.
-      </p>
     </div>
 
-    <div>
-      <h3>QAPA</h3>
+    <div class="footer-column">
 
-      <p><a href="#inicio">Inicio</a></p>
-      <p><a href="#tu-manera">A tu manera</a></p>
-      <p><a href="#productos">Productos</a></p>
-      <p><a href="#historia">Nuestra historia</a></p>
-    </div>
+      <h3>Encuéntranos</h3>
 
-    <div>
-      <h3>Contacto</h3>
+      <a
+        href="https://instagram.com/qapa.snacks"
+        target="_blank"
+      >
+        Instagram
+      </a>
 
-      <p>
-        Instagram:
-        <a href="https://instagram.com/qapa.snacks" target="_blank">
-          @qapa.snacks
-        </a>
-      </p>
+      <a
+        href="https://wa.me/51999999999"
+        target="_blank"
+      >
+        WhatsApp
+      </a>
 
-      <p>
-        WhatsApp:
-        próximamente
-      </p>
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    © 2026 QAPA · Premium Natural Snacks
+    © 2026 QAPA · PREMIUM NATURAL SNACKS
   </div>
 
 </footer>
 
+
 <!-- =========================
-     MODAL: CREAR COMBINACIÓN
+     OVERLAY
 ========================= -->
 
-<div class="modal-overlay" id="customModal">
+<div
+  class="overlay"
+  id="overlay"
+  onclick="closeAllPanels()"
+></div>
 
-  <div class="modal">
+
+<!-- =========================
+     CARRITO
+========================= -->
+
+<aside class="cart-panel" id="cartPanel">
+
+  <div class="cart-head">
+
+    <h2>Tu carrito</h2>
 
     <button
-      class="close-modal"
+      class="close"
+      onclick="closeCart()"
+    >
+      ×
+    </button>
+
+  </div>
+
+  <div class="cart-items" id="cartItems">
+
+    <p style="color:#766960;">
+      Tu carrito está vacío.
+    </p>
+
+  </div>
+
+  <div class="cart-bottom">
+
+    <div class="cart-total">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">S/ 0</span>
+    </div>
+
+    <button
+      class="btn btn-primary"
+      style="width:100%;"
+      onclick="openCheckout()"
+    >
+      CONTINUAR PEDIDO
+    </button>
+
+  </div>
+
+</aside>
+
+
+<!-- =========================
+     MODAL COMBINACIÓN
+========================= -->
+
+<div class="modal" id="customModal">
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
       onclick="closeCustomization()"
     >
       ×
     </button>
 
-    <div class="modal-header">
+    <h2>Hazlo QAPA a tu manera</h2>
 
-      <div class="section-kicker">
-        QAPA A TU MANERA
-      </div>
+    <p class="modal-subtitle" id="customProduct"></p>
 
-      <h2>
-        Crea tu combinación
-      </h2>
+    <div class="selection-summary">
 
-      <p>
-        Elige mínimo 3 frutas y distribuye el peso de tu producto
-        como prefieras.
-      </p>
+      Selecciona <strong>mínimo 3 frutas</strong> y distribuye
+      los gramos hasta completar exactamente el peso de tu producto.
 
     </div>
 
-    <div class="selected-product">
-
-      <div>
-        <strong id="selectedProductName">
-          Producto
-        </strong>
-
-        <div style="font-size:12px;color:#776960;margin-top:3px">
-          Tu presentación
-        </div>
-      </div>
-
-      <div class="selected-weight">
-        <span id="selectedProductWeight">0</span> g
-      </div>
-
-    </div>
-
-    <div class="progress-box">
-
-      <div class="progress-top">
-
-        <span>
-          Tu combinación
-        </span>
-
-        <span>
-          <span id="currentWeight">0</span> /
-          <span id="maxWeight">0</span> g
-        </span>
-
-      </div>
-
-      <div class="progress-bar">
-
-        <div
-          class="progress-fill"
-          id="progressFill"
-        ></div>
-
-      </div>
-
-      <div
-        class="progress-message"
-        id="progressMessage"
-      >
-        Selecciona mínimo 3 frutas.
-      </div>
-
-    </div>
-
-    <div class="fruit-selector">
+    <div class="fruit-selection">
 
       <!-- FRESA -->
 
-      <div class="fruit-choice" id="choice-fresa">
+      <div class="fruit-option" id="option-fresa">
+
+        <label>
+          <input
+            type="checkbox"
+            class="fruit-check"
+            data-fruit="Fresa"
+            onchange="toggleFruit('option-fresa')"
+          >
+          Fresa
+        </label>
 
         <img src="fresa.jpg" alt="Fresa">
 
-        <div>
-
-          <div class="fruit-name">
-            Fresa
-          </div>
-
-          <div class="fruit-controls">
-
-            <input
-              type="number"
-              min="0"
-              step="10"
-              value="0"
-              class="weight-input"
-              data-fruit="Fresa"
-              onchange="updateCombination()"
-            >
-
-            <span class="grams-label">g</span>
-
-          </div>
-
-        </div>
+        <input
+          class="grams"
+          type="number"
+          min="0"
+          step="10"
+          value="0"
+          data-fruit-input="Fresa"
+          disabled
+          oninput="updateCombination()"
+        >
 
       </div>
 
 
       <!-- PAPAYA -->
 
-      <div class="fruit-choice" id="choice-papaya">
+      <div class="fruit-option" id="option-papaya">
+
+        <label>
+          <input
+            type="checkbox"
+            class="fruit-check"
+            data-fruit="Papaya"
+            onchange="toggleFruit('option-papaya')"
+          >
+          Papaya
+        </label>
 
         <img src="papaya.jpg" alt="Papaya">
 
-        <div>
-
-          <div class="fruit-name">
-            Papaya
-          </div>
-
-          <div class="fruit-controls">
-
-            <input
-              type="number"
-              min="0"
-              step="10"
-              value="0"
-              class="weight-input"
-              data-fruit="Papaya"
-              onchange="updateCombination()"
-            >
-
-            <span class="grams-label">g</span>
-
-          </div>
-
-        </div>
+        <input
+          class="grams"
+          type="number"
+          min="0"
+          step="10"
+          value="0"
+          data-fruit-input="Papaya"
+          disabled
+          oninput="updateCombination()"
+        >
 
       </div>
 
 
       <!-- KIWI -->
 
-      <div class="fruit-choice" id="choice-kiwi">
+      <div class="fruit-option" id="option-kiwi">
+
+        <label>
+          <input
+            type="checkbox"
+            class="fruit-check"
+            data-fruit="Kiwi"
+            onchange="toggleFruit('option-kiwi')"
+          >
+          Kiwi
+        </label>
 
         <img src="kiwi.jpg" alt="Kiwi">
 
-        <div>
-
-          <div class="fruit-name">
-            Kiwi
-          </div>
-
-          <div class="fruit-controls">
-
-            <input
-              type="number"
-              min="0"
-              step="10"
-              value="0"
-              class="weight-input"
-              data-fruit="Kiwi"
-              onchange="updateCombination()"
-            >
-
-            <span class="grams-label">g</span>
-
-          </div>
-
-        </div>
+        <input
+          class="grams"
+          type="number"
+          min="0"
+          step="10"
+          value="0"
+          data-fruit-input="Kiwi"
+          disabled
+          oninput="updateCombination()"
+        >
 
       </div>
 
 
       <!-- MANGO -->
 
-      <div class="fruit-choice" id="choice-mango">
+      <div class="fruit-option" id="option-mango">
+
+        <label>
+          <input
+            type="checkbox"
+            class="fruit-check"
+            data-fruit="Mango"
+            onchange="toggleFruit('option-mango')"
+          >
+          Mango
+        </label>
 
         <img src="mango.jpg" alt="Mango">
 
-        <div>
-
-          <div class="fruit-name">
-            Mango
-          </div>
-
-          <div class="fruit-controls">
-
-            <input
-              type="number"
-              min="0"
-              step="10"
-              value="0"
-              class="weight-input"
-              data-fruit="Mango"
-              onchange="updateCombination()"
-            >
-
-            <span class="grams-label">g</span>
-
-          </div>
-
-        </div>
+        <input
+          class="grams"
+          type="number"
+          min="0"
+          step="10"
+          value="0"
+          data-fruit-input="Mango"
+          disabled
+          oninput="updateCombination()"
+        >
 
       </div>
 
 
       <!-- MANZANA -->
 
-      <div class="fruit-choice" id="choice-manzana">
+      <div class="fruit-option" id="option-manzana">
+
+        <label>
+          <input
+            type="checkbox"
+            class="fruit-check"
+            data-fruit="Manzana"
+            onchange="toggleFruit('option-manzana')"
+          >
+          Manzana
+        </label>
 
         <img src="manzana.jpg" alt="Manzana">
 
-        <div>
-
-          <div class="fruit-name">
-            Manzana
-          </div>
-
-          <div class="fruit-controls">
-
-            <input
-              type="number"
-              min="0"
-              step="10"
-              value="0"
-              class="weight-input"
-              data-fruit="Manzana"
-              onchange="updateCombination()"
-            >
-
-            <span class="grams-label">g</span>
-
-          </div>
-
-        </div>
+        <input
+          class="grams"
+          type="number"
+          min="0"
+          step="10"
+          value="0"
+          data-fruit-input="Manzana"
+          disabled
+          oninput="updateCombination()"
+        >
 
       </div>
 
 
       <!-- AGUAYMANTO -->
 
-      <div class="fruit-choice" id="choice-aguaymanto">
+      <div class="fruit-option" id="option-aguaymanto">
+
+        <label>
+          <input
+            type="checkbox"
+            class="fruit-check"
+            data-fruit="Aguaymanto"
+            onchange="toggleFruit('option-aguaymanto')"
+          >
+          Aguaymanto
+        </label>
 
         <img src="aguaymanto.jpg" alt="Aguaymanto">
 
-        <div>
-
-          <div class="fruit-name">
-            Aguaymanto
-          </div>
-
-          <div class="fruit-controls">
-
-            <input
-              type="number"
-              min="0"
-              step="10"
-              value="0"
-              class="weight-input"
-              data-fruit="Aguaymanto"
-              onchange="updateCombination()"
-            >
-
-            <span class="grams-label">g</span>
-
-          </div>
-
-        </div>
+        <input
+          class="grams"
+          type="number"
+          min="0"
+          step="10"
+          value="0"
+          data-fruit-input="Aguaymanto"
+          disabled
+          oninput="updateCombination()"
+        >
 
       </div>
 
 
       <!-- PIÑA -->
 
-      <div class="fruit-choice" id="choice-pina">
+      <div class="fruit-option" id="option-pina">
+
+        <label>
+          <input
+            type="checkbox"
+            class="fruit-check"
+            data-fruit="Piña"
+            onchange="toggleFruit('option-pina')"
+          >
+          Piña
+        </label>
 
         <img src="pina.jpg" alt="Piña">
 
-        <div>
-
-          <div class="fruit-name">
-            Piña
-          </div>
-
-          <div class="fruit-controls">
-
-            <input
-              type="number"
-              min="0"
-              step="10"
-              value="0"
-              class="weight-input"
-              data-fruit="Piña"
-              onchange="updateCombination()"
-            >
-
-            <span class="grams-label">g</span>
-
-          </div>
-
-        </div>
+        <input
+          class="grams"
+          type="number"
+          min="0"
+          step="10"
+          value="0"
+          data-fruit-input="Piña"
+          disabled
+          oninput="updateCombination()"
+        >
 
       </div>
 
 
       <!-- CEREZA -->
 
-      <div class="fruit-choice" id="choice-cereza">
+      <div class="fruit-option" id="option-cereza">
+
+        <label>
+          <input
+            type="checkbox"
+            class="fruit-check"
+            data-fruit="Cereza"
+            onchange="toggleFruit('option-cereza')"
+          >
+          Cereza
+        </label>
 
         <img src="cereza.jpg" alt="Cereza">
 
-        <div>
-
-          <div class="fruit-name">
-            Cereza
-          </div>
-
-          <div class="fruit-controls">
-
-            <input
-              type="number"
-              min="0"
-              step="10"
-              value="0"
-              class="weight-input"
-              data-fruit="Cereza"
-              onchange="updateCombination()"
-            >
-
-            <span class="grams-label">g</span>
-
-          </div>
-
-        </div>
+        <input
+          class="grams"
+          type="number"
+          min="0"
+          step="10"
+          value="0"
+          data-fruit-input="Cereza"
+          disabled
+          oninput="updateCombination()"
+        >
 
       </div>
 
 
-      <!-- ARÁNDANO -->
+      <!-- ARANDANO -->
 
-      <div class="fruit-choice" id="choice-arandano">
+      <div class="fruit-option" id="option-arandano">
+
+        <label>
+          <input
+            type="checkbox"
+            class="fruit-check"
+            data-fruit="Arándano rojo"
+            onchange="toggleFruit('option-arandano')"
+          >
+          Arándano rojo
+        </label>
 
         <img src="arandano.jpg" alt="Arándano rojo">
 
-        <div>
-
-          <div class="fruit-name">
-            Arándano
-          </div>
-
-          <div class="fruit-controls">
-
-            <input
-              type="number"
-              min="0"
-              step="10"
-              value="0"
-              class="weight-input"
-              data-fruit="Arándano rojo"
-              onchange="updateCombination()"
-            >
-
-            <span class="grams-label">g</span>
-
-          </div>
-
-        </div>
+        <input
+          class="grams"
+          type="number"
+          min="0"
+          step="10"
+          value="0"
+          data-fruit-input="Arándano rojo"
+          disabled
+          oninput="updateCombination()"
+        >
 
       </div>
 
     </div>
 
+
+    <div class="weight-box">
+
+      <div class="weight-row">
+        <span>Seleccionado</span>
+        <strong>
+          <span id="currentWeight">0</span> g
+        </strong>
+      </div>
+
+      <div class="weight-row">
+        <span>Peso total</span>
+        <strong>
+          <span id="maxWeight">0</span> g
+        </strong>
+      </div>
+
+      <div class="weight-row remaining">
+        <span>Faltan</span>
+        <strong>
+          <span id="remainingWeight">0</span> g
+        </strong>
+      </div>
+
+    </div>
+
+
     <div class="modal-actions">
 
       <button
-        class="btn btn-outline"
-        onclick="closeCustomization()"
-      >
-        Cancelar
-      </button>
-
-      <button
-        class="btn btn-complete"
-        id="completeButton"
+        class="complete-btn"
         onclick="completeWeight()"
       >
         COMPLETAR PESO
       </button>
 
       <button
-        class="btn btn-primary btn-disabled"
+        class="save-btn"
         id="saveCombinationButton"
         onclick="saveCombination()"
         disabled
@@ -2177,147 +1997,64 @@ footer a{
 
 </div>
 
-<!-- =========================
-     CARRITO
-========================= -->
-
-<aside class="cart-panel" id="cartPanel">
-
-  <div class="cart-head">
-
-    <h2>
-      Mi carrito
-    </h2>
-
-    <button
-      class="cart-close"
-      onclick="closeCart()"
-    >
-      ×
-    </button>
-
-  </div>
-
-  <div class="cart-items" id="cartItems">
-
-    <div class="cart-empty">
-      Tu carrito está vacío.
-    </div>
-
-  </div>
-
-  <div class="cart-footer">
-
-    <div class="cart-total">
-
-      <span>
-        Total
-      </span>
-
-      <span>
-        S/ <span id="cartTotal">0.00</span>
-      </span>
-
-    </div>
-
-    <button
-      class="btn btn-primary"
-      style="width:100%"
-      onclick="openCheckout()"
-    >
-      CONTINUAR PEDIDO
-    </button>
-
-  </div>
-
-</aside>
 
 <!-- =========================
      CHECKOUT
 ========================= -->
 
-<div class="modal-overlay" id="checkoutModal">
+<div class="modal" id="checkoutModal">
 
-  <div class="modal">
+  <div class="modal-box checkout-box">
 
     <button
-      class="close-modal"
+      class="modal-close"
       onclick="closeCheckout()"
     >
       ×
     </button>
 
-    <div class="modal-header">
+    <h2>Completa tu pedido</h2>
 
-      <div class="section-kicker">
-        Finalizar pedido
-      </div>
+    <p class="modal-subtitle">
+      Déjanos tus datos para preparar tu pedido QAPA.
+    </p>
 
-      <h2>
-        Tus datos
-      </h2>
 
-      <p>
-        Completa los datos para preparar tu pedido QAPA.
-      </p>
+    <div class="form-grid">
 
-    </div>
-
-    <div class="checkout-grid">
-
-      <div class="checkout-field">
-
-        <label>
-          Nombre
-        </label>
-
+      <div class="form-group">
+        <label>Nombre</label>
         <input
           type="text"
           id="customerName"
           placeholder="Tu nombre"
         >
-
       </div>
 
-      <div class="checkout-field">
-
-        <label>
-          Teléfono
-        </label>
-
+      <div class="form-group">
+        <label>Celular</label>
         <input
           type="tel"
           id="customerPhone"
-          placeholder="Tu teléfono"
+          placeholder="999 999 999"
         >
-
       </div>
 
-      <div class="checkout-field">
-
-        <label>
-          Correo electrónico
-        </label>
-
+      <div class="form-group">
+        <label>Correo electrónico</label>
         <input
           type="email"
           id="customerEmail"
-          placeholder="tu@email.com"
+          placeholder="correo@ejemplo.com"
         >
-
       </div>
 
-      <div class="checkout-field">
-
-        <label>
-          Distrito
-        </label>
+      <div class="form-group">
+        <label>Distrito</label>
 
         <select id="customerDistrict" onchange="updateDelivery()">
 
-          <option value="">
-            Selecciona tu distrito
-          </option>
+          <option value="">Selecciona tu distrito</option>
 
           <option value="Pueblo Libre">Pueblo Libre — Gratis</option>
           <option value="Jesús María">Jesús María — Gratis</option>
@@ -2373,539 +2110,473 @@ footer a{
 
       </div>
 
-      <div class="checkout-field full">
+      <div class="form-group full">
 
-        <label>
-          Dirección
-        </label>
+        <label>Dirección de entrega</label>
 
         <input
           type="text"
           id="customerAddress"
-          placeholder="Dirección de entrega"
-        >
-
-      </div>
-
-      <div class="checkout-field">
-
-        <label>
-          Entrega
-        </label>
-
-        <select id="deliveryType">
-
-          <option value="Normal">
-            Entrega normal
-          </option>
-
-          <option value="Rápida">
-            Entrega rápida
-          </option>
-
-        </select>
-
-      </div>
-
-      <div class="checkout-field">
-
-        <label>
-          Comprobante
-        </label>
-
-        <select id="receiptType">
-
-          <option value="Boleta simple">
-            Boleta simple
-          </option>
-
-          <option value="Boleta con DNI">
-            Boleta con DNI
-          </option>
-
-        </select>
-
-      </div>
-
-      <div class="checkout-field full">
-
-        <label>
-          Comprobante de pago
-        </label>
-
-        <input
-          type="file"
-          id="paymentProof"
-          accept="image/*"
+          placeholder="Calle, número, departamento, referencia"
         >
 
       </div>
 
     </div>
 
-    <div class="checkout-note">
+
+    <div class="radio-box">
+
+      <strong>Tipo de entrega</strong>
+
+      <label>
+        <input
+          type="radio"
+          name="delivery"
+          value="normal"
+          checked
+          onchange="updateDelivery()"
+        >
+        Entrega normal
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="delivery"
+          value="rapid"
+          onchange="updateDelivery()"
+        >
+        Entrega rápida
+      </label>
+
+    </div>
+
+
+    <div class="radio-box">
+
+      <strong>Comprobante</strong>
+
+      <label>
+        <input
+          type="radio"
+          name="receipt"
+          value="simple"
+          checked
+        >
+        Boleta simple
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          name="receipt"
+          value="dni"
+        >
+        Boleta con DNI
+      </label>
+
+    </div>
+
+
+    <div class="payment-note">
 
       <strong>Pago:</strong>
-      Yape / Plin.<br>
+      Yape o Plin.
 
-      Los datos y QR de pago se incorporarán cuando estén
-      definidos para la tienda.
+      <br>
 
-      <br><br>
-
-      <strong>Bolsa QAPA:</strong>
-      compras con subtotal desde S/ 50 pueden recibir bolsa
-      de tela QAPA, según disponibilidad.
+      Después de realizar el pago podrás enviar tu comprobante
+      junto con el pedido por WhatsApp.
 
     </div>
 
-    <div style="margin-top:20px;background:white;border-radius:18px;padding:18px">
 
-      <div style="display:flex;justify-content:space-between">
+    <div class="form-group">
+
+      <label>Comprobante de pago</label>
+
+      <input
+        type="file"
+        id="paymentProof"
+        accept="image/*,.pdf"
+      >
+
+    </div>
+
+
+    <div class="checkout-total">
+
+      <div class="checkout-line">
         <span>Productos</span>
-        <strong>S/ <span id="checkoutSubtotal">0.00</span></strong>
+        <strong id="checkoutSubtotal">S/ 0</strong>
       </div>
 
-      <div style="display:flex;justify-content:space-between;margin-top:8px">
+      <div class="checkout-line">
         <span>Delivery</span>
-        <strong>S/ <span id="checkoutDelivery">0.00</span></strong>
+        <strong id="checkoutDelivery">S/ 0</strong>
       </div>
 
-      <div style="display:flex;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid #eee;font-size:18px">
-        <strong>Total</strong>
-        <strong>S/ <span id="checkoutTotal">0.00</span></strong>
+      <div class="checkout-line total">
+        <span>Total</span>
+        <strong id="checkoutTotal">S/ 0</strong>
       </div>
 
     </div>
 
-    <div class="modal-actions">
 
-      <button
-        class="btn btn-outline"
-        onclick="closeCheckout()"
-      >
-        Volver
-      </button>
-
-      <button
-        class="btn btn-primary"
-        onclick="sendOrderWhatsApp()"
-      >
-        ENVIAR PEDIDO POR WHATSAPP
-      </button>
-
-    </div>
+    <button
+      class="btn btn-primary"
+      style="width:100%;margin-top:18px;"
+      onclick="sendOrderWhatsApp()"
+    >
+      ENVIAR PEDIDO POR WHATSAPP
+    </button>
 
   </div>
 
 </div>
 
-<!-- =========================
-     WHATSAPP
-========================= -->
 
 <a
-  href="#"
   class="whatsapp"
-  onclick="openWhatsApp();return false;"
+  href="https://wa.me/51999999999"
+  target="_blank"
   aria-label="WhatsApp"
 >
   ☎
 </a>
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 
 <script>
 
-/* =====================================
+/* =========================
    CONFIGURACIÓN
-===================================== */
+========================= */
 
 const WHATSAPP_NUMBER = "51999999999";
 
-/*
-  Cambiar posteriormente por el número real
-  de WhatsApp de QAPA.
-*/
-
-let selectedProduct = null;
-
 let cart = [];
+
+let customization = {
+  name:"",
+  weight:0,
+  price:0
+};
 
 let deliveryCost = 0;
 
 
-/* =====================================
-   ABRIR CONFIGURADOR
-===================================== */
+/* =========================
+   INICIAR PERSONALIZACIÓN
+========================= */
 
 function startCustomization(name, weight, price){
 
-  selectedProduct = {
+  customization = {
     name:name,
     weight:weight,
     price:price
   };
 
-  document.getElementById("selectedProductName").textContent = name;
+  document.getElementById("customProduct").textContent =
+    name + " · " + weight + " g · S/ " + price;
 
-  document.getElementById("selectedProductWeight").textContent = weight;
+  resetFruitSelection();
 
   document.getElementById("maxWeight").textContent = weight;
-
-  resetCombination();
 
   document.getElementById("customModal").classList.add("active");
 
 }
 
 
-/* =====================================
-   CERRAR CONFIGURADOR
-===================================== */
+/* =========================
+   RESET
+========================= */
 
-function closeCustomization(){
+function resetFruitSelection(){
 
-  document
-    .getElementById("customModal")
-    .classList.remove("active");
+  document.querySelectorAll(".fruit-check").forEach(check => {
+    check.checked = false;
+  });
 
-}
+  document.querySelectorAll(".grams").forEach(input => {
+    input.value = 0;
+    input.disabled = true;
+  });
 
-
-/* =====================================
-   REINICIAR COMBINACIÓN
-===================================== */
-
-function resetCombination(){
-
-  document
-    .querySelectorAll(".weight-input")
-    .forEach(input => {
-      input.value = 0;
-    });
+  document.querySelectorAll(".fruit-option").forEach(option => {
+    option.classList.remove("selected");
+  });
 
   updateCombination();
-
 }
 
 
-/* =====================================
-   LEER FRUTAS
-===================================== */
+/* =========================
+   SELECCIONAR FRUTA
+========================= */
+
+function toggleFruit(optionId){
+
+  const option = document.getElementById(optionId);
+  const checkbox = option.querySelector(".fruit-check");
+  const input = option.querySelector(".grams");
+
+  if(checkbox.checked){
+
+    option.classList.add("selected");
+    input.disabled = false;
+
+    if(Number(input.value) === 0){
+      input.value = 10;
+    }
+
+  }else{
+
+    option.classList.remove("selected");
+    input.disabled = true;
+    input.value = 0;
+
+  }
+
+  updateCombination();
+}
+
+
+/* =========================
+   FRUTAS SELECCIONADAS
+========================= */
 
 function getSelectedFruits(){
 
-  const fruits = [];
+  const selected = [];
 
-  document
-    .querySelectorAll(".weight-input")
-    .forEach(input => {
+  document.querySelectorAll(".fruit-check:checked").forEach(check => {
 
-      const weight = parseInt(input.value) || 0;
+    const fruit = check.dataset.fruit;
 
-      if(weight > 0){
+    const input =
+      document.querySelector(
+        `[data-fruit-input="${fruit}"]`
+      );
 
-        fruits.push({
-          name:input.dataset.fruit,
-          weight:weight,
-          input:input
-        });
+    const grams = Number(input.value) || 0;
 
-      }
-
+    selected.push({
+      fruit:fruit,
+      grams:grams
     });
 
-  return fruits;
+  });
 
+  return selected;
 }
 
 
-/* =====================================
-   ACTUALIZAR COMBINACIÓN
-===================================== */
+/* =========================
+   ACTUALIZAR PESO
+========================= */
 
 function updateCombination(){
 
-  if(!selectedProduct) return;
+  const selected = getSelectedFruits();
 
-  const fruits = getSelectedFruits();
+  let total = selected.reduce(
+    (sum,item) => sum + item.grams,
+    0
+  );
 
-  let total = 0;
+  /* Evitar superar el peso máximo */
 
-  fruits.forEach(fruit => {
-    total += fruit.weight;
-  });
+  if(total > customization.weight){
 
-  const max = selectedProduct.weight;
+    const excess = total - customization.weight;
 
-  if(total > max){
+    for(let i=selected.length-1;i>=0;i--){
 
-    /*
-      Evitamos que el usuario pueda superar
-      el peso máximo.
-    */
+      if(excess <= 0) break;
 
-    const activeInputs =
-      document.querySelectorAll(".weight-input");
+      const item = selected[i];
 
-    let runningTotal = 0;
+      const input =
+        document.querySelector(
+          `[data-fruit-input="${item.fruit}"]`
+        );
 
-    activeInputs.forEach(input => {
+      const current = Number(input.value);
 
-      let value = parseInt(input.value) || 0;
+      const reduction =
+        Math.min(current, excess);
 
-      if(runningTotal + value > max){
+      input.value =
+        Math.max(0,current-reduction);
 
-        input.value =
-          Math.max(0,max - runningTotal);
+      total -= reduction;
 
-      }
-
-      runningTotal += parseInt(input.value) || 0;
-
-    });
-
-    return updateCombination();
-
-  }
-
-
-  const percentage =
-    Math.min(100,(total / max) * 100);
-
-  document.getElementById("currentWeight")
-    .textContent = total;
-
-  document.getElementById("progressFill")
-    .style.width = percentage + "%";
-
-
-  /*
-    Marcar frutas seleccionadas
-  */
-
-  document
-    .querySelectorAll(".fruit-choice")
-    .forEach(card => {
-
-      card.classList.remove("selected");
-
-    });
-
-  fruits.forEach(fruit => {
-
-    const input = fruit.input;
-
-    const card =
-      input.closest(".fruit-choice");
-
-    if(card){
-      card.classList.add("selected");
     }
 
-  });
-
-
-  const message =
-    document.getElementById("progressMessage");
-
-  const saveButton =
-    document.getElementById("saveCombinationButton");
-
-
-  if(fruits.length < 3){
-
-    message.textContent =
-      "Selecciona mínimo 3 frutas.";
-
-    message.style.color =
-      "var(--terracotta)";
-
-    saveButton.disabled = true;
-    saveButton.classList.add("btn-disabled");
-
-    return;
-
   }
 
+  const selectedNow = getSelectedFruits();
 
-  if(total < max){
+  total = selectedNow.reduce(
+    (sum,item) => sum + item.grams,
+    0
+  );
 
-    const remaining =
-      max - total;
+  const remaining =
+    customization.weight - total;
 
-    message.innerHTML =
-      "Te faltan <strong>" +
-      remaining +
-      " g</strong> para completar tu QAPA.";
+  document.getElementById("currentWeight").textContent =
+    total;
 
-    message.style.color =
-      "var(--green-dark)";
+  document.getElementById("remainingWeight").textContent =
+    Math.max(0,remaining);
 
-    saveButton.disabled = true;
-    saveButton.classList.add("btn-disabled");
+  const minimumFruits =
+    selectedNow.length >= 3;
 
-    return;
+  const exactWeight =
+    total === customization.weight;
 
-  }
-
-
-  if(total === max){
-
-    message.innerHTML =
-      "✨ ¡Tu combinación está completa!";
-
-    message.style.color =
-      "var(--green-dark)";
-
-    saveButton.disabled = false;
-    saveButton.classList.remove("btn-disabled");
-
-  }
+  document.getElementById(
+    "saveCombinationButton"
+  ).disabled =
+    !(minimumFruits && exactWeight);
 
 }
 
 
-/* =====================================
-   COMPLETAR PESO AUTOMÁTICAMENTE
-===================================== */
+/* =========================
+   COMPLETAR PESO
+========================= */
 
 function completeWeight(){
 
-  if(!selectedProduct) return;
+  const selected = getSelectedFruits();
 
-  const fruits = getSelectedFruits();
-
-  if(fruits.length < 3){
+  if(selected.length < 3){
 
     alert(
-      "Primero selecciona mínimo 3 frutas."
+      "Selecciona mínimo 3 frutas antes de completar el peso."
     );
 
     return;
-
   }
 
-  let total = 0;
+  let total = selected.reduce(
+    (sum,item) => sum + item.grams,
+    0
+  );
 
-  fruits.forEach(fruit => {
-    total += fruit.weight;
-  });
+  let remaining =
+    customization.weight - total;
 
-  const remaining =
-    selectedProduct.weight - total;
+  if(remaining < 0){
 
-  if(remaining <= 0){
+    alert(
+      "La combinación supera el peso permitido."
+    );
 
     updateCombination();
 
     return;
+  }
+
+  if(remaining === 0){
+
+    updateCombination();
+    return;
 
   }
 
-
   /*
-    Repartimos automáticamente
-    el peso restante entre las frutas
-    seleccionadas.
-
-    De esta manera QAPA completa
-    exactamente el peso elegido.
+    Distribuimos el peso restante
+    entre las frutas seleccionadas.
   */
 
   const base =
-    Math.floor(remaining / fruits.length);
+    Math.floor(
+      remaining / selected.length
+    );
 
-  let extra =
-    remaining - (base * fruits.length);
+  let leftover =
+    remaining % selected.length;
 
+  selected.forEach(item => {
 
-  fruits.forEach(fruit => {
+    const input =
+      document.querySelector(
+        `[data-fruit-input="${item.fruit}"]`
+      );
 
-    let addition = base;
+    let add = base;
 
-    /*
-      El resto se distribuye de uno en uno.
-    */
+    if(leftover > 0){
 
-    if(extra > 0){
-
-      addition += 1;
-
-      extra--;
+      add += 1;
+      leftover--;
 
     }
 
-    fruit.input.value =
-      fruit.weight + addition;
+    input.value =
+      Number(input.value) + add;
 
   });
-
 
   updateCombination();
 
 }
 
 
-/* =====================================
+/* =========================
    GUARDAR COMBINACIÓN
-===================================== */
+========================= */
 
 function saveCombination(){
 
-  const fruits = getSelectedFruits();
+  const selected =
+    getSelectedFruits();
 
-  if(fruits.length < 3){
+  const total =
+    selected.reduce(
+      (sum,item) => sum + item.grams,
+      0
+    );
+
+  if(selected.length < 3){
 
     alert(
-      "Tu combinación debe tener mínimo 3 frutas."
+      "Debes seleccionar mínimo 3 frutas."
     );
 
     return;
-
   }
 
-
-  let total = 0;
-
-  fruits.forEach(fruit => {
-    total += fruit.weight;
-  });
-
-
-  if(total !== selectedProduct.weight){
+  if(total !== customization.weight){
 
     alert(
-      "La combinación debe completar exactamente " +
-      selectedProduct.weight +
+      "Debes completar exactamente " +
+      customization.weight +
       " g."
     );
 
     return;
-
   }
-
 
   cart.push({
 
-    type:"custom",
+    name:customization.name,
 
-    name:selectedProduct.name,
+    weight:customization.weight,
 
-    weight:selectedProduct.weight,
+    price:customization.price,
 
-    price:selectedProduct.price,
-
-    fruits:fruits.map(f => ({
-      name:f.name,
-      weight:f.weight
-    }))
+    fruits:selected
 
   });
-
 
   updateCart();
 
@@ -2916,26 +2587,9 @@ function saveCombination(){
 }
 
 
-/* =====================================
+/* =========================
    CARRITO
-===================================== */
-
-function openCart(){
-
-  document
-    .getElementById("cartPanel")
-    .classList.add("open");
-
-}
-
-function closeCart(){
-
-  document
-    .getElementById("cartPanel")
-    .classList.remove("open");
-
-}
-
+========================= */
 
 function updateCart(){
 
@@ -2945,89 +2599,85 @@ function updateCart(){
   const count =
     document.getElementById("cartCount");
 
-  const totalElement =
-    document.getElementById("cartTotal");
-
+  const subtotalElement =
+    document.getElementById("cartSubtotal");
 
   count.textContent =
     cart.length;
 
-
   if(cart.length === 0){
 
     container.innerHTML =
-      '<div class="cart-empty">' +
-      'Tu carrito está vacío.' +
-      '</div>';
+      '<p style="color:#766960;">Tu carrito está vacío.</p>';
 
-    totalElement.textContent =
-      "0.00";
+    subtotalElement.textContent =
+      "S/ 0";
 
     return;
-
   }
 
-
-  let total = 0;
+  let subtotal = 0;
 
   container.innerHTML = "";
 
-
   cart.forEach((item,index) => {
 
-    total += item.price;
+    subtotal += item.price;
 
+    const fruits =
+      item.fruits
+      .map(
+        fruit =>
+          `${fruit.fruit} ${fruit.grams} g`
+      )
+      .join(", ");
 
-    let fruitText = "";
+    const div =
+      document.createElement("div");
 
-    item.fruits.forEach(fruit => {
+    div.className =
+      "cart-item";
 
-      fruitText +=
-        fruit.name +
-        ": " +
-        fruit.weight +
-        " g<br>";
+    div.innerHTML = `
 
-    });
+      <strong>
+        ${item.name} · ${item.weight} g
+      </strong>
 
+      <small>
+        ${fruits}
+      </small>
 
-    container.innerHTML +=
+      <br>
 
-      '<div class="cart-item">' +
+      <strong>
+        S/ ${item.price}
+      </strong>
 
-        '<div class="cart-item-title">' +
-          item.name +
-        '</div>' +
+      <button
+        class="remove-item"
+        onclick="removeFromCart(${index})"
+      >
+        Eliminar
+      </button>
 
-        '<div class="cart-item-detail">' +
-          fruitText +
-        '</div>' +
+    `;
 
-        '<div class="cart-item-price">' +
-          'S/ ' +
-          item.price.toFixed(2) +
-        '</div>' +
-
-        '<button ' +
-          'onclick="removeCartItem(' +
-          index +
-          ')" ' +
-          'style="margin-top:8px;border:none;background:none;color:#a65b4a;cursor:pointer;font-size:11px">' +
-          'Eliminar' +
-        '</button>' +
-
-      '</div>';
+    container.appendChild(div);
 
   });
 
-
-  totalElement.textContent =
-    total.toFixed(2);
+  subtotalElement.textContent =
+    "S/ " + subtotal;
 
 }
 
 
-function removeCartItem(index){
+/* =========================
+   ELIMINAR
+========================= */
+
+function removeFromCart(index){
 
   cart.splice(index,1);
 
@@ -3036,348 +2686,351 @@ function removeCartItem(index){
 }
 
 
-/* =====================================
-   DELIVERY
-===================================== */
+/* =========================
+   ABRIR / CERRAR CARRITO
+========================= */
 
-const deliveryRates = {
+function openCart(){
 
-  "Pueblo Libre":0,
-  "Jesús María":0,
+  document.getElementById(
+    "cartPanel"
+  ).classList.add("active");
 
-  "Lima":7,
-  "Breña":7,
-  "Lince":7,
-  "Magdalena del Mar":7,
-  "San Miguel":7,
-  "La Victoria":7,
-  "Rímac":7,
-  "San Luis":7,
+  document.getElementById(
+    "overlay"
+  ).classList.add("active");
 
-  "Barranco":8,
-  "Miraflores":8,
-  "San Isidro":8,
-  "San Borja":8,
-  "Surquillo":8,
-  "Santiago de Surco":8,
-  "Chorrillos":8,
-  "El Agustino":8,
-  "Independencia":8,
-  "Los Olivos":8,
-  "San Martín de Porres":8,
+}
 
-  "Ate":9,
-  "Santa Anita":9,
-  "San Juan de Lurigancho":9,
-  "Comas":9,
-  "La Molina":9,
-  "San Juan de Miraflores":9,
+function closeCart(){
 
-  "Carabayllo":10,
-  "Puente Piedra":10,
-  "Lurigancho":10,
-  "Chaclacayo":10,
-  "Villa El Salvador":10,
-  "Villa María del Triunfo":10,
+  document.getElementById(
+    "cartPanel"
+  ).classList.remove("active");
 
-  "Pachacámac":11,
-  "Lurín":11,
-  "Ancón":11,
-  "Santa Rosa":11,
-  "Cieneguilla":11,
-
-  "Pucusana":12,
-  "Punta Hermosa":12,
-  "Punta Negra":12,
-  "San Bartolo":12,
-  "Santa María del Mar":12
-
-};
-
-
-function updateDelivery(){
-
-  const district =
-    document.getElementById("customerDistrict").value;
-
-  deliveryCost =
-    deliveryRates[district] || 0;
-
-  updateCheckoutTotals();
+  document.getElementById(
+    "overlay"
+  ).classList.remove("active");
 
 }
 
 
-/* =====================================
+/* =========================
+   PERSONALIZACIÓN
+========================= */
+
+function closeCustomization(){
+
+  document.getElementById(
+    "customModal"
+  ).classList.remove("active");
+
+}
+
+
+/* =========================
+   CERRAR PANELES
+========================= */
+
+function closeAllPanels(){
+
+  closeCart();
+
+  closeCustomization();
+
+  closeCheckout();
+
+}
+
+
+/* =========================
    CHECKOUT
-===================================== */
+========================= */
 
 function openCheckout(){
 
   if(cart.length === 0){
 
     alert(
-      "Tu carrito está vacío."
+      "Agrega al menos un producto antes de continuar."
     );
 
     return;
 
   }
 
-  closeCart();
-
-  document
-    .getElementById("checkoutModal")
-    .classList.add("active");
-
   updateCheckoutTotals();
+
+  document.getElementById(
+    "checkoutModal"
+  ).classList.add("active");
+
+  document.getElementById(
+    "overlay"
+  ).classList.add("active");
 
 }
 
 
 function closeCheckout(){
 
-  document
-    .getElementById("checkoutModal")
-    .classList.remove("active");
+  document.getElementById(
+    "checkoutModal"
+  ).classList.remove("active");
 
 }
 
 
+/* =========================
+   DELIVERY
+========================= */
+
+function updateDelivery(){
+
+  const district =
+    document.getElementById(
+      "customerDistrict"
+    ).value;
+
+  const rates = {
+
+    "Pueblo Libre":0,
+    "Jesús María":0,
+
+    "Lima":7,
+    "Breña":7,
+    "Lince":7,
+    "Magdalena del Mar":7,
+    "San Miguel":7,
+    "La Victoria":7,
+    "Rímac":7,
+    "San Luis":7,
+
+    "Barranco":8,
+    "Miraflores":8,
+    "San Isidro":8,
+    "San Borja":8,
+    "Surquillo":8,
+    "Santiago de Surco":8,
+    "Chorrillos":8,
+    "El Agustino":8,
+    "Independencia":8,
+    "Los Olivos":8,
+    "San Martín de Porres":8,
+
+    "Ate":9,
+    "Santa Anita":9,
+    "San Juan de Lurigancho":9,
+    "Comas":9,
+    "La Molina":9,
+    "San Juan de Miraflores":9,
+
+    "Carabayllo":10,
+    "Puente Piedra":10,
+    "Lurigancho":10,
+    "Chaclacayo":10,
+    "Villa El Salvador":10,
+    "Villa María del Triunfo":10,
+
+    "Pachacámac":11,
+    "Lurín":11,
+    "Ancón":11,
+    "Santa Rosa":11,
+    "Cieneguilla":11,
+
+    "Pucusana":12,
+    "Punta Hermosa":12,
+    "Punta Negra":12,
+    "San Bartolo":12,
+    "Santa María del Mar":12
+
+  };
+
+  deliveryCost =
+    rates[district] ?? 0;
+
+  updateCheckoutTotals();
+
+}
+
+
+/* =========================
+   TOTALES CHECKOUT
+========================= */
+
 function updateCheckoutTotals(){
 
-  let subtotal = 0;
-
-  cart.forEach(item => {
-
-    subtotal += item.price;
-
-  });
-
+  const subtotal =
+    cart.reduce(
+      (sum,item) => sum + item.price,
+      0
+    );
 
   const total =
     subtotal + deliveryCost;
 
+  document.getElementById(
+    "checkoutSubtotal"
+  ).textContent =
+    "S/ " + subtotal;
 
-  document.getElementById("checkoutSubtotal")
-    .textContent =
-    subtotal.toFixed(2);
+  document.getElementById(
+    "checkoutDelivery"
+  ).textContent =
+    "S/ " + deliveryCost;
 
-
-  document.getElementById("checkoutDelivery")
-    .textContent =
-    deliveryCost.toFixed(2);
-
-
-  document.getElementById("checkoutTotal")
-    .textContent =
-    total.toFixed(2);
+  document.getElementById(
+    "checkoutTotal"
+  ).textContent =
+    "S/ " + total;
 
 }
 
 
-/* =====================================
-   WHATSAPP
-===================================== */
+/* =========================
+   ENVIAR PEDIDO
+========================= */
 
 function sendOrderWhatsApp(){
 
   if(cart.length === 0){
 
     alert(
-      "Tu carrito está vacío."
+      "El carrito está vacío."
     );
 
     return;
 
   }
 
-
   const name =
-    document.getElementById("customerName").value.trim();
+    document.getElementById(
+      "customerName"
+    ).value.trim();
 
   const phone =
-    document.getElementById("customerPhone").value.trim();
+    document.getElementById(
+      "customerPhone"
+    ).value.trim();
 
   const email =
-    document.getElementById("customerEmail").value.trim();
+    document.getElementById(
+      "customerEmail"
+    ).value.trim();
 
   const district =
-    document.getElementById("customerDistrict").value;
+    document.getElementById(
+      "customerDistrict"
+    ).value;
 
   const address =
-    document.getElementById("customerAddress").value.trim();
-
-  const delivery =
-    document.getElementById("deliveryType").value;
-
-  const receipt =
-    document.getElementById("receiptType").value;
-
+    document.getElementById(
+      "customerAddress"
+    ).value.trim();
 
   if(!name || !phone || !district || !address){
 
     alert(
-      "Completa nombre, teléfono, distrito y dirección."
+      "Completa nombre, celular, distrito y dirección."
     );
 
     return;
 
   }
 
+  const receipt =
+    document.querySelector(
+      'input[name="receipt"]:checked'
+    ).value;
 
-  let subtotal = 0;
+  const delivery =
+    document.querySelector(
+      'input[name="delivery"]:checked'
+    ).value;
 
-  let message =
-    "Hola QAPA 🌿%0A%0A" +
-    "*NUEVO PEDIDO QAPA*%0A%0A";
-
-
-  message +=
-    "*Cliente:* " +
-    encodeURIComponent(name) +
-    "%0A";
-
-  message +=
-    "*Teléfono:* " +
-    encodeURIComponent(phone) +
-    "%0A";
-
-  if(email){
-
-    message +=
-      "*Email:* " +
-      encodeURIComponent(email) +
-      "%0A";
-
-  }
-
-  message +=
-    "*Distrito:* " +
-    encodeURIComponent(district) +
-    "%0A";
-
-  message +=
-    "*Dirección:* " +
-    encodeURIComponent(address) +
-    "%0A";
-
-  message +=
-    "*Entrega:* " +
-    encodeURIComponent(delivery) +
-    "%0A";
-
-  message +=
-    "*Comprobante:* " +
-    encodeURIComponent(receipt) +
-    "%0A%0A";
-
-
-  message +=
-    "*PRODUCTOS*%0A";
-
-
-  cart.forEach((item,index) => {
-
-    subtotal += item.price;
-
-
-    message +=
-      "%0A" +
-      (index + 1) +
-      ". " +
-      encodeURIComponent(item.name) +
-      " - S/ " +
-      item.price.toFixed(2) +
-      "%0A";
-
-
-    item.fruits.forEach(fruit => {
-
-      message +=
-        "   • " +
-        encodeURIComponent(fruit.name) +
-        ": " +
-        fruit.weight +
-        " g%0A";
-
-    });
-
-  });
-
+  const subtotal =
+    cart.reduce(
+      (sum,item) => sum + item.price,
+      0
+    );
 
   const total =
     subtotal + deliveryCost;
 
 
-  message +=
-    "%0A*Subtotal:* S/ " +
-    subtotal.toFixed(2);
+  let message =
+`Hola QAPA 🌿
+
+Quiero realizar el siguiente pedido:
+
+`;
+
+  cart.forEach((item,index) => {
+
+    message +=
+`${index+1}. ${item.name} · ${item.weight} g · S/ ${item.price}
+`;
+
+    message +=
+`   ${item.fruits
+      .map(
+        fruit =>
+          `${fruit.fruit}: ${fruit.grams} g`
+      )
+      .join(" · ")}
+`;
+
+  });
+
 
   message +=
-    "%0A*Delivery:* S/ " +
-    deliveryCost.toFixed(2);
+`
+DATOS DEL CLIENTE
 
-  message +=
-    "%0A*TOTAL:* S/ " +
-    total.toFixed(2);
+Nombre: ${name}
+Celular: ${phone}
+Correo: ${email || "No indicado"}
+
+Distrito: ${district}
+Dirección: ${address}
+
+Entrega: ${
+  delivery === "rapid"
+  ? "Rápida"
+  : "Normal"
+}
+
+Comprobante: ${
+  receipt === "dni"
+  ? "Boleta con DNI"
+  : "Boleta simple"
+}
+
+Subtotal: S/ ${subtotal}
+Delivery: S/ ${deliveryCost}
+TOTAL: S/ ${total}
+
+Gracias 💛
+`;
 
 
-  window.open(
+  const url =
     "https://wa.me/" +
     WHATSAPP_NUMBER +
     "?text=" +
-    message,
-    "_blank"
-  );
-
-}
-
-
-/* =====================================
-   BOTÓN WHATSAPP
-===================================== */
-
-function openWhatsApp(){
+    encodeURIComponent(message);
 
   window.open(
-    "https://wa.me/" +
-    WHATSAPP_NUMBER,
+    url,
     "_blank"
   );
 
 }
 
 
-/* =====================================
-   CERRAR MODALES AL HACER CLICK FUERA
-===================================== */
-
-document
-  .getElementById("customModal")
-  .addEventListener("click",function(e){
-
-    if(e.target === this){
-      closeCustomization();
-    }
-
-  });
-
-
-document
-  .getElementById("checkoutModal")
-  .addEventListener("click",function(e){
-
-    if(e.target === this){
-      closeCheckout();
-    }
-
-  });
-
-
-/* =====================================
+/* =========================
    INICIALIZAR
-===================================== */
+========================= */
 
 updateCart();
 
