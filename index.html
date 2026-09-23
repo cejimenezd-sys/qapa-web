@@ -249,7 +249,14 @@ header{
 }
 
 .hero-main{
-  width:370px;
+ .hero-video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  border-radius:28px;
+  box-shadow:0 20px 45px rgba(80,55,40,.16);
+} width:370px;
   height:450px;
   object-fit:cover;
   border-radius:190px 190px 25px 25px;
@@ -1133,23 +1140,16 @@ footer{
 
   <div class="hero-visual">
 
-    <img
-      src="hero-qapa.jpeg"
-      class="hero-main"
-      alt="QAPA frutas deshidratadas"
-    >
-
-    <img
-      src="qapa-premium.jpeg"
-      class="hero-small one"
-      alt="QAPA Premium"
-    >
-
-    <img
-      src="qapa-go.jpeg"
-      class="hero-small two"
-      alt="QAPA GO"
-    >
+ <video
+  class="hero-video"
+  autoplay
+  muted
+  loop
+  playsinline
+  preload="auto"
+>
+  <source src="qapa-hero-13s.mp4" type="video/mp4">
+</video>  
 
   </div>
 
