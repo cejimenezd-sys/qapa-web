@@ -1229,6 +1229,80 @@ function addSimpleProduct(name, weight, price){
   }
 }
 /* =========================
+   OPCIONES CITRUS
+========================= */
+
+.collection-option{
+  border:1px solid rgba(97,72,60,.18);
+  border-radius:14px;
+  margin-top:12px;
+  background:#fff9f0;
+  overflow:hidden;
+}
+
+.collection-option summary{
+  list-style:none;
+  cursor:pointer;
+  padding:15px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  font-weight:600;
+  color:#61483C;
+}
+
+.collection-option summary::-webkit-details-marker{
+  display:none;
+}
+
+.collection-option summary::after{
+  content:"+";
+  font-size:22px;
+  color:#BD684C;
+  font-weight:400;
+}
+
+.collection-option[open] summary::after{
+  content:"−";
+}
+
+.collection-choice{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 16px;
+  border-top:1px solid rgba(97,72,60,.10);
+  background:#fff;
+}
+
+.collection-choice span{
+  font-size:13px;
+  color:#61483C;
+}
+
+.collection-choice .collection-add{
+  margin:0;
+  padding:8px 14px;
+  font-size:11px;
+  white-space:nowrap;
+}
+
+@media(max-width:600px){
+
+  .collection-choice{
+    padding:10px 12px;
+  }
+
+  .collection-choice span{
+    font-size:12px;
+  }
+
+  .collection-choice .collection-add{
+    padding:7px 11px;
+  }
+}/* =========================
    RESPONSIVE
 ========================= */
 
