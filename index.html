@@ -417,6 +417,184 @@ section{
 }
 
 /* =========================
+   COLECCIONES ESPECIALES
+========================= */
+
+.collections-section{
+  background:var(--cream);
+}
+
+.collection-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.collection-card{
+  background:white;
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 12px 35px rgba(70,45,30,.10);
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+}
+
+.collection-art{
+  min-height:225px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  padding:25px;
+}
+
+.collection-art::before{
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  border-radius:50%;
+  border:1px solid rgba(97,72,60,.16);
+}
+
+.collection-art .collection-icon{
+  position:relative;
+  z-index:1;
+  font-size:78px;
+  line-height:1;
+  filter:drop-shadow(0 10px 12px rgba(70,45,30,.12));
+}
+
+.collection-art.citrus{
+  background:linear-gradient(135deg,#fff4d9,#f3c9af);
+}
+
+.collection-art.bite{
+  background:linear-gradient(135deg,#f4e1c9,#e8c7a3);
+}
+
+.collection-art.infusion{
+  background:linear-gradient(135deg,#f3e7cf,#d9c39a);
+}
+
+.collection-info{
+  padding:24px 24px 25px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.collection-tag{
+  color:var(--terracotta);
+  text-transform:uppercase;
+  letter-spacing:2.5px;
+  font-size:10px;
+  font-weight:700;
+  margin-bottom:5px;
+}
+
+.collection-info h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;
+  line-height:1;
+  margin-bottom:8px;
+}
+
+.collection-info p{
+  color:#6f625a;
+  font-size:13px;
+  margin-bottom:13px;
+}
+
+.collection-list{
+  margin:0 0 16px;
+  padding-left:18px;
+  color:#66574f;
+  font-size:13px;
+}
+
+.collection-list li{
+  margin:4px 0;
+}
+
+.collection-highlight{
+  margin-top:auto;
+  padding:11px 13px;
+  border-radius:14px;
+  background:var(--ivory);
+  color:var(--brown);
+  font-size:12px;
+  font-weight:600;
+}
+
+.collection-products{
+  margin-top:14px;
+  display:grid;
+  gap:9px;
+}
+
+.collection-product-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 12px;
+  border:1px solid #eadfd5;
+  border-radius:13px;
+  font-size:12px;
+}
+
+.collection-product-row strong{
+  color:var(--terracotta);
+  white-space:nowrap;
+}
+
+.collection-add{
+  margin-top:10px;
+  width:100%;
+  border:0;
+  padding:10px 12px;
+  border-radius:22px;
+  background:var(--black);
+  color:white;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:700;
+}
+
+.collection-add:hover{
+  background:var(--terracotta);
+}
+
+.collection-pending{
+  margin-top:14px;
+  padding:11px 13px;
+  border-radius:13px;
+  background:#f7eee3;
+  color:#766960;
+  font-size:11px;
+  text-align:center;
+}
+
+@media(max-width:900px){
+  .collection-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+  .collection-art{
+    min-height:190px;
+  }
+
+  .collection-art .collection-icon{
+    font-size:64px;
+  }
+}
+
+/* =========================
    BENEFICIOS
 ========================= */
 
@@ -577,6 +755,25 @@ footer{
   color:#a99b92;
   font-size:11px;
 }
+
+/* =========================
+   PRODUCTOS SIN PERSONALIZACIÓN
+========================= */
+
+function addSimpleProduct(name, weight, price){
+
+  cart.push({
+    name:name,
+    weight:weight,
+    price:price,
+    fruits:[]
+  });
+
+  updateCart();
+  openCart();
+
+}
+
 
 /* =========================
    CARRITO
@@ -1093,6 +1290,7 @@ footer{
       <a href="#inicio">Inicio</a>
       <a href="#manera">QAPA A TU MANERA</a>
       <a href="#productos">Productos</a>
+      <a href="#colecciones">Colecciones</a>
       <a href="#historia">Nuestra historia</a>
       <a href="#instagram">Instagram</a>
     </div>
@@ -1402,6 +1600,159 @@ footer{
 </section>
 
 
+<section class="collections-section" id="colecciones">
+
+  <div class="section-inner">
+
+    <div class="section-heading">
+      <div class="mini">Nuevas experiencias QAPA</div>
+      <h2>Descubre nuestras colecciones</h2>
+      <p>
+        Más formas de disfrutar lo natural: cítricos para tus bebidas,
+        un snack listo para llevar y una infusión aromática para disfrutar
+        caliente o fría.
+      </p>
+    </div>
+
+    <div class="collection-grid">
+
+      <article class="collection-card">
+
+        <div class="collection-art citrus">
+          <div class="collection-icon">🍊🍋</div>
+        </div>
+
+        <div class="collection-info">
+
+          <div class="collection-tag">Colección especial</div>
+          <h3>Citrus Collection</h3>
+
+          <p>
+            Naranja, limón y toronja deshidratados para aportar
+            aroma, color y un toque especial a tus bebidas y preparaciones.
+          </p>
+
+          <ul class="collection-list">
+            <li>Infusiones y tés</li>
+            <li>Aguas saborizadas</li>
+            <li>Mocktails y cócteles</li>
+            <li>Decoración de postres y bebidas</li>
+          </ul>
+
+          <div class="collection-highlight">
+            Empaques de 100 g · Hermético S/ 13 · Frasco de vidrio S/ 15
+          </div>
+
+          <div class="collection-products">
+
+            <div class="collection-product-row">
+              <span>Naranja · 100 g · Hermético</span><strong>S/ 13</strong>
+            </div>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Naranja','100 g · Empaque hermético',13)">AGREGAR</button>
+
+            <div class="collection-product-row">
+              <span>Limón · 100 g · Hermético</span><strong>S/ 13</strong>
+            </div>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Limón','100 g · Empaque hermético',13)">AGREGAR</button>
+
+            <div class="collection-product-row">
+              <span>Toronja · 100 g · Hermético</span><strong>S/ 13</strong>
+            </div>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Toronja','100 g · Empaque hermético',13)">AGREGAR</button>
+
+            <div class="collection-product-row">
+              <span>Naranja · 100 g · Frasco de vidrio</span><strong>S/ 15</strong>
+            </div>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Naranja','100 g · Frasco de vidrio',15)">AGREGAR</button>
+
+            <div class="collection-product-row">
+              <span>Limón · 100 g · Frasco de vidrio</span><strong>S/ 15</strong>
+            </div>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Limón','100 g · Frasco de vidrio',15)">AGREGAR</button>
+
+            <div class="collection-product-row">
+              <span>Toronja · 100 g · Frasco de vidrio</span><strong>S/ 15</strong></div>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Toronja','100 g · Frasco de vidrio',15)">AGREGAR</button>
+
+          </div>
+        </div>
+      </article>
+
+
+      <article class="collection-card">
+
+        <div class="collection-art bite">
+          <div class="collection-icon">🥜</div>
+        </div>
+
+        <div class="collection-info">
+
+          <div class="collection-tag">Novedad</div>
+          <h3>QAPA BITE</h3>
+
+          <p>
+            Un pequeño snack listo para disfrutar: una mezcla de
+            frutos secos y fruta en un práctico vasito de 50 g.
+          </p>
+
+          <ul class="collection-list">
+            <li>Arándano rojo</li>
+            <li>Maní salado</li>
+            <li>Almendra</li>
+            <li>Pasa rubia</li>
+          </ul>
+
+          <div class="collection-highlight">
+            Vasito · 50 g · Snack listo para llevar
+          </div>
+
+          <div class="collection-pending">
+            Precio por definir
+          </div>
+
+        </div>
+      </article>
+
+
+      <article class="collection-card">
+
+        <div class="collection-art infusion">
+          <div class="collection-icon">🍊🌿</div>
+        </div>
+
+        <div class="collection-info">
+
+          <div class="collection-tag">QAPA Infusión</div>
+          <h3>Naranjanís</h3>
+
+          <p>
+            Una mezcla aromática de naranja deshidratada y especias,
+            creada para disfrutar una bebida cálida, especiada y aromática.
+          </p>
+
+          <ul class="collection-list">
+            <li>Naranja deshidratada</li>
+            <li>Anís estrella</li>
+            <li>Canela</li>
+            <li>Clavo</li>
+          </ul>
+
+          <div class="collection-highlight">
+            Para disfrutar caliente ☕ o helada 🧊
+          </div>
+
+          <div class="collection-pending">
+            Precio por definir
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
 <section class="benefits">
 
   <div class="section-inner">
@@ -1524,6 +1875,7 @@ footer{
       <a href="#inicio">Inicio</a>
       <a href="#manera">QAPA A TU MANERA</a>
       <a href="#productos">Productos</a>
+      <a href="#colecciones">Colecciones</a>
       <a href="#historia">Nuestra historia</a>
 
     </div>
@@ -2593,12 +2945,14 @@ function updateCart(){
     subtotal += item.price;
 
     const fruits =
-      item.fruits
-      .map(
-        fruit =>
-          `${fruit.fruit} ${fruit.grams} g`
-      )
-      .join(", ");
+      item.fruits && item.fruits.length
+      ? item.fruits
+          .map(
+            fruit =>
+              `${fruit.fruit} ${fruit.grams} g`
+          )
+          .join(", ")
+      : "Producto listo para disfrutar";
 
     const div =
       document.createElement("div");
@@ -2938,15 +3292,24 @@ Quiero realizar el siguiente pedido:
     message +=
 `${index+1}. ${item.name} · ${item.weight} g · S/ ${item.price}
 `;
+    if(item.fruits && item.fruits.length){
 
-    message +=
-`   ${item.fruits
-      .map(
-        fruit =>
-          `${fruit.fruit}: ${fruit.grams} g`
-      )
-      .join(" · ")}
-`;
+      message +=
+        `   ${item.fruits
+          .map(
+            fruit =>
+              `${fruit.fruit}: ${fruit.grams} g`
+          )
+          .join(" · ")}
+ `;
+
+    }else{
+
+      message +=
+        `   Producto listo para disfrutar
+ `;
+
+    }
 
   });
 
