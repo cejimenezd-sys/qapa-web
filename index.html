@@ -1126,7 +1126,108 @@ function addSimpleProduct(name, weight, price){
   font-size:25px;
   box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
+/* =========================
+   CARRUSEL CITRUS
+========================= */
 
+.collection-art.citrus{
+  padding:0;
+  background:#000;
+  overflow:hidden;
+}
+
+.citrus-carousel{
+  position:relative;
+  width:100%;
+  height:360px;
+  overflow:hidden;
+}
+
+.citrus-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .5s ease;
+}
+
+.citrus-slide.active{
+  opacity:1;
+}
+
+.citrus-prev,
+.citrus-next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.88);
+  color:#171512;
+  font-size:32px;
+  line-height:1;
+  cursor:pointer;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 15px rgba(0,0,0,.18);
+}
+
+.citrus-prev{
+  left:14px;
+}
+
+.citrus-next{
+  right:14px;
+}
+
+.citrus-prev:hover,
+.citrus-next:hover{
+  background:#fff;
+}
+
+.citrus-dots{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:14px;
+  display:flex;
+  justify-content:center;
+  gap:7px;
+  z-index:3;
+}
+
+.citrus-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,.65);
+  cursor:pointer;
+  transition:.25s;
+}
+
+.citrus-dot.active{
+  background:#fff;
+  transform:scale(1.25);
+}
+
+@media(max-width:600px){
+  .citrus-carousel{
+    height:300px;
+  }
+
+  .citrus-prev,
+  .citrus-next{
+    width:36px;
+    height:36px;
+    font-size:27px;
+  }
+}
 /* =========================
    RESPONSIVE
 ========================= */
@@ -1618,9 +1719,26 @@ function addSimpleProduct(name, weight, price){
 
       <article class="collection-card">
 
-        <div class="collection-art citrus">
-          <div class="collection-icon">🍊🍋</div>
-        </div>
+       <div class="collection-art citrus">
+  <div class="citrus-carousel">
+    <img src="usos.png" alt="Citrus Collection - usos" class="citrus-slide active">
+    <img src="trescitricos.png" alt="Citrus Collection - tres cítricos" class="citrus-slide">
+    <img src="toronja.png" alt="Toronja deshidratada" class="citrus-slide">
+    <img src="limon.png" alt="Limón deshidratado" class="citrus-slide">
+    <img src="naranja.png" alt="Naranja deshidratada" class="citrus-slide">
+
+    <button class="citrus-prev" type="button" aria-label="Foto anterior">‹</button>
+    <button class="citrus-next" type="button" aria-label="Foto siguiente">›</button>
+
+    <div class="citrus-dots">
+      <span class="citrus-dot active"></span>
+      <span class="citrus-dot"></span>
+      <span class="citrus-dot"></span>
+      <span class="citrus-dot"></span>
+      <span class="citrus-dot"></span>
+    </div>
+  </div>
+</div> 
 
         <div class="collection-info">
 
@@ -3366,6 +3484,55 @@ Gracias 💛
 updateCart();
 
 </script>
+<script>
+/* =========================
+   CARRUSEL CITRUS
+========================= */
 
+const citrusSlides = document.querySelectorAll('.citrus-slide');
+const citrusDots = document.querySelectorAll('.citrus-dot');
+const citrusPrev = document.querySelector('.citrus-prev');
+const citrusNext = document.querySelector('.citrus-next');
+
+let citrusIndex = 0;
+
+function showCitrusSlide(index){
+  citrusSlides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+
+  citrusDots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+function nextCitrusSlide(){
+  citrusIndex = (citrusIndex + 1) % citrusSlides.length;
+  showCitrusSlide(citrusIndex);
+}
+
+function prevCitrusSlide(){
+  citrusIndex =
+    (citrusIndex - 1 + citrusSlides.length)
+    % citrusSlides.length;
+
+  showCitrusSlide(citrusIndex);
+}
+
+citrusNext.addEventListener('click', nextCitrusSlide);
+citrusPrev.addEventListener('click', prevCitrusSlide);
+
+citrusDots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    citrusIndex = index;
+    showCitrusSlide(citrusIndex);
+  });
+});
+
+/* Cambio automático cada 4 segundos */
+setInterval(nextCitrusSlide, 4000);
+
+showCitrusSlide(0);
+</script>
 </body>
 </html>
