@@ -1799,146 +1799,172 @@ function addSimpleProduct(name, weight, price){
       </p>
     </div>
 
-    <div class="collection-grid">
+ <div class="collection-grid">
 
-      <article class="collection-card">
+  <!-- =========================
+       CITRUS COLLECTION
+  ========================== -->
+  <article class="collection-card">
 
-       <div class="collection-art citrus">
-  <div class="citrus-carousel">
-    <img src="usos.png" alt="Citrus Collection - usos" class="citrus-slide active">
-    <img src="trescitricos.png" alt="Citrus Collection - tres cítricos" class="citrus-slide">
-    <img src="toronja.png" alt="Toronja deshidratada" class="citrus-slide">
-    <img src="limon.png" alt="Limón deshidratado" class="citrus-slide">
-    <img src="naranja.png" alt="Naranja deshidratada" class="citrus-slide">
+    <div class="collection-art citrus">
+      <div class="citrus-carousel">
 
-    <button class="citrus-prev" type="button" aria-label="Foto anterior">‹</button>
-    <button class="citrus-next" type="button" aria-label="Foto siguiente">›</button>
+        <img src="usos.png" alt="Citrus Collection - usos" class="citrus-slide active">
+        <img src="trescitricos.png" alt="Citrus Collection - tres cítricos" class="citrus-slide">
+        <img src="toronja.png" alt="Toronja deshidratada" class="citrus-slide">
+        <img src="limon.png" alt="Limón deshidratado" class="citrus-slide">
+        <img src="naranja.png" alt="Naranja deshidratada" class="citrus-slide">
 
-    <div class="citrus-dots">
-      <span class="citrus-dot active"></span>
-      <span class="citrus-dot"></span>
-      <span class="citrus-dot"></span>
-      <span class="citrus-dot"></span>
-      <span class="citrus-dot"></span>
+        <button class="citrus-prev" type="button" aria-label="Foto anterior">‹</button>
+        <button class="citrus-next" type="button" aria-label="Foto siguiente">›</button>
+
+        <div class="citrus-dots">
+          <span class="citrus-dot active"></span>
+          <span class="citrus-dot"></span>
+          <span class="citrus-dot"></span>
+          <span class="citrus-dot"></span>
+          <span class="citrus-dot"></span>
+        </div>
+
+      </div>
     </div>
-  </div>
-</div> 
 
-        <div class="collection-info">
+    <div class="collection-info">
 
-          <div class="collection-tag">Colección especial</div>
-          <div class="collection-highlight">
-  Empaques herméticos de 100 g · S/ 13
+      <div class="collection-tag">Colección especial</div>
+
+      <div class="collection-highlight">
+        Empaques herméticos de 100 g · S/ 13
+      </div>
+
+      <div class="collection-products">
+
+        <details class="collection-option">
+          <summary>Empaques herméticos de 100 g <strong>S/ 13</strong></summary>
+
+          <div class="collection-choice">
+            <span>Naranja · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Naranja','100 g · Empaque hermético',13)">AGREGAR</button>
+          </div>
+
+          <div class="collection-choice">
+            <span>Limón · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Limón','100 g · Empaque hermético',13)">AGREGAR</button>
+          </div>
+
+          <div class="collection-choice">
+            <span>Toronja · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Toronja','100 g · Empaque hermético',13)">AGREGAR</button>
+          </div>
+
+        </details>
+
+        <details class="collection-option">
+          <summary>Frascos de vidrio de 100 g <strong>S/ 15</strong></summary>
+
+          <div class="collection-choice">
+            <span>Naranja · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Naranja','100 g · Frasco de vidrio',15)">AGREGAR</button>
+          </div>
+
+          <div class="collection-choice">
+            <span>Limón · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Limón','100 g · Frasco de vidrio',15)">AGREGAR</button>
+          </div>
+
+          <div class="collection-choice">
+            <span>Toronja · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Toronja','100 g · Frasco de vidrio',15)">AGREGAR</button>
+          </div>
+
+        </details>
+
+      </div>
+
+    </div>
+  </article>
+
+
+  <!-- =========================
+       QAPA BITE
+  ========================== -->
+  <article class="collection-card">
+
+    <div class="collection-art bite">
+      <div class="collection-icon">🥜</div>
+    </div>
+
+    <div class="collection-info">
+
+      <div class="collection-tag">QAPA BITE</div>
+
+      <h3>QAPA BITE</h3>
+
+      <p>
+        Un pequeño snack listo para disfrutar: una mezcla de
+        frutos secos y fruta en un práctico vasito de 50 g.
+      </p>
+
+      <ul class="collection-list">
+        <li>Arándano rojo</li>
+        <li>Maní salado</li>
+        <li>Almendra</li>
+        <li>Pasa rubia</li>
+      </ul>
+
+      <div class="collection-highlight">
+        Vasito · 50 g · Snack listo para llevar
+      </div>
+
+      <div class="collection-pending">
+        Precio por definir
+      </div>
+
+    </div>
+  </article>
+
+
+  <!-- =========================
+       QAPA INFUSIÓN — NARANJANÍS
+  ========================== -->
+  <article class="collection-card">
+
+    <div class="collection-art infusion">
+      <div class="collection-icon">🍊🌿</div>
+    </div>
+
+    <div class="collection-info">
+
+      <div class="collection-tag">QAPA Infusión</div>
+
+      <h3>Naranjanís</h3>
+
+      <p>
+        Una mezcla aromática de naranja deshidratada y especias,
+        creada para disfrutar una bebida cálida, especiada y aromática.
+      </p>
+
+      <ul class="collection-list">
+        <li>Naranja deshidratada</li>
+        <li>Anís estrella</li>
+        <li>Canela</li>
+        <li>Clavo</li>
+      </ul>
+
+      <div class="collection-highlight">
+        Para disfrutar caliente ☕ o helada 🧊
+      </div>
+
+      <div class="collection-pending">
+        Precio por definir
+      </div>
+
+    </div>
+  </article>
+
 </div>
-
-<div class="collection-products">
-
-  <details class="collection-option">
-    <summary>Empaques herméticos de 100 g <strong>S/ 13</strong></summary>
-
-    <div class="collection-choice">
-      <span>Naranja · 100 g</span>
-      <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Naranja','100 g · Empaque hermético',13)">AGREGAR</button>
-    </div>
-
-    <div class="collection-choice">
-      <span>Limón · 100 g</span>
-      <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Limón','100 g · Empaque hermético',13)">AGREGAR</button>
-    </div>
-
-    <div class="collection-choice">
-      <span>Toronja · 100 g</span>
-      <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Toronja','100 g · Empaque hermético',13)">AGREGAR</button>
-    </div>
-
-  </details>
-
-
-  <details class="collection-option">
-    <summary>Frascos de vidrio de 100 g <strong>S/ 15</strong></summary>
-
-    <div class="collection-choice">
-      <span>Naranja · 100 g</span>
-      <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Naranja','100 g · Frasco de vidrio',15)">AGREGAR</button>
-    </div>
-
-    <div class="collection-choice">
-      <span>Limón · 100 g</span>
-      <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Limón','100 g · Frasco de vidrio',15)">AGREGAR</button>
-    </div>
-
-    <div class="collection-choice">
-      <span>Toronja · 100 g</span>
-      <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Toronja','100 g · Frasco de vidrio',15)">AGREGAR</button>
-    </div>
-
-  </details>
-
 </div>
-          <h3>QAPA BITE</h3>
-
-          <p>
-            Un pequeño snack listo para disfrutar: una mezcla de
-            frutos secos y fruta en un práctico vasito de 50 g.
-          </p>
-
-          <ul class="collection-list">
-            <li>Arándano rojo</li>
-            <li>Maní salado</li>
-            <li>Almendra</li>
-            <li>Pasa rubia</li>
-          </ul>
-
-          <div class="collection-highlight">
-            Vasito · 50 g · Snack listo para llevar
-          </div>
-
-          <div class="collection-pending">
-            Precio por definir
-          </div>
-
-        </div>
-      </article>
-
-
-      <article class="collection-card">
-
-        <div class="collection-art infusion">
-          <div class="collection-icon">🍊🌿</div>
-        </div>
-
-        <div class="collection-info">
-
-          <div class="collection-tag">QAPA Infusión</div>
-          <h3>Naranjanís</h3>
-
-          <p>
-            Una mezcla aromática de naranja deshidratada y especias,
-            creada para disfrutar una bebida cálida, especiada y aromática.
-          </p>
-
-          <ul class="collection-list">
-            <li>Naranja deshidratada</li>
-            <li>Anís estrella</li>
-            <li>Canela</li>
-            <li>Clavo</li>
-          </ul>
-
-          <div class="collection-highlight">
-            Para disfrutar caliente ☕ o helada 🧊
-          </div>
-
-          <div class="collection-pending">
-            Precio por definir
-          </div>
-
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
+</section>  
 
 <section class="benefits">
 
