@@ -66,28 +66,44 @@ a{
     url('1000040467.png'),
     url('1000040467.png'),
     url('1000040467.png'),
+    url('1000040467.png'),
+    url('1000040467.png'),
+    url('1000040467.png'),
+    url('1000040467.png'),
     url('1000040467.png');
 
-  background-repeat:
-    no-repeat,
-    no-repeat,
-    no-repeat,
-    no-repeat;
-
-  background-position:
-    5% center,
-    35% center,
-    65% center,
-    95% center;
+  background-repeat:repeat;
 
   background-size:
-    230px auto,
-    230px auto,
-    230px auto,
-    230px auto;
+    105px 105px,
+    105px 105px,
+    105px 105px,
+    105px 105px,
+    105px 105px,
+    105px 105px,
+    105px 105px,
+    105px 105px;
+
+  background-position:
+    0 0,
+    52px 18px,
+    108px -8px,
+    165px 20px,
+    225px -5px,
+    280px 18px,
+    340px -8px,
+    400px 20px;
 
   position:relative;
   overflow:hidden;
+}
+
+.floral-top::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.12);
+  pointer-events:none;
 }
 
 @media(max-width:600px){
@@ -95,19 +111,26 @@ a{
     height:65px;
 
     background-size:
-      180px auto,
-      180px auto,
-      180px auto,
-      180px auto;
+      82px 82px,
+      82px 82px,
+      82px 82px,
+      82px 82px,
+      82px 82px,
+      82px 82px,
+      82px 82px,
+      82px 82px;
 
     background-position:
-      5% center,
-      35% center,
-      65% center,
-      95% center;
+      0 0,
+      40px 13px,
+      82px -5px,
+      125px 15px,
+      168px -5px,
+      210px 13px,
+      252px -5px,
+      294px 15px;
   }
 }
-
 /* =========================
    HEADER
 ========================= */
