@@ -2794,13 +2794,24 @@ const WHATSAPP_NUMBER = "51955691007";
 
 let cart = [];
 
-let customization = {
-  name:"",
-  weight:0,
-  price:0
-};
+const WHATSAPP_NUMBER = "51955691007";
 
-let deliveryCost = 0;
+let cart = [];
+
+
+function addSimpleProduct(name, weight, price){
+
+  cart.push({
+    name:name,
+    weight:weight,
+    price:price,
+    fruits:[]
+  });
+
+  updateCart();
+  openCart();
+
+}
 
 
 /* =========================
