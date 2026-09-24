@@ -3994,6 +3994,59 @@ biteDots.forEach((dot, index) => {
 setInterval(nextBiteSlide, 4000);
 
 showBiteSlide(0);
-</script> 
+</script>
+
+<script>
+/* =========================
+   CARRUSEL NARANJANÍS
+========================= */
+
+const naranjanisSlides = document.querySelectorAll('.naranjanis-slide');
+const naranjanisDots = document.querySelectorAll('.naranjanis-dot');
+const naranjanisPrev = document.querySelector('.naranjanis-prev');
+const naranjanisNext = document.querySelector('.naranjanis-next');
+
+let naranjanisIndex = 0;
+
+function showNaranjanisSlide(index){
+  naranjanisSlides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+
+  naranjanisDots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+function nextNaranjanisSlide(){
+  naranjanisIndex =
+    (naranjanisIndex + 1) % naranjanisSlides.length;
+
+  showNaranjanisSlide(naranjanisIndex);
+}
+
+function prevNaranjanisSlide(){
+  naranjanisIndex =
+    (naranjanisIndex - 1 + naranjanisSlides.length)
+    % naranjanisSlides.length;
+
+  showNaranjanisSlide(naranjanisIndex);
+}
+
+naranjanisNext.addEventListener('click', nextNaranjanisSlide);
+naranjanisPrev.addEventListener('click', prevNaranjanisSlide);
+
+naranjanisDots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    naranjanisIndex = index;
+    showNaranjanisSlide(naranjanisIndex);
+  });
+});
+
+setInterval(nextNaranjanisSlide, 4000);
+
+showNaranjanisSlide(0);
+</script>
+
 </body>
 </html>
