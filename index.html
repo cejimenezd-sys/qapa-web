@@ -2165,20 +2165,30 @@ function addSimpleProduct(name, weight, price){
 
   <div class="cart-bottom">
 
-    <div class="cart-total">
-      <span>Subtotal</span>
-      <span id="cartSubtotal">S/ 0</span>
-    </div>
+  <div class="cart-bottom">
 
-    <button
-      class="btn btn-primary"
-      style="width:100%;"
-      onclick="openCheckout()"
-    >
-      CONTINUAR PEDIDO
-    </button>
-
+  <div class="cart-total">
+    <span>Subtotal</span>
+    <span id="cartSubtotal">S/ 0</span>
   </div>
+
+  <button
+    class="btn btn-secondary"
+    style="width:100%;margin-bottom:10px;"
+    onclick="closeCart()"
+  >
+    AGREGAR MÁS PRODUCTOS
+  </button>
+
+  <button
+    class="btn btn-primary"
+    style="width:100%;"
+    onclick="openCheckout()"
+  >
+    CONTINUAR PEDIDO
+  </button>
+
+</div> 
 
 </aside>
 
