@@ -1241,6 +1241,99 @@ function addSimpleProduct(name, weight, price){
     font-size:27px;
   }
 }
+  .collection-art.bite{
+  padding:0;
+  background:#000;
+  overflow:hidden;
+}
+
+.bite-carousel{
+  position:relative;
+  width:100%;
+  height:360px;
+  overflow:hidden;
+}
+
+.bite-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  opacity:0;
+  transition:opacity .5s ease;
+}
+
+.bite-slide.active{
+  opacity:1;
+}
+
+.bite-prev,
+.bite-next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.88);
+  color:#171512;
+  font-size:32px;
+  line-height:1;
+  cursor:pointer;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 15px rgba(0,0,0,.18);
+}
+
+.bite-prev{ left:14px; }
+.bite-next{ right:14px; }
+
+.bite-prev:hover,
+.bite-next:hover{
+  background:#fff;
+}
+
+.bite-dots{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:14px;
+  display:flex;
+  justify-content:center;
+  gap:7px;
+  z-index:3;
+}
+
+.bite-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,.65);
+  cursor:pointer;
+  transition:.25s;
+}
+
+.bite-dot.active{
+  background:#fff;
+  transform:scale(1.25);
+}
+
+@media(max-width:600px){
+  .bite-carousel{
+    height:300px;
+  }
+
+  .bite-prev,
+  .bite-next{
+    width:36px;
+    height:36px;
+    font-size:27px;
+  }
+}
 /* =========================
    OPCIONES CITRUS
 ========================= */
@@ -3674,5 +3767,50 @@ setInterval(nextCitrusSlide, 4000);
 
 showCitrusSlide(0);
 </script>
+ <script>
+const biteSlides = document.querySelectorAll('.bite-slide');
+const biteDots = document.querySelectorAll('.bite-dot');
+const bitePrev = document.querySelector('.bite-prev');
+const biteNext = document.querySelector('.bite-next');
+
+let biteIndex = 0;
+
+function showBiteSlide(index){
+  biteSlides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+
+  biteDots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+function nextBiteSlide(){
+  biteIndex = (biteIndex + 1) % biteSlides.length;
+  showBiteSlide(biteIndex);
+}
+
+function prevBiteSlide(){
+  biteIndex =
+    (biteIndex - 1 + biteSlides.length)
+    % biteSlides.length;
+
+  showBiteSlide(biteIndex);
+}
+
+biteNext.addEventListener('click', nextBiteSlide);
+bitePrev.addEventListener('click', prevBiteSlide);
+
+biteDots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    biteIndex = index;
+    showBiteSlide(biteIndex);
+  });
+});
+
+setInterval(nextBiteSlide, 4000);
+
+showBiteSlide(0);
+</script> 
 </body>
 </html>
