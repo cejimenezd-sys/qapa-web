@@ -1256,12 +1256,11 @@ function addSimpleProduct(name, weight, price){
 .collection-option summary{
   list-style:none;
   cursor:pointer;
-  padding:12px 15px;
+  padding:15px 18px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:12px;
-  font-size:13px;
+  gap:15px;
   font-weight:600;
   color:#61483C;
 }
@@ -1309,17 +1308,12 @@ function addSimpleProduct(name, weight, price){
     padding:10px 12px;
   }
 
- .collection-choice span{
-  font-size:11px;
-  color:#61483C;
-}
-.collection-choice .collection-add{
-  margin:0;
-  padding:7px 12px;
-  font-size:10px;
-  white-space:nowrap;
-}
- 
+  .collection-choice span{
+    font-size:12px;
+  }
+
+  .collection-choice .collection-add{
+    padding:7px 11px;
   }
 }/* =========================
    RESPONSIVE
@@ -1837,70 +1831,62 @@ function addSimpleProduct(name, weight, price){
 
       </div>
     </div>
-<div class="collection-info">
 
-  <div class="collection-tag">Colección especial</div>
+    <div class="collection-info">
 
-  <h3>Citrus Collection</h3>
+      <div class="collection-tag">Colección especial</div>
 
-  <p>
-    Naranja, limón y toronja deshidratados para aportar
-    aroma, color y un toque especial a tus bebidas y preparaciones.
-  </p>
-
-  <ul class="collection-list">
-    <li>Infusiones y tés</li>
-    <li>Aguas saborizadas</li>
-    <li>Mocktails y cócteles</li>
-    <li>Decoración de postres y bebidas</li>
-  </ul>
-
-  <div class="collection-products">
-
-    <details class="collection-option">
-      <summary>Empaques herméticos de 100 g <strong>S/ 13</strong></summary>
-
-      <div class="collection-choice">
-        <span>Naranja · 100 g</span>
-        <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Naranja','100 g · Empaque hermético',13)">AGREGAR</button>
+      <div class="collection-highlight">
+        Empaques herméticos de 100 g · S/ 13
       </div>
 
-      <div class="collection-choice">
-        <span>Limón · 100 g</span>
-        <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Limón','100 g · Empaque hermético',13)">AGREGAR</button>
+      <div class="collection-products">
+
+        <details class="collection-option">
+          <summary>Empaques herméticos de 100 g <strong>S/ 13</strong></summary>
+
+          <div class="collection-choice">
+            <span>Naranja · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Naranja','100 g · Empaque hermético',13)">AGREGAR</button>
+          </div>
+
+          <div class="collection-choice">
+            <span>Limón · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Limón','100 g · Empaque hermético',13)">AGREGAR</button>
+          </div>
+
+          <div class="collection-choice">
+            <span>Toronja · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Toronja','100 g · Empaque hermético',13)">AGREGAR</button>
+          </div>
+
+        </details>
+
+        <details class="collection-option">
+          <summary>Frascos de vidrio de 100 g <strong>S/ 15</strong></summary>
+
+          <div class="collection-choice">
+            <span>Naranja · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Naranja','100 g · Frasco de vidrio',15)">AGREGAR</button>
+          </div>
+
+          <div class="collection-choice">
+            <span>Limón · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Limón','100 g · Frasco de vidrio',15)">AGREGAR</button>
+          </div>
+
+          <div class="collection-choice">
+            <span>Toronja · 100 g</span>
+            <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Toronja','100 g · Frasco de vidrio',15)">AGREGAR</button>
+          </div>
+
+        </details>
+
       </div>
 
-      <div class="collection-choice">
-        <span>Toronja · 100 g</span>
-        <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Toronja','100 g · Empaque hermético',13)">AGREGAR</button>
-      </div>
+    </div>
+  </article>
 
-    </details>
-
-    <details class="collection-option">
-      <summary>Frascos de vidrio de 100 g <strong>S/ 15</strong></summary>
-
-      <div class="collection-choice">
-        <span>Naranja · 100 g</span>
-        <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Naranja','100 g · Frasco de vidrio',15)">AGREGAR</button>
-      </div>
-
-      <div class="collection-choice">
-        <span>Limón · 100 g</span>
-        <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Limón','100 g · Frasco de vidrio',15)">AGREGAR</button>
-      </div>
-
-      <div class="collection-choice">
-        <span>Toronja · 100 g</span>
-        <button class="collection-add" onclick="addSimpleProduct('Citrus Collection · Toronja','100 g · Frasco de vidrio',15)">AGREGAR</button>
-      </div>
-
-    </details>
-
-  </div>
-
-</div>
-  
 
   <!-- =========================
        QAPA BITE
