@@ -494,7 +494,81 @@ section{
   width:100%;
   overflow:hidden;
 }
+.naranjanis-carousel{
+  position:relative;
+  width:100%;
+  aspect-ratio:4 / 3;
+  overflow:hidden;
+  background:#000;
+}
 
+.naranjanis-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  opacity:0;
+  transition:opacity .5s ease;
+}
+
+.naranjanis-slide.active{
+  opacity:1;
+}
+
+.naranjanis-prev,
+.naranjanis-next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,.92);
+  color:#333;
+  font-size:28px;
+  line-height:42px;
+  text-align:center;
+  cursor:pointer;
+  z-index:5;
+}
+
+.naranjanis-prev{
+  left:14px;
+}
+
+.naranjanis-next{
+  right:14px;
+}
+
+.naranjanis-dots{
+  position:absolute;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:7px;
+  z-index:5;
+}
+
+.naranjanis-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,.65);
+  cursor:pointer;
+}
+
+.naranjanis-dot.active{
+  background:#fff;
+}
+
+@media(max-width:600px){
+  .naranjanis-carousel{
+    aspect-ratio:4 / 3;
+  }
+}
 .collection-info{
   padding:24px 24px 25px;
   display:flex;
