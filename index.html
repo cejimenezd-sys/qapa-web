@@ -1797,8 +1797,15 @@ height:auto;
     <div class="fruit-grid">
 
       <div class="fruit-card">
-        <img src="fresa.jpeg" alt="Fresa">
-        <h3>Fresa</h3>
+       <img src="fresa.jpeg" alt="Fresa">
+
+<h3 class="fruit-name" onclick="toggleFruitInfo(this)">
+  Fresa
+</h3>
+
+<div class="fruit-info">
+  Aporta vitamina C y fibra, además de compuestos antioxidantes. Su sabor es dulce y ligeramente ácido.
+</div>
       </div>
 
       <div class="fruit-card">
@@ -4064,6 +4071,18 @@ setInterval(nextNaranjanisSlide, 4000);
 
 showNaranjanisSlide(0);
 </script>
+<script>
+function toggleFruitInfo(element){
 
+  const info = element.nextElementSibling;
+
+  if(info.style.display === 'block'){
+    info.style.display = 'none';
+  }else{
+    info.style.display = 'block';
+  }
+
+}
+</script>
 </body>
 </html>
