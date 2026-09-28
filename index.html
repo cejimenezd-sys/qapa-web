@@ -1934,6 +1934,89 @@ height:auto;
   margin:0 0 18px;
   letter-spacing:.5px;
 }
+ /* =========================================
+   ESTILO FINAL · EMPAQUES QAPA
+========================================= */
+
+.package-option{
+  display:flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  padding:16px 0 !important;
+  border-bottom:1px solid rgba(97,72,60,.14) !important;
+  text-align:left !important;
+}
+
+.package-option:last-child{
+  border-bottom:none !important;
+}
+
+/* NOMBRE */
+.package-option h4{
+  font-family:'Cormorant Garamond',serif !important;
+  font-size:23px !important;
+  font-weight:600 !important;
+  color:var(--brown) !important;
+  margin:0 !important;
+  white-space:nowrap !important;
+}
+
+/* GRAMOS */
+.package-option span{
+  font-family:'Montserrat',sans-serif !important;
+  font-size:18px !important;
+  font-weight:600 !important;
+  color:var(--brown) !important;
+  margin:0 !important;
+  white-space:nowrap !important;
+}
+
+/* PRECIO */
+.package-option strong{
+  font-family:'Montserrat',sans-serif !important;
+  font-size:18px !important;
+  font-weight:600 !important;
+  color:var(--terracotta) !important;
+  margin-left:auto !important;
+  white-space:nowrap !important;
+}
+
+/* BOTÓN */
+.package-option .add-btn{
+  width:auto !important;
+  min-width:110px !important;
+  margin:0 0 0 8px !important;
+  white-space:nowrap !important;
+}
+
+
+/* =========================================
+   MÓVIL
+========================================= */
+
+@media(max-width:600px){
+
+  .package-option{
+    gap:6px !important;
+  }
+
+  .package-option h4{
+    font-size:19px !important;
+  }
+
+  .package-option span{
+    font-size:15px !important;
+  }
+
+  .package-option strong{
+    font-size:15px !important;
+  }
+
+  .package-option .add-btn{
+    min-width:90px !important;
+  }
+
+} 
 </style>
 </head>
 
