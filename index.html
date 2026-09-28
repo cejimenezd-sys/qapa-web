@@ -1703,6 +1703,44 @@ height:auto;
   padding-left:18px;
   margin-bottom:22px;
 }
+  .jar-product-card .jar-image{
+  width:100%;
+  height:300px;
+  background:var(--ivory);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.jar-product-card .jar-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.jar-product-card .product-info{
+  padding:20px 18px 22px;
+}
+
+.jar-product-card h3{
+  font-size:28px;
+  margin-bottom:6px;
+}
+
+.product-select{
+  width:100%;
+  padding:12px 14px;
+  margin:12px 0 14px;
+  border:1px solid #d8c8b8;
+  border-radius:10px;
+  background:white;
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  color:var(--brown);
+  cursor:pointer;
+}
 </style>
 </head>
 
@@ -1944,76 +1982,46 @@ height:auto;
 
         <div class="product-info">
 
-          <h3>Frasco grande</h3>
+    <!-- FRASCOS QAPA -->
 
-          <div class="product-weight">450 g</div>
+<article class="product-card jar-product-card">
 
-          <div class="price">S/ 41</div>
+  <div class="jar-image">
+    <img
+      src="frasco-300.jpg"
+      alt="Frascos de vidrio QAPA"
+    >
+  </div>
 
-          <button
-            class="add-btn"
-            onclick="startCustomization('Frasco grande',450,41)"
-          >
-            AGREGAR
-          </button>
+  <div class="product-info">
 
-        </div>
+    <h3>Frascos QAPA</h3>
 
-      </article>
+    <div class="product-weight">
+      Elige tu tamaño
+    </div>
 
+    <select
+      class="product-select"
+      onchange="changeJarSize(this)"
+    >
+      <option value="">Seleccionar tamaño</option>
+      <option value="450">450 g · S/ 41</option>
+      <option value="300">300 g · S/ 31</option>
+      <option value="200">200 g · S/ 21</option>
+    </select>
 
-      <!-- FRASCO 300 -->
+    <button
+      class="add-btn"
+      onclick="addSelectedJar()"
+    >
+      AGREGAR
+    </button>
 
-      <article class="product-card">
+  </div>
 
-        <img src="frasco-300.jpg" alt="Frasco mediano QAPA">
-
-        <div class="product-info">
-
-          <h3>Frasco mediano</h3>
-
-          <div class="product-weight">300 g</div>
-
-          <div class="price">S/ 31</div>
-
-          <button
-            class="add-btn"
-            onclick="startCustomization('Frasco mediano',300,31)"
-          >
-            AGREGAR
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- FRASCO 200 -->
-
-      <article class="product-card">
-
-        <img src="frasco-200.jpg" alt="Frasco chico QAPA">
-
-        <div class="product-info">
-
-          <h3>Frasco chico</h3>
-
-          <div class="product-weight">200 g</div>
-
-          <div class="price">S/ 21</div>
-
-          <button
-            class="add-btn"
-            onclick="startCustomization('Frasco chico',200,21)"
-          >
-            AGREGAR
-          </button>
-
-        </div>
-
-      </article>
-
-
+</article>
+    
       <!-- PREMIUM -->
 
       <article class="product-card">
@@ -3192,6 +3200,49 @@ const WHATSAPP_NUMBER = "51955691007";
 
 let cart = [];
 let deliveryCost = 0;
+  let selectedJarWeight = 0;
+let selectedJarPrice = 0;
+
+function changeJarSize(select){
+
+  const value = select.value;
+
+  if(value === "450"){
+    selectedJarWeight = 450;
+    selectedJarPrice = 41;
+  }
+
+  else if(value === "300"){
+    selectedJarWeight = 300;
+    selectedJarPrice = 31;
+  }
+
+  else if(value === "200"){
+    selectedJarWeight = 200;
+    selectedJarPrice = 21;
+  }
+
+  else{
+    selectedJarWeight = 0;
+    selectedJarPrice = 0;
+  }
+
+}
+
+function addSelectedJar(){
+
+  if(!selectedJarWeight){
+    alert("Selecciona primero el tamaño del frasco.");
+    return;
+  }
+
+  startCustomization(
+    "Frasco QAPA",
+    selectedJarWeight,
+    selectedJarPrice
+  );
+
+}
 function addSimpleProduct(name, weight, price){
 
   cart.push({
