@@ -1831,16 +1831,17 @@ height:auto;
 /* =========================
    EMPAQUES
 ========================= */
+
 .package-option{
   display:grid !important;
-  grid-template-columns:auto auto 1fr auto !important;
+  grid-template-columns:auto 1fr !important;
+  grid-template-rows:auto auto !important;
   align-items:center !important;
-  gap:8px !important;
+  gap:8px 12px !important;
   padding:16px 0 !important;
   border-bottom:1px solid rgba(97,72,60,.14) !important;
   text-align:left !important;
 }
-
 .package-option:last-child{
   border-bottom:none !important;
 }
@@ -1865,12 +1866,12 @@ height:auto;
   white-space:nowrap !important;
 }
 
-/* PRECIO AL FINAL */
+/* PRECIO */
 .package-option strong{
   font-family:'Montserrat',sans-serif !important;
   font-size:18px !important;
   font-weight:600 !important;
-  color:var(--terracotta) !important;
+  color:#C79A55 !important;
   margin-left:auto !important;
   white-space:nowrap !important;
   text-align:right !important;
@@ -1882,8 +1883,18 @@ height:auto;
   width:100% !important;
   margin:8px 0 0 !important;
 }
+.package-name{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+}
+.package-name h4{
+  margin:0 !important;
+}
 
-
+.package-name span{
+  margin:0 !important;
+}
 /* MÓVIL */
 
 @media(max-width:600px){
@@ -1918,14 +1929,6 @@ height:auto;
    ESTILO FINAL · EMPAQUES QAPA
 ========================================= */
 
-.package-option{
-  display:flex !important;
-  align-items:center !important;
-  gap:8px !important;
-  padding:16px 0 !important;
-  border-bottom:1px solid rgba(97,72,60,.14) !important;
-  text-align:left !important;
-}
 
 .package-option:last-child{
   border-bottom:none !important;
@@ -2304,12 +2307,14 @@ height:auto;
 
 
       <!-- PREMIUM -->
+<!-- PREMIUM -->
 
-    <div class="package-option">
+<div class="package-option">
 
-  <h4>QAPA PREMIUM</h4>
-
-  <span>300 g</span>
+  <div class="package-name">
+    <h4>QAPA PREMIUM</h4>
+    <span>300 g</span>
+  </div>
 
   <strong>S/ 28</strong>
 
@@ -2322,19 +2327,151 @@ height:auto;
 
 </div>
 
+
 <!-- GO -->
 
 <div class="package-option">
 
-  <h4>QAPA GO</h4>
-
-  <span>100 g</span>
+  <div class="package-name">
+    <h4>QAPA GO</h4>
+    <span>100 g</span>
+  </div>
 
   <strong>S/ 11</strong>
 
   <button
     class="add-btn"
     onclick="startCustomization('QAPA GO',100,11)"
+  >
+    AGREGAR
+  </button>
+
+</div>
+
+
+<!-- POCKET -->
+
+<!-- PREMIUM -->
+
+<div class="package-option">
+
+  <div class="package-name">
+    <h4>QAPA PREMIUM</h4>
+    <span>300 g</span>
+  </div>
+
+  <strong>S/ 28</strong>
+
+  <button
+    class="add-btn"
+    onclick="startCustomization('QAPA PREMIUM',300,28)"
+  >
+    AGREGAR
+  </button>
+
+</div>
+
+
+<!-- GO -->
+
+<div class="package-option">
+
+  <div class="package-name">
+    <h4>QAPA GO</h4>
+    <span>100 g</span>
+  </div>
+
+  <strong>S/ 11</strong>
+
+  <button
+    class="add-btn"
+    onclick="startCustomization('QAPA GO',100,11)"
+  >
+    AGREGAR
+  </button>
+
+</div>
+
+
+<!-- POCKET -->
+
+<div class="package-option">
+
+  <div class="package-name">
+    <h4>QAPA POCKET</h4>
+    <span>50 g</span>
+  </div>
+
+  <strong>S/ 6</strong>
+
+  <button
+    class="add-btn"
+    onclick="startCustomization('QAPA POCKET',50,6)"
+  >
+    AGREGAR
+  </button>
+
+</div>
+   
+
+<!-- GO -->
+
+<!-- PREMIUM -->
+
+<div class="package-option">
+
+  <div class="package-name">
+    <h4>QAPA PREMIUM</h4>
+    <span>300 g</span>
+  </div>
+
+  <strong>S/ 28</strong>
+
+  <button
+    class="add-btn"
+    onclick="startCustomization('QAPA PREMIUM',300,28)"
+  >
+    AGREGAR
+  </button>
+
+</div>
+
+
+<!-- GO -->
+
+<div class="package-option">
+
+  <div class="package-name">
+    <h4>QAPA GO</h4>
+    <span>100 g</span>
+  </div>
+
+  <strong>S/ 11</strong>
+
+  <button
+    class="add-btn"
+    onclick="startCustomization('QAPA GO',100,11)"
+  >
+    AGREGAR
+  </button>
+
+</div>
+
+
+<!-- POCKET -->
+
+<div class="package-option">
+
+  <div class="package-name">
+    <h4>QAPA POCKET</h4>
+    <span>50 g</span>
+  </div>
+
+  <strong>S/ 6</strong>
+
+  <button
+    class="add-btn"
+    onclick="startCustomization('QAPA POCKET',50,6)"
   >
     AGREGAR
   </button>
