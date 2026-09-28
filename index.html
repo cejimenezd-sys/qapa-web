@@ -1832,95 +1832,75 @@ height:auto;
    EMPAQUES
 ========================= */
 .package-option{
-  display:grid;
-  grid-template-columns:auto auto 1fr auto;
-  gap:18px;
-  align-items:center;
-  text-align:left;
-  padding:16px 0;
-  border-bottom:1px solid rgba(97,72,60,.14);
+  display:grid !important;
+  grid-template-columns:auto auto 1fr auto !important;
+  align-items:center !important;
+  gap:8px !important;
+  padding:16px 0 !important;
+  border-bottom:1px solid rgba(97,72,60,.14) !important;
+  text-align:left !important;
 }
 
 .package-option:last-child{
-  border-bottom:none;
+  border-bottom:none !important;
 }
 
+/* NOMBRE QAPA */
 .package-option h4{
-  font-family:'Cormorant Garamond',serif;
-  font-size:22px;
-  font-weight:600;
-  color:var(--brown);
-  margin:0;
-  white-space:nowrap;
+  font-family:'Cormorant Garamond',serif !important;
+  font-size:23px !important;
+  font-weight:600 !important;
+  color:var(--brown) !important;
+  margin:0 !important;
+  white-space:nowrap !important;
 }
 
+/* GRAMOS */
 .package-option span{
-  font-family:'Cormorant Garamond',serif;
-  font-size:20px;
-  font-weight:600;
-  color:var(--brown);
-  white-space:nowrap;
+  font-family:'Montserrat',sans-serif !important;
+  font-size:18px !important;
+  font-weight:600 !important;
+  color:var(--brown) !important;
+  margin:0 !important;
+  white-space:nowrap !important;
 }
 
+/* PRECIO AL FINAL */
 .package-option strong{
-  font-family:'Cormorant Garamond',serif;
-  font-size:20px;
-  font-weight:600;
-  color:var(--brown);
-  white-space:nowrap;
-  text-align:right;
+  font-family:'Montserrat',sans-serif !important;
+  font-size:18px !important;
+  font-weight:600 !important;
+  color:var(--terracotta) !important;
+  margin-left:auto !important;
+  white-space:nowrap !important;
+  text-align:right !important;
 }
 
+/* AGREGAR DEBAJO */
 .package-option .add-btn{
-  width:auto;
-  min-width:110px;
-  margin:0;
-  white-space:nowrap;
+  grid-column:1 / -1 !important;
+  width:100% !important;
+  margin:8px 0 0 !important;
 }
 
 
-/* =========================
-   MÓVILES
-========================= */
+/* MÓVIL */
 
-@media(max-width:800px){
-
-  .products-groups{
-    grid-template-columns:1fr;
-    gap:22px;
-  }
-
-  .product-group-image{
-    height:280px;
-  }
-
-  .product-group-content{
-    padding:22px 18px 24px;
-  }
-
-  .product-group-content h3{
-    font-size:27px;
-  }
-
-}
-
-@media(max-width:480px){
-
-  .product-group-image{
-    height:250px;
-  }
-
-  .package-option{
-    grid-template-columns:1fr auto;
-  }
+@media(max-width:600px){
 
   .package-option h4{
-    font-size:20px;
+    font-size:20px !important;
+  }
+
+  .package-option span{
+    font-size:16px !important;
   }
 
   .package-option strong{
-    font-size:19px;
+    font-size:16px !important;
   }
+
+}
 
 }
  .package-heading{
