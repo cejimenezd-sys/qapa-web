@@ -1741,6 +1741,181 @@ height:auto;
   color:var(--brown);
   cursor:pointer;
 }
+  /* =========================
+   PRODUCTOS QAPA · DOS COLUMNAS
+========================= */
+
+.products-groups{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:28px;
+  margin-top:30px;
+  align-items:stretch;
+}
+
+.product-group{
+  background:var(--ivory);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 12px 32px rgba(80,55,40,.10);
+  display:flex;
+  flex-direction:column;
+}
+
+.product-group-image{
+  width:100%;
+  height:330px;
+  background:#f8f1e7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.product-group-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.product-group-content{
+  padding:24px 24px 28px;
+  text-align:center;
+}
+
+.product-group-content h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;
+  font-weight:600;
+  color:var(--brown);
+  margin:0 0 8px;
+}
+
+.group-description{
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  line-height:1.55;
+  color:var(--brown);
+  margin:0 auto 18px;
+  max-width:420px;
+}
+
+.product-group .product-weight{
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  color:var(--brown);
+  margin-bottom:6px;
+}
+
+.product-select{
+  width:100%;
+  max-width:330px;
+  padding:13px 15px;
+  margin:8px auto 15px;
+  display:block;
+  border:1px solid #d8c8b8;
+  border-radius:12px;
+  background:#fff;
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  color:var(--brown);
+  cursor:pointer;
+}
+
+.product-group .add-btn{
+  min-width:180px;
+}
+
+
+/* =========================
+   EMPAQUES
+========================= */
+
+.package-option{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:5px 15px;
+  align-items:center;
+  text-align:left;
+  padding:15px 0;
+  border-bottom:1px solid rgba(97,72,60,.14);
+}
+
+.package-option:last-child{
+  border-bottom:none;
+}
+
+.package-option h4{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;
+  color:var(--brown);
+  margin:0 0 2px;
+}
+
+.package-option span{
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  color:var(--brown);
+}
+
+.package-option strong{
+  font-family:'Cormorant Garamond',serif;
+  font-size:21px;
+  color:var(--terracotta);
+}
+
+.package-option .add-btn{
+  grid-column:1 / -1;
+  width:100%;
+  margin-top:7px;
+}
+
+
+/* =========================
+   MÓVILES
+========================= */
+
+@media(max-width:800px){
+
+  .products-groups{
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+
+  .product-group-image{
+    height:280px;
+  }
+
+  .product-group-content{
+    padding:22px 18px 24px;
+  }
+
+  .product-group-content h3{
+    font-size:27px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .product-group-image{
+    height:250px;
+  }
+
+  .package-option{
+    grid-template-columns:1fr auto;
+  }
+
+  .package-option h4{
+    font-size:20px;
+  }
+
+  .package-option strong{
+    font-size:19px;
+  }
+
+}
 </style>
 </head>
 
@@ -1963,147 +2138,159 @@ height:auto;
 
       <div class="mini">Elige tu formato</div>
 
-      <h2>Productos QAPA</h2>
+<h2>Productos QAPA</h2>
 
-      <p>
-        Selecciona tu presentación y presiona AGREGAR para comenzar
-        a crear tu combinación.
+<p>
+  Selecciona tu presentación y presiona AGREGAR para comenzar
+  a crear tu combinación.
+</p>
+
+</div>
+
+<div class="products-groups">
+
+  <!-- =========================
+       FRASCOS DE VIDRIO
+  ========================== -->
+
+  <div class="product-group">
+
+    <div class="product-group-image">
+      <img
+        src="frasco-300.jpg"
+        alt="Frascos de vidrio QAPA"
+      >
+    </div>
+
+    <div class="product-group-content">
+
+      <h3>FRASCOS DE VIDRIO</h3>
+
+      <p class="group-description">
+        Elige el tamaño de tu frasco y crea tu combinación QAPA
+        con tus frutas favoritas.
       </p>
 
+      <div class="product-weight">
+        Elige tu tamaño
+      </div>
+
+      <select
+        class="product-select"
+        onchange="changeJarSize(this)"
+      >
+        <option value="">Seleccionar tamaño</option>
+        <option value="450">450 g · S/ 41</option>
+        <option value="300">300 g · S/ 31</option>
+        <option value="200">200 g · S/ 21</option>
+      </select>
+
+      <button
+        class="add-btn"
+        onclick="addSelectedJar()"
+      >
+        AGREGAR
+      </button>
+
     </div>
-
-    <div class="products-grid">
-
-      <!-- FRASCO 450 -->
-
-      <article class="product-card">
-
-        <img src="frasco-450.jpg" alt="Frasco grande QAPA">
-
-        <div class="product-info">
-
-    <!-- FRASCOS QAPA -->
-
-<article class="product-card jar-product-card">
-
-  <div class="jar-image">
-    <img
-      src="frasco-300.jpg"
-      alt="Frascos de vidrio QAPA"
-    >
-  </div>
-
-  <div class="product-info">
-
-    <h3>Frascos QAPA</h3>
-
-    <div class="product-weight">
-      Elige tu tamaño
-    </div>
-
-    <select
-      class="product-select"
-      onchange="changeJarSize(this)"
-    >
-      <option value="">Seleccionar tamaño</option>
-      <option value="450">450 g · S/ 41</option>
-      <option value="300">300 g · S/ 31</option>
-      <option value="200">200 g · S/ 21</option>
-    </select>
-
-    <button
-      class="add-btn"
-      onclick="addSelectedJar()"
-    >
-      AGREGAR
-    </button>
 
   </div>
 
-</article>
-    
+
+  <!-- =========================
+       EMPAQUES HERMÉTICOS
+  ========================== -->
+
+  <div class="product-group">
+
+    <div class="product-group-image">
+      <img
+        src="qapa-premium.jpg"
+        alt="Empaques herméticos QAPA"
+      >
+    </div>
+
+    <div class="product-group-content">
+
+      <h3>EMPAQUES HERMÉTICOS</h3>
+
+      <p class="group-description">
+        Presentaciones prácticas para disfrutar QAPA
+        donde quieras.
+      </p>
+
+
       <!-- PREMIUM -->
 
-      <article class="product-card">
+      <div class="package-option">
 
-        <img src="qapa-premium.jpg" alt="QAPA Premium">
-
-        <div class="product-info">
-
-          <h3>QAPA PREMIUM</h3>
-
-          <div class="product-weight">300 g · Empaque hermético</div>
-
-          <div class="price">S/ 28</div>
-
-          <button
-            class="add-btn"
-            onclick="startCustomization('QAPA PREMIUM',300,28)"
-          >
-            AGREGAR
-          </button>
-
+        <div>
+          <h4>QAPA PREMIUM</h4>
+          <span>300 g · Empaque hermético</span>
         </div>
 
-      </article>
+        <strong>S/ 28</strong>
+
+        <button
+          class="add-btn"
+          onclick="startCustomization('QAPA PREMIUM',300,28)"
+        >
+          AGREGAR
+        </button>
+
+      </div>
 
 
       <!-- GO -->
 
-      <article class="product-card">
+      <div class="package-option">
 
-        <img src="qapa-go.jpg" alt="QAPA GO">
-
-        <div class="product-info">
-
-          <h3>QAPA GO</h3>
-
-          <div class="product-weight">100 g</div>
-
-          <div class="price">S/ 11</div>
-
-          <button
-            class="add-btn"
-            onclick="startCustomization('QAPA GO',100,11)"
-          >
-            AGREGAR
-          </button>
-
+        <div>
+          <h4>QAPA GO</h4>
+          <span>100 g</span>
         </div>
 
-      </article>
+        <strong>S/ 11</strong>
+
+        <button
+          class="add-btn"
+          onclick="startCustomization('QAPA GO',100,11)"
+        >
+          AGREGAR
+        </button>
+
+      </div>
 
 
       <!-- POCKET -->
 
-      <article class="product-card">
+      <div class="package-option">
 
-        <img src="qapa-pocket.jpg" alt="QAPA POCKET">
-
-        <div class="product-info">
-
-          <h3>QAPA POCKET</h3>
-
-          <div class="product-weight">50 g</div>
-
-          <div class="price">S/ 6</div>
-
-          <button
-            class="add-btn"
-            onclick="startCustomization('QAPA POCKET',50,6)"
-          >
-            AGREGAR
-          </button>
-
+        <div>
+          <h4>QAPA POCKET</h4>
+          <span>50 g</span>
         </div>
 
-      </article>
+        <strong>S/ 6</strong>
+
+        <button
+          class="add-btn"
+          onclick="startCustomization('QAPA POCKET',50,6)"
+        >
+          AGREGAR
+        </button>
+
+      </div>
 
     </div>
 
   </div>
 
-</section>
+</div>
+
+</div>
+
+</section>  
 
 
 <section class="collections-section" id="colecciones">
