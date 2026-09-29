@@ -2249,81 +2249,133 @@ height:auto;
       >
     </div>
 
- <div class="product-group-content">
+    <div class="product-group-content">
 
-  <div class="package-heading">
-    EMPAQUES HERMÉTICOS
-  </div>
+      <h3>FRASCOS DE VIDRIO</h3>
 
-  <p class="group-description">
-    Presentaciones prácticas para disfrutar QAPA
-    donde quieras.
-  </p>
+      <p class="group-description">
+        Elige el tamaño de tu frasco y crea tu combinación QAPA
+        con tus frutas favoritas.
+      </p>
 
-  <!-- PREMIUM -->
+      <div class="product-weight">
+        Elige tu tamaño
+      </div>
 
-  <div class="package-option">
+      <select
+        class="product-select"
+        onchange="changeJarSize(this)"
+      >
+        <option value="">Seleccionar tamaño</option>
+        <option value="450">450 g · S/ 41</option>
+        <option value="300">300 g · S/ 31</option>
+        <option value="200">200 g · S/ 21</option>
+      </select>
 
-    <div class="package-name">
-      <h4>QAPA PREMIUM</h4>
-      <span>300 g</span>
+      <button
+        class="add-btn"
+        onclick="addSelectedJar()"
+      >
+        AGREGAR
+      </button>
+
     </div>
-
-    <strong>S/ 28</strong>
-
-    <button
-      class="add-btn"
-      onclick="startCustomization('QAPA PREMIUM',300,28)"
-    >
-      AGREGAR
-    </button>
-
-  </div>
-
-
-  <!-- GO -->
-
-  <div class="package-option">
-
-    <div class="package-name">
-      <h4>QAPA GO</h4>
-      <span>100 g</span>
-    </div>
-
-    <strong>S/ 11</strong>
-
-    <button
-      class="add-btn"
-      onclick="startCustomization('QAPA GO',100,11)"
-    >
-      AGREGAR
-    </button>
 
   </div>
 
 
-  <!-- POCKET -->
+  <!-- =========================
+       EMPAQUES HERMÉTICOS
+  ========================== -->
 
-  <div class="package-option">
+  <div class="product-group">
 
-    <div class="package-name">
-      <h4>QAPA POCKET</h4>
-      <span>50 g</span>
+    <div class="product-group-image">
+      <img
+        src="qapa-premium.jpg"
+        alt="Empaques herméticos QAPA"
+      >
     </div>
 
-    <strong>S/ 6</strong>
+    <div class="product-group-content">
 
-    <button
-      class="add-btn"
-      onclick="startCustomization('QAPA POCKET',50,6)"
-    >
-      AGREGAR
-    </button>
+      <div class="package-heading">
+        EMPAQUES HERMÉTICOS
+      </div>
+
+      <p class="group-description">
+        Presentaciones prácticas para disfrutar QAPA
+        donde quieras.
+      </p>
+
+
+      <!-- PREMIUM -->
+
+      <div class="package-option">
+
+        <div class="package-name">
+          <h4>QAPA PREMIUM</h4>
+          <span>300 g</span>
+        </div>
+
+        <strong>S/ 28</strong>
+
+        <button
+          class="add-btn"
+          onclick="startCustomization('QAPA PREMIUM',300,28)"
+        >
+          AGREGAR
+        </button>
+
+      </div>
+
+
+      <!-- GO -->
+
+      <div class="package-option">
+
+        <div class="package-name">
+          <h4>QAPA GO</h4>
+          <span>100 g</span>
+        </div>
+
+        <strong>S/ 11</strong>
+
+        <button
+          class="add-btn"
+          onclick="startCustomization('QAPA GO',100,11)"
+        >
+          AGREGAR
+        </button>
+
+      </div>
+
+
+      <!-- POCKET -->
+
+      <div class="package-option">
+
+        <div class="package-name">
+          <h4>QAPA POCKET</h4>
+          <span>50 g</span>
+        </div>
+
+        <strong>S/ 6</strong>
+
+        <button
+          class="add-btn"
+          onclick="startCustomization('QAPA POCKET',50,6)"
+        >
+          AGREGAR
+        </button>
+
+      </div>
+
+    </div>
 
   </div>
 
 </div>
-
 
 <section class="collections-section" id="colecciones">
 
