@@ -386,7 +386,111 @@ section{
   padding:8px 10px 10px;
   text-align:center;
 }
+/* =========================
+   CÓMO DISFRUTAR QAPA
+========================= */
 
+.enjoy-qapa{
+  background:var(--ivory);
+}
+
+.enjoy-carousel{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.enjoy-track{
+  display:flex;
+  gap:22px;
+  overflow:hidden;
+  scroll-behavior:smooth;
+  width:100%;
+}
+
+.enjoy-card{
+  flex:0 0 calc((100% - 44px) / 3);
+  background:white;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(80,55,40,.10);
+}
+
+.enjoy-card img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+}
+
+.enjoy-info{
+  padding:16px 18px 18px;
+  text-align:center;
+}
+
+.enjoy-info h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;
+  color:var(--brown);
+  margin:0 0 5px;
+}
+
+.enjoy-info p{
+  font-size:12px;
+  color:#75675e;
+  margin:0;
+  line-height:1.5;
+}
+
+.enjoy-arrow{
+  flex:0 0 42px;
+  width:42px;
+  height:42px;
+  border:1px solid #F7C454;
+  border-radius:50%;
+  background:#171512;
+  color:#F7C454;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.2s;
+}
+
+.enjoy-arrow:hover{
+  background:#F7C454;
+  color:#171512;
+}
+
+@media(max-width:900px){
+  .enjoy-card{
+    flex:0 0 calc((100% - 22px) / 2);
+  }
+}
+
+@media(max-width:600px){
+  .enjoy-carousel{
+    gap:8px;
+  }
+
+  .enjoy-track{
+    gap:14px;
+  }
+
+  .enjoy-card{
+    flex:0 0 82%;
+  }
+
+  .enjoy-arrow{
+    flex:0 0 34px;
+    width:34px;
+    height:34px;
+    font-size:23px;
+  }
+}
 /* =========================
    PRODUCTOS
 ========================= */
@@ -4571,6 +4675,23 @@ function toggleFruitInfo(element){
     info.style.display = 'block';
   }
 
+}
+  function moveEnjoy(direction){
+  const track = document.getElementById("enjoyTrack");
+
+  if(!track) return;
+
+  const card = track.querySelector(".enjoy-card");
+
+  if(!card) return;
+
+  const gap = 22;
+  const amount = card.offsetWidth + gap;
+
+  track.scrollBy({
+    left: direction * amount,
+    behavior: "smooth"
+  });
 }
 </script>
 </body>
