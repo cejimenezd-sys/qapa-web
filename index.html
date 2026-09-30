@@ -1478,7 +1478,18 @@ height:auto;
   font-size:11px;
   line-height:1.2;
   white-space:nowrap;
-  gap:8px;
+  gap:5px;
+  padding-right:10px;
+}
+
+.collection-option summary::after{
+  content:"+";
+  flex-shrink:0;
+  margin-left:4px;
+  font-size:20px;
+  line-height:1;
+  color:#F7C454;
+  font-weight:400;
 }
 
 .collection-option summary strong{
@@ -2024,8 +2035,8 @@ height:auto;
   }
 
 } 
-  .collection-content .mini{
-  color:#F7C454;
+.collection-content .mini{
+  color:#F7C454 !important;
 }
 </style>
 </head>
@@ -2570,10 +2581,7 @@ height:auto;
       <li>Pasa rubia</li>
     </ul>
 
-    <div class="collection-highlight">
-      Vasito · 50 g · Snack listo para llevar
-    </div>
-
+   
     <div class="collection-pending">
       S/ 3
     </div>
@@ -2630,7 +2638,8 @@ height:auto;
 
       <p>
         Una mezcla aromática de naranja deshidratada y especias,
-        creada para disfrutar 1500 ml de una bebida cálida, especiada y aromática.
+        creada para disfrutar 1500 ml de una bebida cálida, especiada y aromática. 
+        Para disfrutar caliente o helada.
       </p>
 
       <ul class="collection-list">
@@ -2640,10 +2649,7 @@ height:auto;
         <li>Clavo</li>
       </ul>
 
-      <div class="collection-highlight">
-        Para disfrutar caliente ☕ o helada 🧊
-      </div>
-
+     
       <div class="collection-pending">
   <strong>S/ 8</strong>
 </div>
