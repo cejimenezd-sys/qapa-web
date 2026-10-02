@@ -393,7 +393,9 @@ section{
 .enjoy-qapa{
   background:var(--ivory);
 }
-
+.when-qapa{
+  background:var(--cream);
+}
 .enjoy-carousel{
   position:relative;
   display:flex;
@@ -2457,6 +2459,89 @@ height:auto;
       </div>
 
       <button class="enjoy-arrow enjoy-next" onclick="moveEnjoy(1)">
+        ›
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+  <section class="when-qapa">
+
+  <div class="section-inner">
+
+    <div class="section-heading">
+
+      <div class="mini">QAPA te acompaña</div>
+
+      <h2>En cada momento</h2>
+
+      <p>
+        Para cada momento del día, hay una forma de disfrutar QAPA.
+      </p>
+
+    </div>
+
+    <div class="enjoy-carousel">
+
+      <button class="enjoy-arrow enjoy-prev" onclick="moveWhen(-1)">
+        ‹
+      </button>
+
+      <div class="enjoy-track" id="whenTrack">
+
+        <article class="enjoy-card">
+          <img src="qapa-oficina.jpg" alt="QAPA en la oficina">
+          <div class="enjoy-info">
+            <h3>En la oficina</h3>
+            <p>Una pausa rica durante el día.</p>
+          </div>
+        </article>
+
+        <article class="enjoy-card">
+          <img src="qapa-casa.jpg" alt="QAPA en casa">
+          <div class="enjoy-info">
+            <h3>En casa</h3>
+            <p>Para disfrutarla cuando quieras.</p>
+          </div>
+        </article>
+
+        <article class="enjoy-card">
+          <img src="qapa-lonchera.jpg" alt="QAPA en la lonchera">
+          <div class="enjoy-info">
+            <h3>En la lonchera</h3>
+            <p>Práctica y fácil de llevar.</p>
+          </div>
+        </article>
+
+        <article class="enjoy-card">
+          <img src="qapa-universidad.jpg" alt="QAPA en la universidad">
+          <div class="enjoy-info">
+            <h3>En la universidad</h3>
+            <p>Tu snack entre clases.</p>
+          </div>
+        </article>
+
+        <article class="enjoy-card">
+          <img src="qapa-paseos.jpg" alt="QAPA en tus paseos">
+          <div class="enjoy-info">
+            <h3>En tus paseos</h3>
+            <p>Ligera y fácil de llevar.</p>
+          </div>
+        </article>
+
+        <article class="enjoy-card">
+          <img src="qapa-camino.jpg" alt="QAPA de camino">
+          <div class="enjoy-info">
+            <h3>De camino</h3>
+            <p>Para esos momentos fuera de casa.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <button class="enjoy-arrow enjoy-next" onclick="moveWhen(1)">
         ›
       </button>
 
@@ -4678,6 +4763,23 @@ function toggleFruitInfo(element){
 }
   function moveEnjoy(direction){
   const track = document.getElementById("enjoyTrack");
+
+  if(!track) return;
+
+  const card = track.querySelector(".enjoy-card");
+
+  if(!card) return;
+
+  const gap = 22;
+  const amount = card.offsetWidth + gap;
+
+  track.scrollBy({
+    left: direction * amount,
+    behavior: "smooth"
+  });
+}
+  function moveWhen(direction){
+  const track = document.getElementById("whenTrack");
 
   if(!track) return;
 
