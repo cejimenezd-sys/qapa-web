@@ -1026,13 +1026,19 @@ footer{
 ========================= */
 
 function addSimpleProduct(name, weight, price){
+cart.push({
 
-  cart.push({
-    name:name,
-    weight:weight,
-    price:price,
-    fruits:[]
-  });
+  name:customization.name,
+
+  weight:customization.weight,
+
+  price:customization.price,
+
+  quantity:1,
+
+  fruits:selected
+
+});
 
   updateCart();
   openCart();
@@ -4197,8 +4203,19 @@ function updateCart(){
   const subtotalElement =
     document.getElementById("cartSubtotal");
 
+  /* CONTAR TODAS LAS UNIDADES */
+
+  const totalUnits =
+    cart.reduce(
+      (sum,item) => sum + (item.quantity || 1),
+      0
+    );
+
   count.textContent =
-    cart.length;
+    totalUnits;
+
+
+  /* CARRITO VACÍO */
 
   if(cart.length === 0){
 
@@ -4211,13 +4228,28 @@ function updateCart(){
     return;
   }
 
+
+  /* CALCULAR SUBTOTAL */
+
   let subtotal = 0;
 
   container.innerHTML = "";
 
+
+  /* MOSTRAR PRODUCTOS */
+
   cart.forEach((item,index) => {
 
-    subtotal += item.price;
+    const quantity =
+      item.quantity || 1;
+
+    const lineTotal =
+      item.price * quantity;
+
+    subtotal += lineTotal;
+
+
+    /* FRUTAS DE LA COMBINACIÓN */
 
     const fruits =
       item.fruits && item.fruits.length
@@ -4229,11 +4261,15 @@ function updateCart(){
           .join(", ")
       : "Producto listo para disfrutar";
 
+
+    /* CREAR TARJETA */
+
     const div =
       document.createElement("div");
 
     div.className =
       "cart-item";
+
 
     div.innerHTML = `
 
@@ -4245,11 +4281,90 @@ function updateCart(){
         ${fruits}
       </small>
 
-      <br>
 
-      <strong>
-        S/ ${item.price}
-      </strong>
+      <div style="
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        margin-top:12px;
+        gap:10px;
+      ">
+
+
+        <!-- PRECIO TOTAL DE ESTA LÍNEA -->
+
+        <strong>
+          S/ ${lineTotal}
+        </strong>
+
+
+        <!-- CONTROL DE CANTIDAD -->
+
+        <div style="
+          display:flex;
+          align-items:center;
+          gap:10px;
+        ">
+
+          <button
+            type="button"
+            onclick="changeQuantity(${index},-1)"
+            style="
+              width:32px;
+              height:32px;
+              border:1px solid #F7C454;
+              border-radius:50%;
+              background:#171512;
+              color:#F7C454;
+              font-size:20px;
+              cursor:pointer;
+              line-height:1;
+              display:flex;
+              align-items:center;
+              justify-content:center;
+            "
+          >
+            −
+          </button>
+
+
+          <strong
+            style="
+              min-width:18px;
+              text-align:center;
+            "
+          >
+            ${quantity}
+          </strong>
+
+
+          <button
+            type="button"
+            onclick="changeQuantity(${index},1)"
+            style="
+              width:32px;
+              height:32px;
+              border:1px solid #F7C454;
+              border-radius:50%;
+              background:#171512;
+              color:#F7C454;
+              font-size:20px;
+              cursor:pointer;
+              line-height:1;
+              display:flex;
+              align-items:center;
+              justify-content:center;
+            "
+          >
+            +
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ELIMINAR PRODUCTO -->
 
       <button
         class="remove-item"
@@ -4260,12 +4375,49 @@ function updateCart(){
 
     `;
 
+
     container.appendChild(div);
 
   });
 
+
+  /* SUBTOTAL */
+
   subtotalElement.textContent =
     "S/ " + subtotal;
+
+}
+
+
+/* =========================
+   CAMBIAR CANTIDAD
+========================= */
+
+function changeQuantity(index,change){
+
+  if(!cart[index]){
+    return;
+  }
+
+
+  const currentQuantity =
+    cart[index].quantity || 1;
+
+
+  cart[index].quantity =
+    currentQuantity + change;
+
+
+  /* SI LLEGA A CERO, ELIMINAR */
+
+  if(cart[index].quantity <= 0){
+
+    cart.splice(index,1);
+
+  }
+
+
+  updateCart();
 
 }
 
