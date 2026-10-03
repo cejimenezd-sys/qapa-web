@@ -4611,7 +4611,8 @@ function updateCheckoutTotals(){
 
   const subtotal =
     cart.reduce(
-      (sum,item) => sum + item.price,
+      (sum,item) =>
+        sum + (item.price * (item.quantity || 1)),
       0
     );
 
@@ -4634,7 +4635,6 @@ function updateCheckoutTotals(){
     "S/ " + total;
 
 }
-
 
 /* =========================
    ENVIAR PEDIDO
@@ -4697,11 +4697,12 @@ function sendOrderWhatsApp(){
       'input[name="delivery"]:checked'
     ).value;
 
-  const subtotal =
-    cart.reduce(
-      (sum,item) => sum + item.price,
-      0
-    );
+ const subtotal =
+  cart.reduce(
+    (sum,item) =>
+      sum + (item.price * (item.quantity || 1)),
+    0
+  );
 
   const total =
     subtotal + deliveryCost;
@@ -4716,8 +4717,14 @@ Quiero realizar el siguiente pedido:
 
   cart.forEach((item,index) => {
 
-    message +=
-`${index+1}. ${item.name} · ${item.weight} g · S/ ${item.price}
+  const quantity =
+  item.quantity || 1;
+
+const lineTotal =
+  item.price * quantity;
+
+message +=
+`${index+1}. ${item.name} · ${item.weight} g · ${quantity} unidad${quantity > 1 ? "es" : ""} · S/ ${lineTotal}
 `;
     if(item.fruits && item.fruits.length){
 
