@@ -4889,55 +4889,53 @@ function sendOrderWhatsApp(){
      MENSAJE WHATSAPP
   ========================= */
 
- let message =
+
+let message =
 `Hola QAPA 🌿 Soy ${name}, acabo de hacer un pedido:
 
+*MI PEDIDO*
+
 `;
 
 
-  cart.forEach((item,index) => {
+cart.forEach((item,index) => {
 
-    const quantity =
-      item.quantity || 1;
+  const quantity =
+    item.quantity || 1;
 
-    const lineTotal =
-      item.price * quantity;
-
-    message +=
-`${index + 1}. ${item.name} · ${item.weight} g · ${quantity} unidad${quantity > 1 ? "es" : ""} · S/ ${lineTotal}
-`;
-
-    if(item.fruits && item.fruits.length){
-
-      message +=
-        `   ${item.fruits
-          .map(
-            fruit =>
-              `${fruit.fruit}: ${fruit.grams} g`
-          )
-          .join(" · ")}
-`;
-
-    }else{
-
-      message +=
-        `   Producto listo para disfrutar
-`;
-
-    }
-
-  });
-
+  const lineTotal =
+    item.price * quantity;
 
   message +=
+`${item.name} · ${item.weight} g · ${quantity} unidad${quantity > 1 ? "es" : ""} · S/ ${lineTotal}
+`;
+
+  if(item.fruits && item.fruits.length){
+
+    message +=
+      `${item.fruits
+        .map(
+          fruit =>
+            `${fruit.fruit}: ${fruit.grams} g`
+        )
+        .join(" · ")}
+`;
+
+  }
+
+});
+
+
+message +=
 `
-DATOS DEL CLIENTE
+*MIS DATOS*
 
-Nombre: ${name}
 Celular: ${phone}
-Correo: ${email || "No indicado"}
+Correo: ${email || "—"}
 
-Entrega: ${
+*ENTREGA*
+
+Modalidad: ${
   delivery === "pickup"
   ? "Recoger"
   : "Delivery"
@@ -4945,47 +4943,37 @@ Entrega: ${
 `;
 
 
-  if(delivery === "delivery"){
+if(delivery === "delivery"){
 
-    message +=
-`
-Distrito: ${district}
+  message +=
+`Distrito: ${district}
 Dirección: ${address}
 `;
 
-  }
+}
 
 
-  message +=
+message +=
 `
-Comprobante: ${
+*COMPROBANTE*
+
+${
   receipt === "dni"
-  ? "Boleta con DNI"
+  ? `Boleta con DNI
+DNI: ${dni}`
   : "Boleta simple"
 }
-`;
 
+*PAGO*
 
-  if(receipt === "dni"){
-
-    message +=
-`DNI: ${dni}
-`;
-
-  }
-
-
-  message +=
-`
 Subtotal: S/ ${subtotal}
 Delivery: S/ ${deliveryCost}
-TOTAL: S/ ${total}
+*TOTAL: S/ ${total}*
 
-Adjuntaré el comprobante de pago en este chat de WhatsApp.
+Adjunto mi comprobante de pago para confirmar el pedido. 👇
 
-Gracias 💛
+Gracias
 `;
-
 
   const url =
     "https://wa.me/" +
