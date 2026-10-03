@@ -3776,15 +3776,6 @@ height:auto;
   </p>
 
 </div>
-<div class="form-group" style="margin-top:18px;">
-  <label>Comprobante de pago</label>
-
-  <input
-    type="file"
-    id="paymentProof"
-    accept="image/*,.pdf"
-  >
-</div>
 
 
     <div class="checkout-total">
@@ -4797,10 +4788,7 @@ function sendOrderWhatsApp(){
       "customerDni"
     ).value.trim();
 
-  const paymentProof =
-    document.getElementById(
-      "paymentProof"
-    ).files[0];
+ 
 
 
   /* =========================
@@ -4851,20 +4839,6 @@ function sendOrderWhatsApp(){
 
   }
 
-
-  /* =========================
-     VALIDAR PAGO
-  ========================= */
-
-  if(!paymentProof){
-
-    alert(
-      "Adjunta tu comprobante de pago antes de enviar el pedido."
-    );
-
-    return;
-
-  }
 
 
   /* =========================
