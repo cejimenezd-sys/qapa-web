@@ -1376,6 +1376,48 @@ cart.push({
   font-size:12px;
   margin-bottom:15px;
 }
+  .payment-methods{
+  text-align:left;
+}
+
+.payment-title{
+  display:block;
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+.payment-text{
+  margin:0 0 12px;
+  line-height:1.5;
+}
+
+.payment-qr{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:20px;
+  margin:8px 0 12px;
+}
+
+.qr-item{
+  width:145px;
+  text-align:center;
+}
+
+.qr-item img{
+  width:145px;
+  height:145px;
+  object-fit:contain;
+  display:block;
+  background:#fff;
+  border-radius:10px;
+}
+
+.payment-instruction{
+  margin:8px 0 0;
+  font-size:12px;
+  line-height:1.4;
+}
 
 /* =========================
    WHATSAPP
@@ -3700,56 +3742,40 @@ height:auto;
   >
 </div>
 
+
 <div class="payment-note payment-methods">
 
   <strong class="payment-title">Pago</strong>
 
   <p class="payment-text">
-    Puedes pagar por <strong>Yape o Plin</strong>
+    <strong>Yape o Plin:</strong> 955 691 007
+    &nbsp; · &nbsp;
+    <strong>Titular:</strong> Claudia Jimenez
   </p>
-
-  <div class="payment-number">
-    <strong>Yape:</strong> 955 691 007<br>
-    <strong>Plin:</strong> 955 691 007
-  </div>
-
-  <div class="payment-holder">
-    Titular: <strong>Claudia Jimenez</strong>
-  </div>
 
   <div class="payment-qr">
 
     <div class="qr-item">
-
-      <div class="qr-label">Yape</div>
-
       <img
         src="qr-yape.png"
         alt="QR de Yape QAPA"
       >
-
     </div>
 
     <div class="qr-item">
-
-      <div class="qr-label">Plin</div>
-
       <img
         src="qr-plin.png"
         alt="QR de Plin QAPA"
       >
-
     </div>
 
   </div>
 
   <p class="payment-instruction">
-    Escanea el QR desde tu celular, realiza el pago y luego
-    adjunta tu comprobante de pago.
+    Después de realizar el pago, adjunta tu comprobante.
   </p>
 
 </div>
-
 <div class="form-group" style="margin-top:18px;">
   <label>Comprobante de pago</label>
 
