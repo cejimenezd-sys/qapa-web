@@ -4792,6 +4792,16 @@ function sendOrderWhatsApp(){
       'input[name="delivery"]:checked'
     ).value;
 
+  const dni =
+    document.getElementById(
+      "customerDni"
+    ).value.trim();
+
+  const paymentProof =
+    document.getElementById(
+      "paymentProof"
+    ).files[0];
+
 
   /* =========================
      VALIDAR DATOS BÁSICOS
@@ -4826,16 +4836,58 @@ function sendOrderWhatsApp(){
 
   }
 
- const subtotal =
-  cart.reduce(
-    (sum,item) =>
-      sum + (item.price * (item.quantity || 1)),
-    0
-  );
+
+  /* =========================
+     VALIDAR DNI
+  ========================= */
+
+  if(receipt === "dni" && !dni){
+
+    alert(
+      "Ingresa el DNI para emitir la boleta."
+    );
+
+    return;
+
+  }
+
+
+  /* =========================
+     VALIDAR PAGO
+  ========================= */
+
+  if(!paymentProof){
+
+    alert(
+      "Adjunta tu comprobante de pago antes de enviar el pedido."
+    );
+
+    return;
+
+  }
+
+
+  /* =========================
+     TOTALES
+  ========================= */
+
+  const subtotal =
+    cart.reduce(
+      (sum,item) =>
+        sum + (
+          item.price *
+          (item.quantity || 1)
+        ),
+      0
+    );
 
   const total =
     subtotal + deliveryCost;
 
+
+  /* =========================
+     MENSAJE WHATSAPP
+  ========================= */
 
   let message =
 `Hola QAPA 🌿
@@ -4844,17 +4896,19 @@ Quiero realizar el siguiente pedido:
 
 `;
 
+
   cart.forEach((item,index) => {
 
-  const quantity =
-  item.quantity || 1;
+    const quantity =
+      item.quantity || 1;
 
-const lineTotal =
-  item.price * quantity;
+    const lineTotal =
+      item.price * quantity;
 
-message +=
-`${index+1}. ${item.name} · ${item.weight} g · ${quantity} unidad${quantity > 1 ? "es" : ""} · S/ ${lineTotal}
+    message +=
+`${index + 1}. ${item.name} · ${item.weight} g · ${quantity} unidad${quantity > 1 ? "es" : ""} · S/ ${lineTotal}
 `;
+
     if(item.fruits && item.fruits.length){
 
       message +=
@@ -4864,13 +4918,13 @@ message +=
               `${fruit.fruit}: ${fruit.grams} g`
           )
           .join(" · ")}
- `;
+`;
 
     }else{
 
       message +=
         `   Producto listo para disfrutar
- `;
+`;
 
     }
 
@@ -4885,24 +4939,51 @@ Nombre: ${name}
 Celular: ${phone}
 Correo: ${email || "No indicado"}
 
+Entrega: ${
+  delivery === "pickup"
+  ? "Recoger"
+  : "Delivery"
+}
+`;
+
+
+  if(delivery === "delivery"){
+
+    message +=
+`
 Distrito: ${district}
 Dirección: ${address}
+`;
 
-Entrega: ${
-  delivery === "rapid"
-  ? "Rápida"
-  : "Normal"
-}
+  }
 
+
+  message +=
+`
 Comprobante: ${
   receipt === "dni"
   ? "Boleta con DNI"
   : "Boleta simple"
 }
+`;
 
+
+  if(receipt === "dni"){
+
+    message +=
+`DNI: ${dni}
+`;
+
+  }
+
+
+  message +=
+`
 Subtotal: S/ ${subtotal}
 Delivery: S/ ${deliveryCost}
 TOTAL: S/ ${total}
+
+Adjuntaré el comprobante de pago en este chat de WhatsApp.
 
 Gracias 💛
 `;
@@ -4914,14 +4995,13 @@ Gracias 💛
     "?text=" +
     encodeURIComponent(message);
 
+
   window.open(
     url,
     "_blank"
   );
 
 }
-
-
 /* =========================
    INICIALIZAR
 ========================= */
