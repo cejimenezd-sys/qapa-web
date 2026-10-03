@@ -3572,189 +3572,151 @@ height:auto;
     </p>
 
 
-    <div class="form-grid">
+ <div class="form-grid">
 
-      <div class="form-group">
-        <label>Nombre</label>
-        <input
-          type="text"
-          id="customerName"
-          placeholder="Tu nombre"
-        >
-      </div>
+  <div class="form-group">
+    <label>Nombre</label>
+    <input
+      type="text"
+      id="customerName"
+      placeholder="Tu nombre"
+    >
+  </div>
 
-      <div class="form-group">
-        <label>Celular</label>
-        <input
-          type="tel"
-          id="customerPhone"
-          placeholder="999 999 999"
-        >
-      </div>
+  <div class="form-group">
+    <label>Celular</label>
+    <input
+      type="tel"
+      id="customerPhone"
+      placeholder="999 999 999"
+    >
+  </div>
 
-      <div class="form-group">
-        <label>Correo electrónico</label>
-        <input
-          type="email"
-          id="customerEmail"
-          placeholder="correo@ejemplo.com"
-        >
-      </div>
+  <div class="form-group full">
+    <label>Correo electrónico <span style="font-weight:400;">(opcional)</span></label>
+    <input
+      type="email"
+      id="customerEmail"
+      placeholder="correo@ejemplo.com"
+    >
+  </div>
 
-      <div class="form-group">
-        <label>Distrito</label>
+</div>
 
-        <select id="customerDistrict" onchange="updateDelivery()">
+<div class="radio-box">
+  <strong>Tipo de entrega</strong>
 
-          <option value="">Selecciona tu distrito</option>
+  <label>
+    <input
+      type="radio"
+      name="delivery"
+      value="pickup"
+      checked
+      onchange="toggleDeliveryFields()"
+    >
+    Recoger
+  </label>
 
-          <option value="Pueblo Libre">Pueblo Libre — Gratis</option>
-          <option value="Jesús María">Jesús María — Gratis</option>
+  <label>
+    <input
+      type="radio"
+      name="delivery"
+      value="delivery"
+      onchange="toggleDeliveryFields()"
+    >
+    Delivery
+  </label>
+</div>
 
-          <option value="Lima">Lima — S/ 7</option>
-          <option value="Breña">Breña — S/ 7</option>
-          <option value="Lince">Lince — S/ 7</option>
-          <option value="Magdalena del Mar">Magdalena del Mar — S/ 7</option>
-          <option value="San Miguel">San Miguel — S/ 7</option>
-          <option value="La Victoria">La Victoria — S/ 7</option>
-          <option value="Rímac">Rímac — S/ 7</option>
-          <option value="San Luis">San Luis — S/ 7</option>
+<div
+  id="deliveryFields"
+  class="form-grid"
+  style="display:none; margin-top:18px;"
+>
 
-          <option value="Barranco">Barranco — S/ 8</option>
-          <option value="Miraflores">Miraflores — S/ 8</option>
-          <option value="San Isidro">San Isidro — S/ 8</option>
-          <option value="San Borja">San Borja — S/ 8</option>
-          <option value="Surquillo">Surquillo — S/ 8</option>
-          <option value="Santiago de Surco">Santiago de Surco — S/ 8</option>
-          <option value="Chorrillos">Chorrillos — S/ 8</option>
-          <option value="El Agustino">El Agustino — S/ 8</option>
-          <option value="Independencia">Independencia — S/ 8</option>
-          <option value="Los Olivos">Los Olivos — S/ 8</option>
-          <option value="San Martín de Porres">San Martín de Porres — S/ 8</option>
+  <div class="form-group">
+    <label>Distrito</label>
 
-          <option value="Ate">Ate — S/ 9</option>
-          <option value="Santa Anita">Santa Anita — S/ 9</option>
-          <option value="San Juan de Lurigancho">San Juan de Lurigancho — S/ 9</option>
-          <option value="Comas">Comas — S/ 9</option>
-          <option value="La Molina">La Molina — S/ 9</option>
-          <option value="San Juan de Miraflores">San Juan de Miraflores — S/ 9</option>
+    <select
+      id="customerDistrict"
+      onchange="updateDelivery()"
+    >
+      <option value="">Selecciona tu distrito</option>
 
-          <option value="Carabayllo">Carabayllo — S/ 10</option>
-          <option value="Puente Piedra">Puente Piedra — S/ 10</option>
-          <option value="Lurigancho">Lurigancho — S/ 10</option>
-          <option value="Chaclacayo">Chaclacayo — S/ 10</option>
-          <option value="Villa El Salvador">Villa El Salvador — S/ 10</option>
-          <option value="Villa María del Triunfo">Villa María del Triunfo — S/ 10</option>
+      <!-- CONSERVAR AQUÍ TODAS LAS OPCIONES DE DISTRITOS ACTUALES -->
+    </select>
+  </div>
 
-          <option value="Pachacámac">Pachacámac — S/ 11</option>
-          <option value="Lurín">Lurín — S/ 11</option>
-          <option value="Ancón">Ancón — S/ 11</option>
-          <option value="Santa Rosa">Santa Rosa — S/ 11</option>
-          <option value="Cieneguilla">Cieneguilla — S/ 11</option>
+  <div class="form-group">
+    <label>Dirección</label>
 
-          <option value="Pucusana">Pucusana — S/ 12</option>
-          <option value="Punta Hermosa">Punta Hermosa — S/ 12</option>
-          <option value="Punta Negra">Punta Negra — S/ 12</option>
-          <option value="San Bartolo">San Bartolo — S/ 12</option>
-          <option value="Santa María del Mar">Santa María del Mar — S/ 12</option>
+    <input
+      type="text"
+      id="customerAddress"
+      placeholder="Calle, número, departamento, referencia"
+    >
+  </div>
 
-        </select>
+</div>
 
-      </div>
+<div class="radio-box">
+  <strong>Comprobante</strong>
 
-      <div class="form-group full">
+  <label>
+    <input
+      type="radio"
+      name="receipt"
+      value="simple"
+      checked
+      onchange="toggleDniField()"
+    >
+    Boleta simple
+  </label>
 
-        <label>Dirección de entrega</label>
+  <label>
+    <input
+      type="radio"
+      name="receipt"
+      value="dni"
+      onchange="toggleDniField()"
+    >
+    Boleta con DNI
+  </label>
+</div>
 
-        <input
-          type="text"
-          id="customerAddress"
-          placeholder="Calle, número, departamento, referencia"
-        >
+<div
+  id="dniField"
+  class="form-group"
+  style="display:none; margin-top:15px;"
+>
+  <label>DNI</label>
 
-      </div>
+  <input
+    type="text"
+    id="customerDni"
+    placeholder="Ingresa tu DNI"
+    maxlength="8"
+    inputmode="numeric"
+  >
+</div>
 
-    </div>
+<div class="payment-note">
+  <strong>Pago:</strong>
+  Yape o Plin.
+  <br>
+  Después de realizar el pago podrás enviar tu comprobante
+  junto con el pedido por WhatsApp.
+</div>
 
+<div class="form-group" style="margin-top:18px;">
+  <label>Comprobante de pago</label>
 
-    <div class="radio-box">
-
-      <strong>Tipo de entrega</strong>
-
-      <label>
-        <input
-          type="radio"
-          name="delivery"
-          value="normal"
-          checked
-          onchange="updateDelivery()"
-        >
-        Entrega normal
-      </label>
-
-      <label>
-        <input
-          type="radio"
-          name="delivery"
-          value="rapid"
-          onchange="updateDelivery()"
-        >
-        Entrega rápida
-      </label>
-
-    </div>
-
-
-    <div class="radio-box">
-
-      <strong>Comprobante</strong>
-
-      <label>
-        <input
-          type="radio"
-          name="receipt"
-          value="simple"
-          checked
-        >
-        Boleta simple
-      </label>
-
-      <label>
-        <input
-          type="radio"
-          name="receipt"
-          value="dni"
-        >
-        Boleta con DNI
-      </label>
-
-    </div>
-
-
-    <div class="payment-note">
-
-      <strong>Pago:</strong>
-      Yape o Plin.
-
-      <br>
-
-      Después de realizar el pago podrás enviar tu comprobante
-      junto con el pedido por WhatsApp.
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Comprobante de pago</label>
-
-      <input
-        type="file"
-        id="paymentProof"
-        accept="image/*,.pdf"
-      >
-
-    </div>
+  <input
+    type="file"
+    id="paymentProof"
+    accept="image/*,.pdf"
+  >
+</div>
 
 
     <div class="checkout-total">
@@ -4536,6 +4498,20 @@ function closeCheckout(){
 
 function updateDelivery(){
 
+  const delivery =
+    document.querySelector(
+      'input[name="delivery"]:checked'
+    ).value;
+
+  if(delivery === "pickup"){
+
+    deliveryCost = 0;
+
+    updateCheckoutTotals();
+
+    return;
+  }
+
   const district =
     document.getElementById(
       "customerDistrict"
@@ -4599,6 +4575,41 @@ function updateDelivery(){
     rates[district] ?? 0;
 
   updateCheckoutTotals();
+
+}
+  function toggleDeliveryFields(){
+
+  const delivery =
+    document.querySelector(
+      'input[name="delivery"]:checked'
+    ).value;
+
+  const fields =
+    document.getElementById(
+      "deliveryFields"
+    );
+
+  if(delivery === "delivery"){
+
+    fields.style.display = "grid";
+
+  }else{
+
+    fields.style.display = "none";
+
+    document.getElementById(
+      "customerDistrict"
+    ).value = "";
+
+    document.getElementById(
+      "customerAddress"
+    ).value = "";
+
+    deliveryCost = 0;
+
+    updateCheckoutTotals();
+
+  }
 
 }
 
