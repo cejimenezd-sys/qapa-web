@@ -4714,16 +4714,6 @@ function sendOrderWhatsApp(){
       "customerAddress"
     ).value.trim();
 
-  if(!name || !phone || !district || !address){
-
-    alert(
-      "Completa nombre, celular, distrito y dirección."
-    );
-
-    return;
-
-  }
-
   const receipt =
     document.querySelector(
       'input[name="receipt"]:checked'
@@ -4733,6 +4723,40 @@ function sendOrderWhatsApp(){
     document.querySelector(
       'input[name="delivery"]:checked'
     ).value;
+
+
+  /* =========================
+     VALIDAR DATOS BÁSICOS
+  ========================= */
+
+  if(!name || !phone){
+
+    alert(
+      "Completa nombre y celular."
+    );
+
+    return;
+
+  }
+
+
+  /* =========================
+     VALIDAR DELIVERY
+  ========================= */
+
+  if(delivery === "delivery"){
+
+    if(!district || !address){
+
+      alert(
+        "Para delivery debes completar distrito y dirección."
+      );
+
+      return;
+
+    }
+
+  }
 
  const subtotal =
   cart.reduce(
