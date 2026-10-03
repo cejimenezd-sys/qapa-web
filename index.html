@@ -4613,7 +4613,33 @@ function updateDelivery(){
 
 }
 
+function toggleDniField(){
 
+  const receipt =
+    document.querySelector(
+      'input[name="receipt"]:checked'
+    ).value;
+
+  const dniField =
+    document.getElementById(
+      "dniField"
+    );
+
+  if(receipt === "dni"){
+
+    dniField.style.display = "block";
+
+  }else{
+
+    dniField.style.display = "none";
+
+    document.getElementById(
+      "customerDni"
+    ).value = "";
+
+  }
+
+}
 /* =========================
    TOTALES CHECKOUT
 ========================= */
