@@ -5318,7 +5318,24 @@ async function loadReviews(){
 
       card.className =
         "review-card";
+const photo =
+  document.createElement("img");
 
+if(review.foto){
+
+  photo.src =
+    "https://drive.google.com/uc?export=view&id=" +
+    review.foto;
+
+  photo.alt =
+    "Experiencia QAPA";
+
+  photo.className =
+    "review-photo";
+
+  card.appendChild(photo);
+
+}
       const stars =
         document.createElement("div");
 
