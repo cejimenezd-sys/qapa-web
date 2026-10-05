@@ -897,37 +897,36 @@ section{
 .reviews{
   background:#FFF9F0;
   padding-top:80px;
-  padding-bottom:80px;
+  padding-bottom:95px;
+  position:relative;
 }
 
-.reviews .section-inner{
-  max-width:1200px;
-  margin:0 auto;
-}
-
-.reviews .section-heading{
+.reviews::after{
+  content:"✦";
+  position:absolute;
+  bottom:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:120px;
+  height:24px;
+  background:#FFF9F0;
+  color:#C79A55;
   text-align:center;
-  margin-bottom:35px;
+  font-size:15px;
+  line-height:24px;
+  z-index:2;
 }
 
-.reviews-grid{
-  min-height:120px;
-}
-
-.reviews-loading{
-  text-align:center;
-  color:#61483C;
-  font-family:'Montserrat',sans-serif;
-  font-size:13px;
-}
-
-.reviews-action{
-  text-align:center;
-  margin-top:30px;
-}
-
-.reviews-action .btn{
-  display:inline-block;
+.reviews::before{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:180px;
+  height:1px;
+  background:#C79A55;
+  opacity:.55;
 }
 /* =========================
    HISTORIA
