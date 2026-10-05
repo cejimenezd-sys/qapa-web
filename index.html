@@ -919,6 +919,73 @@ section{
   opacity:.55;
 }
   /* =========================
+   CARRUSEL DE OPINIONES
+========================= */
+
+.reviews-carousel{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  width:100%;
+}
+
+.reviews-grid{
+  flex:1;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:22px;
+  min-height:120px;
+}
+
+.reviews-arrow{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  border:none;
+  border-radius:50%;
+  background:#171512;
+  color:#F7C454;
+  font-family:'Montserrat',sans-serif;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .2s ease;
+}
+
+.reviews-arrow:hover{
+  background:#F7C454;
+  color:#171512;
+  transform:scale(1.05);
+}
+
+.reviews-arrow:disabled{
+  opacity:.25;
+  cursor:default;
+  transform:none;
+}
+
+@media (max-width:800px){
+
+  .reviews-carousel{
+    gap:8px;
+  }
+
+  .reviews-grid{
+    grid-template-columns:1fr;
+  }
+
+  .reviews-arrow{
+    width:34px;
+    height:34px;
+    flex:0 0 34px;
+    font-size:23px;
+  }
+
+}
+  /* =========================
    TARJETAS DE OPINIONES
 ========================= */
 
@@ -3106,13 +3173,35 @@ height:auto;
 
     </div>
 
-    <div class="reviews-grid" id="reviewsGrid">
+   <div class="reviews-carousel">
 
-      <p class="reviews-loading">
-        Cargando opiniones...
-      </p>
+  <button
+    class="reviews-arrow reviews-prev"
+    id="reviewsPrev"
+    type="button"
+    aria-label="Opiniones anteriores"
+  >
+    ‹
+  </button>
 
-    </div>
+  <div class="reviews-grid" id="reviewsGrid">
+
+    <p class="reviews-loading">
+      Cargando opiniones...
+    </p>
+
+  </div>
+
+  <button
+    class="reviews-arrow reviews-next"
+    id="reviewsNext"
+    type="button"
+    aria-label="Siguientes opiniones"
+  >
+    ›
+  </button>
+
+</div>
 
     <div class="reviews-action">
 
@@ -5167,35 +5256,50 @@ async function loadReviews(){
   const container =
     document.getElementById("reviewsGrid");
 
+  const prevButton =
+    document.getElementById("reviewsPrev");
+
+  const nextButton =
+    document.getElementById("reviewsNext");
+
   if(!container) return;
 
-  try{
+  let reviews = [];
+  let currentPage = 0;
 
-    const response =
-      await fetch(REVIEWS_URL);
+  function getItemsPerPage(){
 
-    const reviews =
-      await response.json();
+    return window.innerWidth <= 800 ? 1 : 3;
+
+  }
+
+  function renderReviews(){
 
     container.innerHTML = "";
 
-    if(!reviews.length){
+    const itemsPerPage =
+      getItemsPerPage();
 
-      const empty =
-        document.createElement("p");
+    const totalPages =
+      Math.ceil(
+        reviews.length / itemsPerPage
+      );
 
-      empty.className =
-        "reviews-loading";
-
-      empty.textContent =
-        "Todavía no hay opiniones publicadas.";
-
-      container.appendChild(empty);
-
-      return;
+    if(currentPage >= totalPages){
+      currentPage =
+        Math.max(0,totalPages - 1);
     }
 
-    reviews.forEach(review => {
+    const start =
+      currentPage * itemsPerPage;
+
+    const visibleReviews =
+      reviews.slice(
+        start,
+        start + itemsPerPage
+      );
+
+    visibleReviews.forEach(review => {
 
       const card =
         document.createElement("article");
@@ -5209,16 +5313,17 @@ async function loadReviews(){
       stars.className =
         "review-stars";
 
-      stars.textContent =
-        "★".repeat(
-          Math.max(
-            1,
-            Math.min(
-              5,
-              Number(review.estrellas) || 5
-            )
+      const rating =
+        Math.max(
+          1,
+          Math.min(
+            5,
+            Number(review.estrellas) || 5
           )
         );
+
+      stars.textContent =
+        "★".repeat(rating);
 
       const name =
         document.createElement("h3");
@@ -5245,6 +5350,100 @@ async function loadReviews(){
       container.appendChild(card);
 
     });
+
+    if(prevButton){
+      prevButton.disabled =
+        currentPage === 0;
+    }
+
+    if(nextButton){
+      nextButton.disabled =
+        currentPage >= totalPages - 1;
+    }
+
+  }
+
+  if(prevButton){
+
+    prevButton.addEventListener(
+      "click",
+      () => {
+
+        if(currentPage > 0){
+
+          currentPage--;
+
+          renderReviews();
+
+        }
+
+      }
+    );
+
+  }
+
+  if(nextButton){
+
+    nextButton.addEventListener(
+      "click",
+      () => {
+
+        const itemsPerPage =
+          getItemsPerPage();
+
+        const totalPages =
+          Math.ceil(
+            reviews.length / itemsPerPage
+          );
+
+        if(currentPage < totalPages - 1){
+
+          currentPage++;
+
+          renderReviews();
+
+        }
+
+      }
+    );
+
+  }
+
+  window.addEventListener(
+    "resize",
+    renderReviews
+  );
+
+  try{
+
+    const response =
+      await fetch(REVIEWS_URL);
+
+    reviews =
+      await response.json();
+
+    if(!reviews.length){
+
+      container.innerHTML = "";
+
+      const empty =
+        document.createElement("p");
+
+      empty.className =
+        "reviews-loading";
+
+      empty.textContent =
+        "Todavía no hay opiniones publicadas.";
+
+      container.appendChild(empty);
+
+      if(prevButton) prevButton.style.display = "none";
+      if(nextButton) nextButton.style.display = "none";
+
+      return;
+    }
+
+    renderReviews();
 
   }catch(error){
 
