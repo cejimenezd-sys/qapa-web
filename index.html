@@ -3683,9 +3683,59 @@ height:auto;
       id="customerDistrict"
       onchange="updateDelivery()"
     >
+
       <option value="">Selecciona tu distrito</option>
 
-      <!-- CONSERVAR AQUÍ TODAS LAS OPCIONES DE DISTRITOS ACTUALES -->
+      <option value="Pueblo Libre">Pueblo Libre — Gratis</option>
+      <option value="Jesús María">Jesús María — Gratis</option>
+
+      <option value="Lima">Cercado de Lima — S/ 6</option>
+      <option value="Breña">Breña — S/ 6</option>
+      <option value="Lince">Lince — S/ 6</option>
+      <option value="Magdalena del Mar">Magdalena del Mar — S/ 7</option>
+      <option value="San Miguel">San Miguel — S/ 7</option>
+      <option value="La Victoria">La Victoria — S/ 7</option>
+      <option value="Rímac">Rímac — S/ 7</option>
+      <option value="San Luis">San Luis — S/ 7</option>
+
+      <option value="Barranco">Barranco — S/ 7</option>
+      <option value="Miraflores">Miraflores — S/ 7</option>
+      <option value="San Isidro">San Isidro — S/ 7</option>
+      <option value="San Borja">San Borja — S/ 8</option>
+      <option value="Surquillo">Surquillo — S/ 8</option>
+      <option value="Santiago de Surco">Santiago de Surco — S/ 8</option>
+      <option value="Chorrillos">Chorrillos — S/ 8</option>
+      <option value="El Agustino">El Agustino — S/ 9</option>
+      <option value="Independencia">Independencia — S/ 10</option>
+      <option value="Los Olivos">Los Olivos — S/ 10</option>
+      <option value="San Martín de Porres">San Martín de Porres — S/ 10</option>
+
+      <option value="Ate">Ate — S/ 10</option>
+      <option value="Santa Anita">Santa Anita — S/ 10</option>
+      <option value="San Juan de Lurigancho">San Juan de Lurigancho — S/ 10</option>
+      <option value="Comas">Comas — S/ 10</option>
+      <option value="La Molina">La Molina — S/ 10</option>
+      <option value="San Juan de Miraflores">San Juan de Miraflores — S/ 10</option>
+
+      <option value="Carabayllo">Carabayllo — S/ 10</option>
+      <option value="Puente Piedra">Puente Piedra — S/ 12</option>
+      <option value="Lurigancho">Lurigancho — S/ 12</option>
+      <option value="Chaclacayo">Chaclacayo — S/ 12</option>
+      <option value="Villa El Salvador">Villa El Salvador — S/ 11</option>
+      <option value="Villa María del Triunfo">Villa María del Triunfo — S/ 12</option>
+
+      <option value="Pachacámac">Pachacámac — S/ 12</option>
+      <option value="Lurín">Lurín — S/ 13</option>
+      <option value="Ancón">Ancón — S/ 13</option>
+      <option value="Santa Rosa">Santa Rosa — S/ 13</option>
+      <option value="Cieneguilla">Cieneguilla — S/ 13</option>
+
+      <option value="Pucusana">Pucusana — S/ 14</option>
+      <option value="Punta Hermosa">Punta Hermosa — S/ 14</option>
+      <option value="Punta Negra">Punta Negra — S/ 14</option>
+      <option value="San Bartolo">San Bartolo — S/ 14</option>
+      <option value="Santa María del Mar">Santa María del Mar — S/ 14</option>
+
     </select>
   </div>
 
@@ -4554,7 +4604,41 @@ function closeCheckout(){
 /* =========================
    DELIVERY
 ========================= */
+function toggleDeliveryFields(){
 
+  const delivery =
+    document.querySelector(
+      'input[name="delivery"]:checked'
+    ).value;
+
+  const fields =
+    document.getElementById(
+      "deliveryFields"
+    );
+
+  if(delivery === "delivery"){
+
+    fields.style.display = "grid";
+
+  }else{
+
+    fields.style.display = "none";
+
+    document.getElementById(
+      "customerDistrict"
+    ).value = "";
+
+    document.getElementById(
+      "customerAddress"
+    ).value = "";
+
+    deliveryCost = 0;
+
+    updateCheckoutTotals();
+
+  }
+
+}
 function updateDelivery(){
 
   const delivery =
