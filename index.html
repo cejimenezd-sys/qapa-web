@@ -918,19 +918,16 @@ section{
   background:#C79A55;
   opacity:.55;
 }
-  /* =========================
+/* =========================
    CARRUSEL DE OPINIONES
 ========================= */
 
 .reviews-carousel{
-  display:flex;
-  align-items:center;
-  gap:18px;
+  position:relative;
   width:100%;
 }
 
 .reviews-grid{
-  flex:1;
   display:grid;
   grid-template-columns:repeat(3, 1fr);
   gap:22px;
@@ -938,9 +935,11 @@ section{
 }
 
 .reviews-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
   width:42px;
   height:42px;
-  flex:0 0 42px;
   border:none;
   border-radius:50%;
   background:#171512;
@@ -953,34 +952,44 @@ section{
   align-items:center;
   justify-content:center;
   transition:all .2s ease;
+  z-index:2;
+}
+
+.reviews-prev{
+  left:-55px;
+}
+
+.reviews-next{
+  right:-55px;
 }
 
 .reviews-arrow:hover{
   background:#F7C454;
   color:#171512;
-  transform:scale(1.05);
+  transform:translateY(-50%) scale(1.05);
 }
 
 .reviews-arrow:disabled{
-  opacity:.25;
-  cursor:default;
-  transform:none;
+  display:none;
 }
 
 @media (max-width:800px){
-
-  .reviews-carousel{
-    gap:8px;
-  }
 
   .reviews-grid{
     grid-template-columns:1fr;
   }
 
+  .reviews-prev{
+    left:-4px;
+  }
+
+  .reviews-next{
+    right:-4px;
+  }
+
   .reviews-arrow{
     width:34px;
     height:34px;
-    flex:0 0 34px;
     font-size:23px;
   }
 
