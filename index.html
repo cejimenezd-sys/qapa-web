@@ -5323,9 +5323,10 @@ const photo =
 
 if(review.foto){
 
-  photo.src =
-   "https://drive.usercontent.google.com/download?id=" +
-    review.foto;
+photo.src =
+  "https://drive.google.com/thumbnail?id=" +
+  review.foto +
+  "&sz=w1000";
 
   photo.alt =
     "Experiencia QAPA";
