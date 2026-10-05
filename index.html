@@ -5119,6 +5119,122 @@ Gracias
   );
 
 }
+  /* =========================
+   OPINIONES DE CLIENTES
+========================= */
+
+const REVIEWS_URL =
+  "https://script.google.com/macros/s/AKfycby6tzE0L0j8OP5yorA1YDI6gbU-l_3PL_Cauwm5uAr_UGiyLiOQzEaxqkvZWoFWFtqHiA/exec";
+
+async function loadReviews(){
+
+  const container =
+    document.getElementById("reviewsGrid");
+
+  if(!container) return;
+
+  try{
+
+    const response =
+      await fetch(REVIEWS_URL);
+
+    const reviews =
+      await response.json();
+
+    container.innerHTML = "";
+
+    if(!reviews.length){
+
+      const empty =
+        document.createElement("p");
+
+      empty.className =
+        "reviews-loading";
+
+      empty.textContent =
+        "Todavía no hay opiniones publicadas.";
+
+      container.appendChild(empty);
+
+      return;
+    }
+
+    reviews.forEach(review => {
+
+      const card =
+        document.createElement("article");
+
+      card.className =
+        "review-card";
+
+      const stars =
+        document.createElement("div");
+
+      stars.className =
+        "review-stars";
+
+      stars.textContent =
+        "★".repeat(
+          Math.max(
+            1,
+            Math.min(
+              5,
+              Number(review.estrellas) || 5
+            )
+          )
+        );
+
+      const name =
+        document.createElement("h3");
+
+      name.className =
+        "review-name";
+
+      name.textContent =
+        review.nombre || "Cliente QAPA";
+
+      const text =
+        document.createElement("p");
+
+      text.className =
+        "review-text";
+
+      text.textContent =
+        review.experiencia || "";
+
+      card.appendChild(stars);
+      card.appendChild(name);
+      card.appendChild(text);
+
+      container.appendChild(card);
+
+    });
+
+  }catch(error){
+
+    console.error(
+      "No se pudieron cargar las opiniones:",
+      error
+    );
+
+    container.innerHTML = "";
+
+    const errorMessage =
+      document.createElement("p");
+
+    errorMessage.className =
+      "reviews-loading";
+
+    errorMessage.textContent =
+      "No se pudieron cargar las opiniones.";
+
+    container.appendChild(errorMessage);
+
+  }
+
+}
+
+loadReviews();
 /* =========================
    INICIALIZAR
 ========================= */
