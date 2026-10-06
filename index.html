@@ -1460,7 +1460,27 @@ cart.push({
   opacity:.4;
   cursor:not-allowed;
 }
+.qapita-video-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.35);
+}
 
+.qapita-video-overlay.show{
+  display:flex;
+}
+
+.qapita-video-overlay video{
+  width:min(300px,75vw);
+  max-height:70vh;
+  object-fit:contain;
+  border-radius:18px;
+}
+  
 /* =========================
    CHECKOUT
 ========================= */
@@ -3814,7 +3834,7 @@ height:auto;
 
       <button
         class="complete-btn"
-        onclick="completeWeight()"
+        onclick="playQapitaVideo('qapita-completa.mp4', completeWeight)"
       >
         Qapita, completa mi mix
       </button>
@@ -3822,7 +3842,7 @@ height:auto;
       <button
         class="save-btn"
         id="saveCombinationButton"
-        onclick="saveCombination()"
+       onclick="playQapitaVideo('qapita-carrito.mp4', saveCombination)"
         disabled
       >
         AGREGAR AL CARRITO
@@ -4371,6 +4391,37 @@ function updateCombination(){
     !(minimumFruits && exactWeight);
 
 }
+function playQapitaVideo(videoFile, callback){
+
+  const overlay =
+    document.getElementById("qapitaVideoOverlay");
+
+  const video =
+    document.getElementById("qapitaVideo");
+
+  video.src = videoFile;
+
+  overlay.classList.add("show");
+
+  video.currentTime = 0;
+
+  video.play();
+
+  video.onended = function(){
+
+    overlay.classList.remove("show");
+
+    video.pause();
+
+    video.removeAttribute("src");
+
+    video.load();
+
+    callback();
+
+  };
+
+}
 
 
 /* =========================
@@ -4378,6 +4429,8 @@ function updateCombination(){
 ========================= */
 
 function completeWeight(){
+
+
 
   const selected = getSelectedFruits();
 
