@@ -3858,8 +3858,7 @@ height:auto;
   <video
     id="qapitaVideo"
     playsinline
-    muted
-  ></video>
+     ></video>
 
 </div>
 
@@ -5344,13 +5343,22 @@ Gracias
     "?text=" +
     encodeURIComponent(message);
 
-
-  window.open(
-    url,
+  const waWindow = window.open(
+    "about:blank",
     "_blank"
   );
 
+  playQapitaVideo(
+    "qapita-pedido.mp4",
+    function(){
+
+      waWindow.location.href = url;
+
+    }
+  );
+
 }
+  
   /* =========================
    OPINIONES DE CLIENTES
 ========================= */
