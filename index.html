@@ -5342,17 +5342,15 @@ Gracias
     WHATSAPP_NUMBER +
     "?text=" +
     encodeURIComponent(message);
-
   playQapitaVideo(
     "qapita-pedido.mp4",
     function(){
 
-      window.open(
-        url,
-        "_blank"
-      );
+      window.location.href = url;
 
     }
+  );
+
   );
 
 }
