@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+la pg<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -496,12 +496,12 @@ section{
 /* =========================
    PRODUCTOS
 ========================= */
-
 .products-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:28px;
 }
+
 
 .product-card{
   background:white;
@@ -2375,6 +2375,19 @@ height:auto;
 .collection-content .mini{
   color:#F7C454 !important;
 }
+ @media(max-width:600px){
+
+  .products-groups{
+    grid-template-columns:1fr !important;
+    gap:30px;
+  }
+
+  .product-group{
+    width:100%;
+    min-width:0;
+  }
+
+} 
 </style>
 </head>
 
