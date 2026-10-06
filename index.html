@@ -822,6 +822,23 @@ section{
   .collection-grid{
     grid-template-columns:1fr;
   }
+
+  .collection-card{
+    grid-column:auto !important;
+    grid-row:auto !important;
+  }
+
+  .collection-card:nth-child(1){
+    order:3;
+  }
+
+  .collection-card:nth-child(2){
+    order:1;
+  }
+
+  .collection-card:nth-child(3){
+    order:2;
+  }
 }
 
 @media(max-width:600px){
