@@ -5343,16 +5343,14 @@ Gracias
     "?text=" +
     encodeURIComponent(message);
 
-  const waWindow = window.open(
-    "about:blank",
-    "_blank"
-  );
-
   playQapitaVideo(
     "qapita-pedido.mp4",
     function(){
 
-      waWindow.location.href = url;
+      window.open(
+        url,
+        "_blank"
+      );
 
     }
   );
