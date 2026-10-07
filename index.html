@@ -6306,5 +6306,21 @@ document
   </div>
 
 </div> 
+    </div>
+
+<script>
+function closeFruitInfo(){
+  document.getElementById("fruitInfoModal").classList.remove("show");
+}
+
+document.getElementById("fruitInfoModal").addEventListener("click", function(event){
+  if(event.target === this){
+    closeFruitInfo();
+  }
+});
+</script>
+
+</body>
+</html>
 </body>
 </html>
