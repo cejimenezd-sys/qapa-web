@@ -3470,19 +3470,26 @@ Frutas deshidratadas cuidadosamente seleccionadas para preservar su sabor, textu
 <form
   id="specialOrderForm"
   class="special-order-form"
-  action="https://formsubmit.co/ajax/qapa.snacks@gmail.com"
+  action="https://api.web3forms.com/submit"
   method="POST"
 >
   
-<input type="hidden" name="_cc" value="cejimenezd@gmail.com">
-
-<input type="hidden" name="_subject" value="Nuevo pedido especial QAPA">
-
-<input type="hidden" name="_captcha" value="false">
-     <input
+<input
   type="hidden"
-  name="_next"
-  value="https://cejimenezd-sys.github.io/qapa-web/#pedidos-especiales"
+  name="access_key"
+  value="3f1a855f-9bde-4103-a6f6-a3527d08b55d"
+>
+
+<input
+  type="hidden"
+  name="subject"
+  value="Nuevo pedido especial QAPA"
+>
+
+<input
+  type="hidden"
+  name="from_name"
+  value="QAPA - Pedidos Especiales"
 >
       <input
         type="text"
@@ -6056,7 +6063,7 @@ document
     try{
 
       const response = await fetch(
-        form.action,
+        "https://api.web3forms.com/submit",
         {
           method: "POST",
           body: new FormData(form),
@@ -6093,7 +6100,7 @@ document
     button.disabled = false;
     button.textContent = "ENVIAR SOLICITUD";
 
-  });  
+  });
 </script>
 </body>
 </html>
