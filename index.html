@@ -3523,13 +3523,12 @@ height:auto;
 
     <p class="modal-subtitle" id="customProduct"></p>
 
-   <div class="selection-summary">
+ <div class="selection-summary">
 
-  ✨ Elige tus frutas. QAPA se encarga del peso.<br>
-  Si quieres, puedes ajustar los gramos a tu gusto.
+  Elige <strong>3 frutas como mínimo</strong>. Si quieres, ajusta
+  el peso de cada una o deja que QAPA complete tu mix por ti.
 
 </div>
-
     <div class="fruit-selection">
 
       <!-- FRESA -->
@@ -3548,16 +3547,22 @@ height:auto;
 
         <img src="fresa.jpeg" alt="Fresa">
 
-        <input
-          class="grams"
-          type="number"
-          min="0"
-          step="10"
-          value="0"
-          data-fruit-input="Fresa"
-          disabled
-          oninput="updateCombination()"
-        >
+       <div class="grams-wrap">
+
+  <input
+    class="grams"
+    type="number"
+    min="0"
+    step="10"
+    value="0"
+    data-fruit-input="Fresa"
+    disabled
+    oninput="updateCombination()"
+  >
+
+  <span>g</span>
+
+</div>
 
       </div>
 
