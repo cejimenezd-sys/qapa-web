@@ -4403,6 +4403,7 @@ function updateCombination(){
     !(minimumFruits && exactWeight);
 
 }
+
 function playQapitaVideo(videoFile, callback){
 
   const overlay =
@@ -4411,9 +4412,16 @@ function playQapitaVideo(videoFile, callback){
   const video =
     document.getElementById("qapitaVideo");
 
+  const button =
+    document.getElementById("continueWhatsAppButton");
+
   video.src = videoFile;
 
   overlay.classList.add("show");
+
+  if(button){
+    button.style.display = "none";
+  }
 
   video.currentTime = 0;
 
@@ -4421,21 +4429,19 @@ function playQapitaVideo(videoFile, callback){
 
   video.onended = function(){
 
-    overlay.classList.remove("show");
-
     video.pause();
 
     video.removeAttribute("src");
 
     video.load();
 
-    callback();
+    if(callback){
+      callback();
+    }
 
   };
 
 }
-
-
 /* =========================
    COMPLETAR PESO
 ========================= */
