@@ -6197,33 +6197,83 @@ document
     button.textContent = "ENVIAR SOLICITUD";
 
   });
-  function showFruitInfo(fruit){
+ function showFruitInfo(fruit){
 
-  const title =
-    document.getElementById("fruitInfoTitle");
+  const title = document.getElementById("fruitInfoTitle");
+  const text = document.getElementById("fruitInfoText");
+  const image = document.getElementById("fruitInfoImage");
 
-  const text =
-    document.getElementById("fruitInfoText");
+  const fruits = {
 
- if(fruit === "Fresa"){
-  title.textContent = "FRESA";
-  text.textContent =
-    "Delicada, aromática y naturalmente deliciosa. La fresa aporta vitamina C, fibra y manganeso, además de folato, potasio, vitamina E y vitamina K. Dulce, ligeramente ácida y con un intenso sabor frutal.";
-}
+    "Fresa":{
+      title:"FRESA",
+      image:"qapita-fresa.png",
+      text:"Delicada, aromática y naturalmente deliciosa. La fresa aporta vitamina C, fibra y manganeso, además de folato, potasio, vitamina E y vitamina K. Dulce, ligeramente ácida y con un intenso sabor frutal."
+    },
+
+    "Piña":{
+      title:"PIÑA",
+      image:"qapita-pina.png",
+      text:"Tropical, jugosa y naturalmente dulce. La piña aporta vitamina C, manganeso y vitamina B6, además de pequeñas cantidades de folato y cobre. Dulce, aromática y refrescante."
+    },
+
+    "Papaya":{
+      title:"PAPAYA",
+      image:"qapita-papaya.png",
+      text:"Suave, tropical y naturalmente dulce. La papaya aporta vitamina C, vitamina A y folato, además de potasio y fibra. Dulce, delicada y de sabor tropical."
+    },
+
+    "Cereza":{
+      title:"CEREZA",
+      image:"qapita-cereza.png",
+      text:"Pequeña, intensa y naturalmente deliciosa. La cereza aporta vitamina C, potasio y cobre, además de vitamina K y fibra. Dulce, ligeramente ácida y de sabor profundo."
+    },
+
+    "Mango":{
+      title:"MANGO",
+      image:"qapita-mango.png",
+      text:"Tropical y lleno de sabor. El mango aporta vitamina C, vitamina A y folato, además de vitamina E y vitamina B6. Dulce, aromático y de sabor intenso."
+    },
+
+    "Manzana":{
+      title:"MANZANA",
+      image:"qapita-manzana.png",
+      text:"Crujiente, aromática y naturalmente dulce. La manzana aporta fibra, vitamina C y potasio, especialmente cuando se conserva su piel. Dulce, fresca y ligeramente ácida."
+    },
+
+    "Kiwi":{
+      title:"KIWI",
+      image:"qapita-kiwi.png",
+      text:"Fresco y de sabor único. El kiwi destaca por su contenido de vitamina C, además de aportar vitamina E, fibra y potasio. Ácido, dulce y refrescante."
+    },
+
+    "Aguaymanto":{
+      title:"AGUAYMANTO",
+      image:"qapita-aguaymanto.png",
+      text:"Pequeño, brillante y lleno de sabor. El aguaymanto aporta vitamina C, vitamina A y fibra, además de potasio. Dulce, ligeramente ácido y muy aromático."
+    },
+
+    "Arándano rojo":{
+      title:"ARÁNDANO ROJO",
+      image:"qapita-arandano-rojo.png",
+      text:"Intenso y naturalmente ácido. El arándano rojo aporta fibra, vitamina E y vitamina K, además de manganeso y vitamina C. Ácido, ligeramente dulce y de sabor intenso."
+    }
+
+  };
+
+  const data = fruits[fruit];
+
+  if(!data) return;
+
+  title.textContent = data.title;
+  text.textContent = data.text;
+
+  image.src = data.image;
+  image.alt = "Qapita con " + data.title.toLowerCase();
 
   document
     .getElementById("fruitInfoModal")
     .classList.add("show");
-
-}
-
-
-function closeFruitInfo(){
-
-  document
-    .getElementById("fruitInfoModal")
-    .classList.remove("show");
-
 }
 </script>
   <div id="fruitInfoModal" class="fruit-info-modal">
