@@ -1109,7 +1109,60 @@ section{
   }
 }
 
+/* =========================
+   INFORMACIÓN DE FRUTAS
+========================= */
 
+.fruit-info-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  align-items:center;
+  justify-content:center;
+  background:rgba(23,20,17,.45);
+  padding:20px;
+}
+
+.fruit-info-modal.show{
+  display:flex;
+}
+
+.fruit-info-box{
+  position:relative;
+  width:min(420px,90vw);
+  background:#FFF9F2;
+  border-radius:18px;
+  padding:35px 30px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+}
+
+.fruit-info-box h3{
+  margin:0 0 12px;
+  color:#B85C43;
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;
+}
+
+.fruit-info-box p{
+  margin:0;
+  color:#171411;
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.fruit-info-close{
+  position:absolute;
+  top:10px;
+  right:14px;
+  border:0;
+  background:none;
+  font-size:28px;
+  color:#171411;
+  cursor:pointer;
+}
 /* =========================
    INSTAGRAM
 ========================= */
@@ -6103,6 +6156,56 @@ document
     button.textContent = "ENVIAR SOLICITUD";
 
   });
+  function showFruitInfo(fruit){
+
+  const title =
+    document.getElementById("fruitInfoTitle");
+
+  const text =
+    document.getElementById("fruitInfoText");
+
+  if(fruit === "Fresa"){
+
+    title.textContent = "FRESA";
+
+    text.textContent =
+      "Aporta vitamina C y compuestos antioxidantes. Su sabor dulce y ligeramente ácido aporta frescura a tu mix.";
+
+  }
+
+  document
+    .getElementById("fruitInfoModal")
+    .classList.add("show");
+
+}
+
+
+function closeFruitInfo(){
+
+  document
+    .getElementById("fruitInfoModal")
+    .classList.remove("show");
+
+}
 </script>
+    <div id="fruitInfoModal" class="fruit-info-modal">
+
+  <div class="fruit-info-box">
+
+    <button
+      type="button"
+      class="fruit-info-close"
+      onclick="closeFruitInfo()"
+    >
+      ×
+    </button>
+
+    <h3 id="fruitInfoTitle"></h3>
+
+    <p id="fruitInfoText"></p>
+
+  </div>
+
+</div>
 </body>
 </html>
