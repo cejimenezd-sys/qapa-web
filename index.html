@@ -3467,12 +3467,13 @@ Frutas deshidratadas cuidadosamente seleccionadas para preservar su sabor, textu
       Cuéntanos qué tienes en mente. Podemos evaluar opciones personalizadas,
       o una propuesta diferente para eventos familiares o corporativos.
     </p>
-
-   <form
+<form
+  id="specialOrderForm"
   class="special-order-form"
-  action="https://formsubmit.co/qapa.snacks@gmail.com"
+  action="https://formsubmit.co/ajax/qapa.snacks@gmail.com"
   method="POST"
 >
+  
 <input type="hidden" name="_cc" value="cejimenezd@gmail.com">
 
 <input type="hidden" name="_subject" value="Nuevo pedido especial QAPA">
@@ -6035,6 +6036,59 @@ function toggleFruitInfo(element){
     behavior: "smooth"
   });
 }
+document
+  .getElementById("specialOrderForm")
+  .addEventListener("submit", async function(event){
+
+    event.preventDefault();
+
+    const form = this;
+    const button = form.querySelector("button");
+
+    button.disabled = true;
+    button.textContent = "ENVIANDO...";
+
+    try{
+
+      const response = await fetch(
+        form.action,
+        {
+          method: "POST",
+          body: new FormData(form),
+          headers:{
+            "Accept":"application/json"
+          }
+        }
+      );
+
+      if(response.ok){
+
+        alert(
+          "¡Gracias! Hemos recibido tu solicitud especial. QAPA se pondrá en contacto contigo."
+        );
+
+        form.reset();
+
+      }else{
+
+        alert(
+          "No pudimos enviar la solicitud. Inténtalo nuevamente."
+        );
+
+      }
+
+    }catch(error){
+
+      alert(
+        "Hubo un problema de conexión. Inténtalo nuevamente."
+      );
+
+    }
+
+    button.disabled = false;
+    button.textContent = "ENVIAR SOLICITUD";
+
+  });  
 </script>
 </body>
 </html>
