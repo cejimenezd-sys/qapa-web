@@ -2425,6 +2425,116 @@ height:auto;
   }
 
 } 
+ /* =========================
+   PEDIDOS ESPECIALES
+========================= */
+
+.special-orders{
+  position:relative;
+  background:#F3D0BC;
+  padding:90px 30px;
+  overflow:hidden;
+}
+
+.special-orders::before{
+  content:"";
+  position:absolute;
+  top:35px;
+  right:55px;
+  width:105px;
+  height:105px;
+  background:url('2.png') center/contain no-repeat;
+  opacity:.12;
+}
+
+.special-orders::after{
+  content:"✿  ✿  ✿";
+  position:absolute;
+  bottom:28px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#B85C43;
+  font-size:22px;
+  letter-spacing:14px;
+  opacity:.45;
+}
+
+.special-orders .section-inner{
+  position:relative;
+  z-index:1;
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+}
+
+.special-orders .mini{
+  color:#B85C43;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.special-orders h2{
+  margin:12px 0 14px;
+  color:#171411;
+}
+
+.special-orders p{
+  max-width:720px;
+  margin:0 auto 30px;
+}
+
+.special-order-form{
+  max-width:700px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.special-order-form input,
+.special-order-form textarea{
+  width:100%;
+  box-sizing:border-box;
+  padding:14px 16px;
+  border:1px solid rgba(23,20,17,.18);
+  border-radius:10px;
+  background:#FFF9F2;
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;
+}
+
+.special-order-form textarea{
+  grid-column:1 / -1;
+  resize:vertical;
+}
+
+.special-order-form button{
+  grid-column:1 / -1;
+  justify-self:center;
+}
+
+@media(max-width:700px){
+  .special-orders{
+    padding:65px 20px;
+  }
+
+  .special-orders::before{
+    right:15px;
+    top:20px;
+    width:75px;
+    height:75px;
+  }
+
+  .special-order-form{
+    grid-template-columns:1fr;
+  }
+
+  .special-order-form textarea,
+  .special-order-form button{
+    grid-column:auto;
+  }
+} 
 </style>
 </head>
 
