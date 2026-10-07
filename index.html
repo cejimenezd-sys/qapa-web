@@ -5337,20 +5337,15 @@ Adjunto mi comprobante de pago para confirmar el pedido. 👇
 Gracias
 `;
 
-  const url =
+const url =
     "https://wa.me/" +
     WHATSAPP_NUMBER +
     "?text=" +
     encodeURIComponent(message);
-  playQapitaVideo(
-    "qapita-pedido.mp4",
-    function(){
 
-      window.location.href = url;
-
-    }
-  );
-
+  window.open(
+    url,
+    "_blank"
   );
 
 }
