@@ -5421,6 +5421,16 @@ function continueToWhatsApp(){
     "_blank"
   );
 
+  document.getElementById(
+    "qapitaVideoOverlay"
+  ).classList.remove("show");
+
+  closeCheckout();
+
+  document.getElementById(
+    "overlay"
+  ).classList.remove("active");
+
 }
   function saveOrderPDF(){
 
