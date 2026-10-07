@@ -1130,12 +1130,26 @@ section{
 
 .fruit-info-box{
   position:relative;
-  width:min(420px,90vw);
+  width:min(520px,90vw);
   background:#FFF9F2;
   border-radius:18px;
-  padding:35px 30px;
-  text-align:center;
+  padding:28px;
+  text-align:left;
   box-shadow:0 20px 60px rgba(0,0,0,.2);
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.fruit-info-image{
+  width:150px;
+  height:180px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+
+.fruit-info-content{
+  flex:1;
 }
 
 .fruit-info-box h3{
