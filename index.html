@@ -3855,10 +3855,23 @@ height:auto;
 </div>
 <div id="qapitaVideoOverlay" class="qapita-video-overlay">
 
-  <video
-    id="qapitaVideo"
-    playsinline
-     ></video>
+  <div class="qapita-video-box">
+
+    <video
+      id="qapitaVideo"
+      playsinline
+    ></video>
+
+    <button
+      id="continueWhatsAppButton"
+      class="btn btn-primary"
+      style="display:none;margin-top:16px;width:100%;"
+      onclick="continueToWhatsApp()"
+    >
+      CONTINUAR A WHATSAPP
+    </button>
+
+  </div>
 
 </div>
 
@@ -5342,9 +5355,33 @@ const url =
     WHATSAPP_NUMBER +
     "?text=" +
     encodeURIComponent(message);
+  window.pendingWhatsAppUrl = url;
+
+  const button =
+    document.getElementById(
+      "continueWhatsAppButton"
+    );
+
+  button.style.display = "none";
+
+  playQapitaVideo(
+    "qapita-pedido.mp4",
+    function(){
+
+      button.style.display = "block";
+
+    }
+  );
+
+}
+function continueToWhatsApp(){
+
+  if(!window.pendingWhatsAppUrl){
+    return;
+  }
 
   window.open(
-    url,
+    window.pendingWhatsAppUrl,
     "_blank"
   );
 
