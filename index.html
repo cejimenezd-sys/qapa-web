@@ -3862,14 +3862,23 @@ height:auto;
       playsinline
     ></video>
 
-    <button
-      id="continueWhatsAppButton"
-      class="btn btn-primary"
-      style="display:none;margin-top:16px;width:100%;"
-      onclick="continueToWhatsApp()"
-    >
-      CONTINUAR A WHATSAPP
-    </button>
+   <button
+  id="continueWhatsAppButton"
+  class="btn btn-primary"
+  style="display:none;margin-top:16px;width:100%;"
+  onclick="continueToWhatsApp()"
+>
+  CONTINUAR A WHATSAPP
+</button>
+
+<button
+  id="saveOrderPdfButton"
+  class="btn btn-primary"
+  style="display:none;margin-top:10px;width:100%;"
+  onclick="saveOrderPDF()"
+>
+  GUARDAR PEDIDO EN PDF
+</button>
 
   </div>
 
@@ -5380,7 +5389,9 @@ const url =
     WHATSAPP_NUMBER +
     "?text=" +
     encodeURIComponent(message);
-  window.pendingWhatsAppUrl = url;
+
+window.pendingWhatsAppUrl = url;
+window.pendingOrderMessage = message;
 
   const button =
     document.getElementById(
@@ -5411,7 +5422,81 @@ function continueToWhatsApp(){
   );
 
 }
-  
+  function saveOrderPDF(){
+
+  if(!window.pendingOrderMessage){
+    return;
+  }
+
+  const printWindow =
+    window.open(
+      "",
+      "_blank"
+    );
+
+  printWindow.document.write(`
+    <html>
+      <head>
+
+        <title>Pedido QAPA</title>
+
+        <style>
+
+          body{
+            font-family:Arial,sans-serif;
+            padding:40px;
+            color:#333;
+            line-height:1.6;
+          }
+
+          h1{
+            color:#7b5e3b;
+            text-align:center;
+          }
+
+          .pedido{
+            white-space:pre-wrap;
+            font-size:14px;
+          }
+
+          .footer{
+            margin-top:30px;
+            text-align:center;
+            color:#777;
+            font-size:12px;
+          }
+
+        </style>
+
+      </head>
+
+      <body>
+
+        <h1>QAPA 🌿</h1>
+
+        <div class="pedido">
+          ${window.pendingOrderMessage}
+        </div>
+
+        <div class="footer">
+          Gracias por elegir QAPA · Premium Natural Snacks
+        </div>
+
+      </body>
+    </html>
+  `);
+
+  printWindow.document.close();
+
+  printWindow.focus();
+
+  setTimeout(function(){
+
+    printWindow.print();
+
+  },300);
+
+}
   /* =========================
    OPINIONES DE CLIENTES
 ========================= */
