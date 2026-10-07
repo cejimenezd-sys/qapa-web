@@ -4415,6 +4415,9 @@ function playQapitaVideo(videoFile, callback){
   const button =
     document.getElementById("continueWhatsAppButton");
 
+  const isWhatsAppVideo =
+    videoFile === "qapita-pedido.mp4";
+
   video.src = videoFile;
 
   overlay.classList.add("show");
@@ -4435,8 +4438,24 @@ function playQapitaVideo(videoFile, callback){
 
     video.load();
 
-    if(callback){
-      callback();
+    if(isWhatsAppVideo){
+
+      if(callback){
+        callback();
+      }
+
+    }else{
+
+      overlay.classList.remove("show");
+
+      if(button){
+        button.style.display = "none";
+      }
+
+      if(callback){
+        callback();
+      }
+
     }
 
   };
