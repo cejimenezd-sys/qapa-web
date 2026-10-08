@@ -84,9 +84,8 @@ header{
   position:sticky;
   top:0;
   z-index:50;
-  background:#D9B45A;
-  backdrop-filter:blur(10px);
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  background:#080706;
+  box-shadow:0 6px 20px rgba(0,0,0,.22);
 }
 
 .nav{
@@ -96,7 +95,7 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:25px;
+  gap:20px;
   padding:14px 28px;
 }
 
@@ -111,6 +110,7 @@ header{
   height:78px;
   object-fit:contain;
   flex-shrink:0;
+  filter:drop-shadow(0 0 6px rgba(217,180,90,.35));
 }
 
 .brand-text strong{
@@ -119,7 +119,7 @@ header{
   font-size:30px;
   letter-spacing:2px;
   line-height:1;
-  color:#171411;
+  color:#D9B45A;
 }
 
 .brand-text span{
@@ -127,7 +127,7 @@ header{
   font-size:9px;
   letter-spacing:2px;
   margin-top:5px;
-  color:#171411;
+  color:#D9B45A;
 }
 
 .menu{
@@ -140,21 +140,24 @@ header{
 }
 
 .menu a{
-  color:#171411;
+  color:#D9B45A;
   transition:.2s;
   white-space:nowrap;
 }
 
 .menu a:hover{
-  color:#FFF9F0;
+  color:#F2D58A;
 }
 
 .cart-button{
-  border:2px solid #171411;
-  background:#171411;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #D9B45A;
+  background:#080706;
   color:#D9B45A;
   border-radius:30px;
-  padding:12px 18px;
+  padding:11px 17px;
   cursor:pointer;
   font-weight:700;
   font-size:12px;
@@ -163,11 +166,18 @@ header{
 }
 
 .cart-count{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:20px;
+  height:20px;
+  padding:0 5px;
+  box-sizing:border-box;
   background:#D9B45A;
-  color:#171411;
+  color:#080706;
   border-radius:50%;
-  padding:2px 7px;
-  margin-left:5px;
+  font-size:11px;
+  font-weight:800;
 }
 /* =========================
    HERO
