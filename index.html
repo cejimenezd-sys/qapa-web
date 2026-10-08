@@ -135,10 +135,18 @@ header{
 .menu{
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:12px;
   font-size:12px;
   font-weight:700;
   text-transform:uppercase;
+}
+
+.menu a:not(:last-child)::after{
+  content:"✦";
+  color:#D9B45A;
+  margin-left:18px;
+  font-size:8px;
+  vertical-align:middle;
 }
 
 .menu a{
