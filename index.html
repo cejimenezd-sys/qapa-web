@@ -61,7 +61,7 @@ a{
 .floral-top{
   height:28px;
   background-color:#000;
-  background-image:url('qapa-patron-floral.png');
+ background-image:url('qapa-patron-floral-tejido.png');
   background-repeat:repeat;
   background-position:center center;
   background-size:170px 170px;
@@ -84,9 +84,9 @@ header{
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(255,249,240,.96);
+  background:#080706;
   backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(97,72,60,.12);
+  box-shadow:0 8px 25px rgba(0,0,0,.16);
 }
 
 .nav{
@@ -119,6 +119,7 @@ header{
   font-size:30px;
   letter-spacing:2px;
   line-height:1;
+  color:#D9B45A;
 }
 
 .brand-text span{
@@ -126,7 +127,7 @@ header{
   font-size:9px;
   letter-spacing:2px;
   margin-top:5px;
-  color:var(--brown);
+  color:#D9B45A;
 }
 
 .menu{
@@ -135,22 +136,21 @@ header{
   gap:25px;
   font-size:13px;
   font-weight:600;
-  padding-bottom:10px;
-  border-bottom:1px solid #B85C43;
 }
 
 .menu a{
+  color:#D9B45A;
   transition:.2s;
 }
 
 .menu a:hover{
-  color:var(--terracotta);
+  color:#F2D58A;
 }
 
 .cart-button{
-  border:0;
-  background:var(--black);
-  color:white;
+  border:1px solid #D9B45A;
+  background:#080706;
+  color:#D9B45A;
   border-radius:30px;
   padding:12px 18px;
   cursor:pointer;
@@ -159,13 +159,12 @@ header{
 }
 
 .cart-count{
-  background:var(--gold);
-  color:var(--black);
+  background:#D9B45A;
+  color:#080706;
   border-radius:50%;
   padding:2px 7px;
   margin-left:5px;
 }
-
 /* =========================
    HERO
 ========================= */
