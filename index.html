@@ -64,7 +64,7 @@ a{
  background-image:url('qapa-patron-floral-tejido.png');
   background-repeat:repeat;
   background-position:center center;
-  background-size:170px 170px;
+ background-size:260px auto;
   position:relative;
   overflow:hidden;
   border-bottom:2px solid #B85C43;
@@ -72,7 +72,7 @@ a{
 @media(max-width:600px){
   .floral-top{
     height:12px;
-    background-size:110px 110px;
+    background-size:190px auto;
   }
 }
 
@@ -84,9 +84,9 @@ header{
   position:sticky;
   top:0;
   z-index:50;
-  background:#080706;
+  background:#D9B45A;
   backdrop-filter:blur(10px);
-  box-shadow:0 8px 25px rgba(0,0,0,.16);
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
 }
 
 .nav{
@@ -119,7 +119,7 @@ header{
   font-size:30px;
   letter-spacing:2px;
   line-height:1;
-  color:#D9B45A;
+  color:#171411;
 }
 
 .brand-text span{
@@ -127,40 +127,44 @@ header{
   font-size:9px;
   letter-spacing:2px;
   margin-top:5px;
-  color:#D9B45A;
+  color:#171411;
 }
 
 .menu{
   display:flex;
   align-items:center;
-  gap:25px;
-  font-size:13px;
-  font-weight:600;
+  gap:18px;
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
 }
 
 .menu a{
-  color:#D9B45A;
+  color:#171411;
   transition:.2s;
+  white-space:nowrap;
 }
 
 .menu a:hover{
-  color:#F2D58A;
+  color:#FFF9F0;
 }
 
 .cart-button{
-  border:1px solid #D9B45A;
-  background:#080706;
+  border:2px solid #171411;
+  background:#171411;
   color:#D9B45A;
   border-radius:30px;
   padding:12px 18px;
   cursor:pointer;
-  font-weight:600;
-  font-size:13px;
+  font-weight:700;
+  font-size:12px;
+  text-transform:uppercase;
+  white-space:nowrap;
 }
 
 .cart-count{
   background:#D9B45A;
-  color:#080706;
+  color:#171411;
   border-radius:50%;
   padding:2px 7px;
   margin-left:5px;
