@@ -4444,9 +4444,9 @@ height:auto;
 
 const WHATSAPP_NUMBER = "51955691007";
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("qapaCart")) || [];
 let deliveryCost = 0;
-  let selectedJarWeight = 0;
+let selectedJarWeight = 0;
 let selectedJarPrice = 0;
 
 function changeJarSize(select){
@@ -4498,11 +4498,11 @@ function addSimpleProduct(name, weight, price){
     fruits:[]
   });
 
+ 
   updateCart();
   openCart();
 
 }
-
 
 /* =========================
    INICIAR PERSONALIZACIÓN
@@ -4888,6 +4888,8 @@ function saveCombination(){
 ========================= */
 
 function updateCart(){
+
+  localStorage.setItem("qapaCart", JSON.stringify(cart));
 
   const container =
     document.getElementById("cartItems");
