@@ -1303,31 +1303,40 @@ section{
 footer{
   background:#241f1b;
   color:white;
-  padding:55px 28px 25px;
+  padding:38px 28px 20px;
 }
 
 .footer-grid{
-  max-width:1200px;
+  max-width:1100px;
   margin:auto;
   display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:50px;
+  grid-template-columns:1.3fr 1fr 1.5fr;
+  gap:45px;
+  align-items:start;
 }
 
 .footer-brand h2{
   font-family:'Cormorant Garamond',serif;
-  font-size:45px;
+  font-size:42px;
+  margin:0 0 8px;
+  color:#F7C454;
 }
 
 .footer-brand p{
-  color:#c9bdb4;
-  max-width:420px;
+  color:#F7C454;
+  max-width:300px;
+  margin:0;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:600;
 }
 
 .footer-column h3{
   font-family:'Cormorant Garamond',serif;
-  font-size:25px;
-  margin-bottom:12px;
+  font-size:24px;
+  margin:0 0 12px;
+  color:#F7C454;
 }
 
 .footer-column a{
@@ -1335,17 +1344,41 @@ footer{
   color:#d7cbc3;
   margin:6px 0;
   font-size:13px;
+  transition:.2s;
+}
+
+.footer-column a:hover{
+  color:#F7C454;
 }
 
 .footer-bottom{
-  max-width:1200px;
-  margin:35px auto 0;
-  padding-top:18px;
+  max-width:1100px;
+  margin:28px auto 0;
+  padding-top:15px;
   border-top:1px solid rgba(255,255,255,.15);
   color:#a99b92;
   font-size:11px;
 }
 
+@media(max-width:700px){
+  footer{
+    padding:35px 22px 18px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+    text-align:center;
+  }
+
+  .footer-brand p{
+    margin:auto;
+  }
+
+  .footer-bottom{
+    text-align:center;
+  }
+}
 /* =========================
    PRODUCTOS SIN PERSONALIZACIÓN
 ========================= */
@@ -3572,26 +3605,25 @@ height:auto;
       <h2>QAPA</h2>
 
       <p>
-        Frutas deshidratadas hechas para disfrutar, regalar y compartir.
+        PREMIUM NATURAL SNACKS
       </p>
 
     </div>
 
-    <div class="footer-column">
+   <div class="footer-column">
 
-      <h3>QAPA</h3>
-
-      <a href="#inicio">Inicio</a>
-      <a href="#manera">QAPA A TU MANERA</a>
+  <a href="#inicio">Inicio</a>
       <a href="#productos">Productos</a>
       <a href="#colecciones">Colecciones</a>
       <a href="#historia">Nuestra historia</a>
+      <a href="#instagram">Instagram</a>
+      <a href="#pedidos-especiales">Pedidos especiales</a>
 
     </div>
 
     <div class="footer-column">
 
-      <h3>Encuéntranos</h3>
+      <h3>Encuéntranos en</h3>
 
       <a
         href="https://instagram.com/qapa.snacks"
@@ -3607,6 +3639,24 @@ height:auto;
         WhatsApp
       </a>
 
+     <a
+  href="https://www.facebook.com/profile.php?id=61591014981696"
+  target="_blank"
+>
+  Facebook
+</a>
+
+     <a
+  href="https://www.tiktok.com/@qapa.snacks"
+  target="_blank"
+>
+  TikTok
+</a>
+
+      <a href="mailto:qapa.snacks@gmail.com">
+        qapa.snacks@gmail.com
+      </a>
+
     </div>
 
   </div>
@@ -3616,8 +3666,6 @@ height:auto;
   </div>
 
 </footer>
-
-
 <!-- =========================
      OVERLAY
 ========================= -->
