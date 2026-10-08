@@ -158,7 +158,37 @@ header{
 .menu a:hover{
   color:#F2D58A;
 }
+.menu-toggle{
+  display:none;
+  border:0;
+  background:none;
+  color:#F7C454;
+  font-size:28px;
+  cursor:pointer;
+}
 
+@media(max-width:900px){
+  .menu-toggle{
+    display:block;
+  }
+
+  .menu{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:#080706;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    padding:20px;
+  }
+
+  .menu.menu-open{
+    display:flex;
+  }
+}
 .cart-button{
   display:flex;
   align-items:center;
@@ -2692,7 +2722,9 @@ height:auto;
   Carrito
   <span class="cart-count" id="cartCount">0</span>
 </button>
-
+<button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Abrir menú">
+  ☰
+</button>
   </nav>
 </header>
 
@@ -3432,7 +3464,7 @@ height:auto;
 
    <p>
     QAPA sigue creciendo paso a paso, pero conserva la esencia de aquel primer impulso:
-    <strong>crear algo bonito, natural y hecho con cariño para compartir.</strong>y hacer que cada QAPA sea único,
+    <strong>crear algo bonito, natural y hecho con amor para compartir,</strong> además de hacer que cada QAPA sea único,
     como la persona que lo elige o la recibe.
   </p>
 
@@ -6237,7 +6269,12 @@ document
 
 </div> 
     </div>
-
+<script>
+function toggleMenu(){
+  const menu = document.querySelector(".menu");
+  menu.classList.toggle("menu-open");
+}
+</script>
 <script>
 function closeFruitInfo(){
   document.getElementById("fruitInfoModal").classList.remove("show");
