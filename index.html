@@ -3788,7 +3788,8 @@ height:auto;
     type="number"
     min="0"
     step="10"
-    value="0"
+    value=""
+placeholder="0"
     data-fruit-input="Fresa"
     disabled
     oninput="updateCombination()"
@@ -4546,10 +4547,10 @@ function resetFruitSelection(){
     check.checked = false;
   });
 
-  document.querySelectorAll(".grams").forEach(input => {
-    input.value = 0;
-    input.disabled = true;
-  });
+ document.querySelectorAll(".grams").forEach(input => {
+  input.value = "";
+  input.disabled = true;
+});
 
   document.querySelectorAll(".fruit-option").forEach(option => {
     option.classList.remove("selected");
