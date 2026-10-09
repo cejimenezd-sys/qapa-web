@@ -4894,7 +4894,8 @@ function completeWeight(){
   const fruitsWithGrams = selected.filter(item => item.grams > 0);
 
   if(total === customization.weight && fruitsWithGrams.length < 3){
-    showSpecialMixMessage();
+   alert("PRUEBA: QAPA detectó el peso completo.");
+showSpecialMixMessage();
     return;
   }
 
