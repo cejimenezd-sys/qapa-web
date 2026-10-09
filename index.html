@@ -2715,6 +2715,95 @@ height:auto;
     grid-column:auto;
   }
 } 
+ 
+/* AVISO PARA MIXES DE UNA O DOS FRUTAS */
+.special-mix-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  background: rgba(23, 21, 18, 0.65);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.special-mix-modal {
+  position: relative;
+  width: min(460px, 100%);
+  padding: 32px 26px;
+  background: #FFF9F0;
+  border: 2px solid #C79A55;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  color: #171512;
+}
+
+.special-mix-close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  color: #171512;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.special-mix-leaf {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.special-mix-modal h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.special-mix-modal p {
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  color: #61483C;
+}
+
+.special-mix-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.special-mix-actions button {
+  border: 0;
+  border-radius: 24px;
+  padding: 13px 16px;
+  background: #171512;
+  color: #F7C454;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.special-mix-actions button:hover {
+  background: #F7C454;
+  color: #171512;
+}
+
+.special-mix-edit {
+  margin-top: 15px;
+  border: 0;
+  background: transparent;
+  color: #61483C;
+  text-decoration: underline;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+ 
 </style>
 </head>
 
