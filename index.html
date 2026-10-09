@@ -4837,41 +4837,7 @@ function contactQapaWhatsApp(){
   closeSpecialMixMessage();
 }
 
-function completeWeight(){
 
-
-
-  const selected = getSelectedFruits();
-
-  if(selected.length < 3){
-
-    alert(
-      "Selecciona mínimo 3 frutas antes de completar el peso."
-    );
-
-    return;
-  }
-
-  let total = selected.reduce(
-    (sum,item) => sum + item.grams,
-    0
-  );
-
-  let remaining =
-    customization.weight - total;
-
-  if(remaining < 0){
-
-    alert(
-      "La combinación supera el peso permitido."
-    );
-
-    updateCombination();
-
-    return;
-  }
-
-  
 function completeWeight(){
   const selected = getSelectedFruits();
 
@@ -4880,8 +4846,12 @@ function completeWeight(){
     return;
   }
 
-  let total = selected.reduce((sum, item) => sum + item.grams, 0);
-  let remaining = customization.weight - total;
+  const total = selected.reduce(
+    (sum, item) => sum + item.grams,
+    0
+  );
+
+  const remaining = customization.weight - total;
 
   if(remaining < 0){
     alert("La combinación supera el peso permitido.");
@@ -4889,13 +4859,17 @@ function completeWeight(){
     return;
   }
 
-  // Si el peso completo está asignado a solo una o dos frutas,
-  // mostrar el aviso de pedidos especiales.
-  const fruitsWithGrams = selected.filter(item => item.grams > 0);
+  const fruitsWithGrams = selected.filter(
+    item => item.grams > 0
+  );
 
-  if(total === customization.weight && fruitsWithGrams.length < 3){
-   alert("PRUEBA: QAPA detectó el peso completo.");
-showSpecialMixMessage();
+  // Si el peso ya está completo, pero solo se usan
+  // una o dos frutas, mostrar el aviso y NO el video.
+  if(
+    total === customization.weight &&
+    fruitsWithGrams.length < 3
+  ){
+    showSpecialMixMessage();
     return;
   }
 
@@ -4912,6 +4886,8 @@ showSpecialMixMessage();
       `[data-fruit-input="${item.fruit}"]`
     );
 
+    if(!input) return;
+
     let add = base;
 
     if(leftover > 0){
@@ -4924,49 +4900,6 @@ showSpecialMixMessage();
 
   updateCombination();
   playQapitaVideo("qapita-completa.mp4");
-}
-
-
-  /*
-    Distribuimos el peso restante
-    entre las frutas seleccionadas.
-  */
-
-  const base =
-    Math.floor(
-      remaining / selected.length
-    );
-
-  let leftover =
-    remaining % selected.length;
-
-  selected.forEach(item => {
-
-    const input =
-      document.querySelector(
-        `[data-fruit-input="${item.fruit}"]`
-      );
-
-    let add = base;
-
-    if(leftover > 0){
-
-      add += 1;
-      leftover--;
-
-    }
-
-    input.value =
-      Number(input.value) + add;
-
-  });
-
-   updateCombination();
-
-  playQapitaVideo(
-    "qapita-completa.mp4"
-  );
-
 }
 
 /* =========================
