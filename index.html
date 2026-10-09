@@ -4798,6 +4798,45 @@ function playQapitaVideo(videoFile, callback){
    COMPLETAR PESO
 ========================= */
 
+function showSpecialMixMessage(){
+  const message = document.getElementById("specialMixMessage");
+
+  if(message){
+    message.style.display = "flex";
+  } else {
+    alert(
+      "🌿 ¿Prefieres una o dos frutas? ¡Con gusto te ayudamos a personalizar tu pedido! Para crear tu mix QAPA, distribuye el peso entre al menos 3 frutas."
+    );
+  }
+}
+
+function closeSpecialMixMessage(){
+  const message = document.getElementById("specialMixMessage");
+  if(message){
+    message.style.display = "none";
+  }
+}
+
+function goToSpecialOrders(){
+  closeSpecialMixMessage();
+  document.getElementById("pedidos-especiales")?.scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function contactQapaWhatsApp(){
+  const message = encodeURIComponent(
+    "Hola, QAPA 🌿 Me gustaría consultar por un pedido personalizado de una o dos frutas."
+  );
+
+  window.open(
+    "https://wa.me/51955691007?text=" + message,
+    "_blank"
+  );
+
+  closeSpecialMixMessage();
+}
+
 function completeWeight(){
 
 
