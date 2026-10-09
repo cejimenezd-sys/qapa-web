@@ -4348,7 +4348,7 @@ height:auto;
       value="delivery"
       onchange="toggleDeliveryFields()"
     >
-    Delivery
+    Delivery Lima Metropolitana
   </label>
 </div>
 
@@ -4479,29 +4479,24 @@ height:auto;
 
   <strong class="payment-title">Pago</strong>
 
-  <p class="payment-text">
-    <strong>Yape o Plin:</strong> 955 691 007
-    &nbsp; · &nbsp;
+ <div class="payment-text" style="text-align:center; margin:16px 0;">
+  <strong>Yape o Plin</strong>
+  <div style="font-size:28px; font-weight:700; letter-spacing:1px; margin:8px 0;">
+    955 691 007
+  </div>
+  <p style="margin:6px 0;">
     <strong>Titular:</strong> Claudia Jimenez
   </p>
+  <button type="button"
+    onclick="navigator.clipboard.writeText('955691007').then(() => alert('Número copiado: 955 691 007')).catch(() => alert('No se pudo copiar. Número: 955 691 007'))"
+    style="margin-top:8px; padding:10px 18px; border:0; border-radius:8px; cursor:pointer;">
+    Copiar número
+  </button>
+</div>
 
   <div class="payment-qr">
 
-    <div class="qr-item">
-      <img
-        src="qr-yape.jpeg"
-        alt="QR de Yape QAPA"
-      >
-    </div>
-
-    <div class="qr-item">
-      <img
-        src="qr-plin.jpeg"
-        alt="QR de Plin QAPA"
-      >
-    </div>
-
-  </div>
+   
 <p class="payment-instruction">
   Tu pedido estará listo en un plazo de 24 a 48 horas.
   Coordinaremos contigo por WhatsApp el día y horario de entrega o recojo.
@@ -5825,7 +5820,10 @@ DNI: ${dni}`
   : "Boleta simple"
 }
 
+
 *PAGO*
+*YAPE O PLIN: 955 691 007*
+Titular: Claudia Jimenez
 
 Subtotal: S/ ${subtotal}
 Delivery: S/ ${deliveryCost}
@@ -5833,7 +5831,7 @@ Delivery: S/ ${deliveryCost}
 
 Adjunto mi comprobante de pago para confirmar el pedido. 👇
 
-Gracias
+Gracias por elegir QAPA Premium Natural Snacks. 🌿
 `;
 
 const url =
