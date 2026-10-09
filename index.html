@@ -4224,14 +4224,10 @@ height:auto;
     <h2 id="specialMixTitle">¿Prefieres una o dos frutas?</h2>
 
     <p>
-      Para una sola fruta o una combinación de dos frutas en el peso completo,
-      contáctanos por una de estas opciones.
+     Si deseas un mix de una sola fruta o una combinación de dos frutas, contáctanos por cualquiera de estas opciones. ¡Con gusto personalizaremos tu pedido!
     </p>
 
-    <p>
-      Para tu mix QAPA, asigna gramos a cada una de las frutas seleccionadas.
-    </p>
-
+    
     <div class="special-mix-actions">
       <button type="button" onclick="goToSpecialOrders()">
         PEDIDOS ESPECIALES
@@ -4243,7 +4239,7 @@ height:auto;
     </div>
 
     <button type="button" class="special-mix-edit" onclick="closeSpecialMixMessage()">
-      Cerrar y seguir editando
+      Cerrar y seguir creando mi mix
     </button>
   </div>
 </div>
@@ -4908,9 +4904,18 @@ function closeSpecialMixMessage(){
 
 function goToSpecialOrders(){
   closeSpecialMixMessage();
-  document.getElementById("pedidos-especiales")?.scrollIntoView({
-    behavior: "smooth"
-  });
+  closeCustomization();
+
+  setTimeout(function(){
+    const section = document.getElementById("pedidos-especiales");
+
+    if(section){
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  }, 100);
 }
 
 function contactQapaWhatsApp(){
