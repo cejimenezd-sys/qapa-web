@@ -4642,12 +4642,13 @@ function getSelectedFruits(){
    ACTUALIZAR PESO
 ========================= */
 
+
 function updateCombination(){
 
   const selected = getSelectedFruits();
 
   let total = selected.reduce(
-    (sum,item) => sum + item.grams,
+    (sum, item) => sum + item.grams,
     0
   );
 
@@ -4655,61 +4656,53 @@ function updateCombination(){
 
   if(total > customization.weight){
 
-    const excess = total - customization.weight;
+    let excess = total - customization.weight;
 
-    for(let i=selected.length-1;i>=0;i--){
+    for(let i = selected.length - 1; i >= 0; i--){
 
       if(excess <= 0) break;
 
       const item = selected[i];
 
-      const input =
-        document.querySelector(
-          `[data-fruit-input="${item.fruit}"]`
-        );
+      const input = document.querySelector(
+        `[data-fruit-input="${item.fruit}"]`
+      );
 
-      const current = Number(input.value);
+      const current = Number(input.value) || 0;
 
-      const reduction =
-        Math.min(current, excess);
+      const reduction = Math.min(current, excess);
 
-      input.value =
-        Math.max(0,current-reduction);
+      input.value = Math.max(0, current - reduction);
 
-      total -= reduction;
-
+      excess -= reduction;
     }
-
   }
 
   const selectedNow = getSelectedFruits();
 
   total = selectedNow.reduce(
-    (sum,item) => sum + item.grams,
+    (sum, item) => sum + item.grams,
     0
   );
 
-  const remaining =
-    customization.weight - total;
+  const remaining = customization.weight - total;
 
-  document.getElementById("currentWeight").textContent =
-    total;
+  document.getElementById("currentWeight").textContent = total;
 
   document.getElementById("remainingWeight").textContent =
-    Math.max(0,remaining);
+    Math.max(0, remaining);
 
-  const minimumFruits =
-    selectedNow.length >= 3;
+  const minimumFruits = selectedNow.length >= 3;
 
-  const exactWeight =
-    total === customization.weight;
+  const everyFruitHasGrams =
+    selectedNow.every(item => item.grams > 0);
 
-  document.getElementById(
-    "saveCombinationButton"
-  ).disabled =
-    !(minimumFruits && exactWeight);
+  const exactWeight = total === customization.weight;
 
+  document.getElementById("saveCombinationButton").disabled =
+    !(minimumFruits && everyFruitHasGrams && exactWeight);
 }
+
 
 function playQapitaVideo(videoFile, callback){
 
@@ -4859,25 +4852,33 @@ function completeWeight(){
    GUARDAR COMBINACIÓN
 ========================= */
 
+
 function saveCombination(){
 
-  const selected =
-    getSelectedFruits();
-
-  const total =
-    selected.reduce(
-      (sum,item) => sum + item.grams,
-      0
-    );
+  const selected = getSelectedFruits();
 
   if(selected.length < 3){
 
-    alert(
-      "Debes seleccionar mínimo 3 frutas."
-    );
+    alert("Debes seleccionar mínimo 3 frutas.");
 
     return;
   }
+
+  const invalidFruit = selected.some(
+    item => !Number.isFinite(item.grams) || item.grams <= 0
+  );
+
+  if(invalidFruit){
+
+    alert("Debes asignar más de 0 g a cada una de las frutas seleccionadas.");
+
+    return;
+  }
+
+  const total = selected.reduce(
+    (sum, item) => sum + item.grams,
+    0
+  );
 
   if(total !== customization.weight){
 
@@ -4892,13 +4893,13 @@ function saveCombination(){
 
   cart.push({
 
-    name:customization.name,
+    name: customization.name,
 
-    weight:customization.weight,
+    weight: customization.weight,
 
-    price:customization.price,
+    price: customization.price,
 
-    fruits:selected
+    fruits: selected
 
   });
 
@@ -4907,8 +4908,8 @@ function saveCombination(){
   closeCustomization();
 
   openCart();
-
 }
+
 
 
 /* =========================
