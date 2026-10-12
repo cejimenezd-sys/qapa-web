@@ -3790,7 +3790,7 @@ height:auto;
     </p>
   </div>
 
-  <div class="cart-bottom">
+<div class="cart-bottom" id="cartBottom">
 
     <div class="cart-total">
       <span>Subtotal</span>
@@ -5059,6 +5059,7 @@ function saveCombination(){
 
 
 
+
 /* =========================
    CARRITO
 ========================= */
@@ -5067,40 +5068,77 @@ function updateCart(){
 
   localStorage.setItem("qapaCart", JSON.stringify(cart));
 
-  const container =
-    document.getElementById("cartItems");
-
-  const count =
-    document.getElementById("cartCount");
-
-  const subtotalElement =
-    document.getElementById("cartSubtotal");
+  const container = document.getElementById("cartItems");
+  const count = document.getElementById("cartCount");
+  const subtotalElement = document.getElementById("cartSubtotal");
+  const cartBottom = document.getElementById("cartBottom");
 
   /* CONTAR TODAS LAS UNIDADES */
 
-  const totalUnits =
-    cart.reduce(
-      (sum,item) => sum + (item.quantity || 1),
-      0
-    );
+  const totalUnits = cart.reduce(
+    (sum, item) => sum + (item.quantity || 1),
+    0
+  );
 
-  count.textContent =
-    totalUnits;
-
+  count.textContent = totalUnits;
 
   /* CARRITO VACÍO */
 
   if(cart.length === 0){
 
-    container.innerHTML =
-      '<p style="color:#766960;">Tu carrito está vacío.</p>';
+    container.innerHTML = `
+      <div style="text-align:center; padding:12px 4px 20px;">
 
-    subtotalElement.textContent =
-      "S/ 0";
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          style="width:100%; max-width:260px; max-height:220px; object-fit:contain; display:block; margin:0 auto 14px; border-radius:16px;"
+        >
+          <source src="carritovaciotriste.mp4" type="video/mp4">
+        </video>
+
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:27px; color:#61483C; margin:0 0 8px;">
+          ¡Oh, tu carrito está vacío!
+        </h3>
+
+        <p style="color:#766960; font-size:13px; line-height:1.6; margin:0;">
+          Qapita y Sochi te esperan para descubrir tus snacks favoritos.
+        </p>
+
+        <button
+          class="btn btn-secondary"
+          type="button"
+          style="width:100%; margin-top:18px;"
+          onclick="closeCart(); setTimeout(function(){
+            document.getElementById('productos').scrollIntoView({
+              behavior:'smooth',
+              block:'start'
+            });
+          },400);"
+        >
+          DESCUBRIR PRODUCTOS
+        </button>
+
+      </div>
+    `;
+
+    subtotalElement.textContent = "S/ 0";
+
+    if(cartBottom){
+      cartBottom.style.display = "none";
+    }
 
     return;
   }
 
+  /* CARRITO CON PRODUCTOS */
+
+  if(cartBottom){
+    cartBottom.style.display = "block";
+  }
 
   /* CALCULAR SUBTOTAL */
 
@@ -5108,41 +5146,28 @@ function updateCart(){
 
   container.innerHTML = "";
 
-
   /* MOSTRAR PRODUCTOS */
 
   cart.forEach((item,index) => {
 
-    const quantity =
-      item.quantity || 1;
-
-    const lineTotal =
-      item.price * quantity;
+    const quantity = item.quantity || 1;
+    const lineTotal = item.price * quantity;
 
     subtotal += lineTotal;
-
 
     /* FRUTAS DE LA COMBINACIÓN */
 
     const fruits =
       item.fruits && item.fruits.length
-      ? item.fruits
-          .map(
-            fruit =>
-              `${fruit.fruit} ${fruit.grams} g`
-          )
-          .join(", ")
-      : "Producto listo para disfrutar";
-
+        ? item.fruits
+            .map(fruit => `${fruit.fruit} ${fruit.grams} g`)
+            .join(", ")
+        : "Producto listo para disfrutar";
 
     /* CREAR TARJETA */
 
-    const div =
-      document.createElement("div");
-
-    div.className =
-      "cart-item";
-
+    const div = document.createElement("div");
+    div.className = "cart-item";
 
     div.innerHTML = `
 
@@ -5154,7 +5179,6 @@ function updateCart(){
         ${fruits}
       </small>
 
-
       <div style="
         display:flex;
         align-items:center;
@@ -5163,15 +5187,9 @@ function updateCart(){
         gap:10px;
       ">
 
-
-        <!-- PRECIO TOTAL DE ESTA LÍNEA -->
-
         <strong>
           S/ ${lineTotal}
         </strong>
-
-
-        <!-- CONTROL DE CANTIDAD -->
 
         <div style="
           display:flex;
@@ -5200,16 +5218,9 @@ function updateCart(){
             −
           </button>
 
-
-          <strong
-            style="
-              min-width:18px;
-              text-align:center;
-            "
-          >
+          <strong style="min-width:18px; text-align:center;">
             ${quantity}
           </strong>
-
 
           <button
             type="button"
@@ -5233,14 +5244,11 @@ function updateCart(){
           </button>
 
         </div>
-
       </div>
-
-
-      <!-- ELIMINAR PRODUCTO -->
 
       <button
         class="remove-item"
+        type="button"
         onclick="removeFromCart(${index})"
       >
         Eliminar
@@ -5248,16 +5256,13 @@ function updateCart(){
 
     `;
 
-
     container.appendChild(div);
 
   });
 
-
   /* SUBTOTAL */
 
-  subtotalElement.textContent =
-    "S/ " + subtotal;
+  subtotalElement.textContent = "S/ " + subtotal;
 
 }
 
@@ -5272,23 +5277,15 @@ function changeQuantity(index,change){
     return;
   }
 
+  const currentQuantity = cart[index].quantity || 1;
 
-  const currentQuantity =
-    cart[index].quantity || 1;
-
-
-  cart[index].quantity =
-    currentQuantity + change;
-
+  cart[index].quantity = currentQuantity + change;
 
   /* SI LLEGA A CERO, ELIMINAR */
 
   if(cart[index].quantity <= 0){
-
     cart.splice(index,1);
-
   }
-
 
   updateCart();
 
@@ -5314,25 +5311,17 @@ function removeFromCart(index){
 
 function openCart(){
 
-  document.getElementById(
-    "cartPanel"
-  ).classList.add("active");
+  document.getElementById("cartPanel").classList.add("active");
 
-  document.getElementById(
-    "overlay"
-  ).classList.add("active");
+  document.getElementById("overlay").classList.add("active");
 
 }
 
 function closeCart(){
 
-  document.getElementById(
-    "cartPanel"
-  ).classList.remove("active");
+  document.getElementById("cartPanel").classList.remove("active");
 
-  document.getElementById(
-    "overlay"
-  ).classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
 
 }
 
@@ -5343,9 +5332,7 @@ function closeCart(){
 
 function closeCustomization(){
 
-  document.getElementById(
-    "customModal"
-  ).classList.remove("active");
+  document.getElementById("customModal").classList.remove("active");
 
 }
 
@@ -5373,9 +5360,7 @@ function openCheckout(){
 
   if(cart.length === 0){
 
-    alert(
-      "Agrega al menos un producto antes de continuar."
-    );
+    alert("Agrega al menos un producto antes de continuar.");
 
     return;
 
@@ -5383,25 +5368,18 @@ function openCheckout(){
 
   updateCheckoutTotals();
 
-  document.getElementById(
-    "checkoutModal"
-  ).classList.add("active");
+  document.getElementById("checkoutModal").classList.add("active");
 
-  document.getElementById(
-    "overlay"
-  ).classList.add("active");
+  document.getElementById("overlay").classList.add("active");
 
 }
 
 
 function closeCheckout(){
 
-  document.getElementById(
-    "checkoutModal"
-  ).classList.remove("active");
+  document.getElementById("checkoutModal").classList.remove("active");
 
 }
-
 
 /* =========================
    DELIVERY
