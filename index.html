@@ -3765,6 +3765,7 @@ height:auto;
 ></div>
 
 
+
 <!-- =========================
      CARRITO
 ========================= -->
@@ -3772,56 +3773,59 @@ height:auto;
 <aside class="cart-panel" id="cartPanel">
 
   <div class="cart-head">
-
     <h2>Tu carrito</h2>
 
     <button
       class="close"
+      type="button"
       onclick="closeCart()"
     >
       ×
     </button>
-
   </div>
 
   <div class="cart-items" id="cartItems">
-
     <p style="color:#766960;">
       Tu carrito está vacío.
     </p>
-
   </div>
 
   <div class="cart-bottom">
 
-  <div class="cart-bottom">
+    <div class="cart-total">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">S/ 0</span>
+    </div>
 
-  <div class="cart-total">
-    <span>Subtotal</span>
-    <span id="cartSubtotal">S/ 0</span>
-  </div>
-
- <button
+   
+<button
   class="btn btn-secondary"
+  type="button"
   style="width:100%;margin-bottom:10px;"
-  onclick="closeCart()"
+  onclick="closeCart(); setTimeout(() => {
+    document.getElementById('productos').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }, 400);"
 >
   AGREGAR MÁS PRODUCTOS
 </button>
 
-<button
-  class="btn btn-primary"
-  style="width:100%;margin-top:18px;"
- onclick="closeCart(); document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });"
->
-  CONTINUAR PEDIDO
-</button>
 
+    <button
+      class="btn btn-primary"
+      type="button"
+      style="width:100%;margin-top:18px;"
+      onclick="openCheckout()"
+    >
+      CONTINUAR PEDIDO
+    </button>
 
-
-</div> 
+  </div>
 
 </aside>
+
 
 
 <!-- =========================
