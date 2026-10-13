@@ -5857,20 +5857,24 @@ function continueToWhatsApp(){
     return;
   }
 
-  window.open(
-    window.pendingWhatsAppUrl,
-    "_blank"
-  );
+ 
+const whatsappWindow = window.open(url, "_blank");
 
-  document.getElementById(
-    "qapitaVideoOverlay"
-  ).classList.remove("show");
+if (!whatsappWindow) {
+  alert("No se pudo abrir WhatsApp. Permite las ventanas emergentes e inténtalo nuevamente.");
+  return;
+}
 
-  closeCheckout();
+// Limpiar el carrito y actualizar la web
+cart = [];
+localStorage.removeItem("qapaCart");
+updateCart();
 
-  closeCart();
+closeCheckout();
+closeCart();
 
 }
+
  
   /* =========================
    OPINIONES DE CLIENTES
