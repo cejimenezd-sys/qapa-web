@@ -3899,41 +3899,38 @@ height:auto;
 </div>
 
 
-<!-- PAPAYA -->
-      <!-- PAPAYA -->
+    <!-- PAPAYA -->
+<div class="fruit-option" id="option-papaya">
 
-      <div class="fruit-option" id="option-papaya">
+  <label>
+    <input
+      type="checkbox"
+      class="fruit-check"
+      data-fruit="Papaya"
+      onchange="toggleFruit('option-papaya')"
+    >
+    Papaya
+  </label>
 
-        <label>
-          <input
-            type="checkbox"
-            class="fruit-check"
-            data-fruit="Papaya"
-           onchange="papayaAgotada(this)"
-          >
-          Papaya
-        </label>
+  <img
+    src="papaya.jpeg"
+    alt="Papaya"
+    onclick="showFruitInfo('Papaya')"
+    style="cursor:pointer;"
+  >
 
-       <img
-  src="papaya.jpeg"
-  alt="Papaya"
-  onclick="mostrarAgotado()"
-  style="cursor:pointer;"
->
+  <input
+    class="grams"
+    type="number"
+    min="0"
+    step="10"
+    value="0"
+    data-fruit-input="Papaya"
+    disabled
+    oninput="updateCombination()"
+  >
 
-        <input
-          class="grams"
-          type="number"
-          min="0"
-          step="10"
-          value="0"
-          data-fruit-input="Papaya"
-          disabled
-          oninput="updateCombination()"
-        >
-
-      </div>
-
+</div>
 
       <!-- KIWI -->
 
